@@ -12,6 +12,7 @@ import SwiftData
 struct WinningCoupleApp: App {
     let modelContainer: ModelContainer
     private let playerRepository: PlayerRepositoryProtocol
+    private let gameTypeRepository: GameTypeRepositoryProtocol
 
     init() {
         do {
@@ -20,11 +21,12 @@ struct WinningCoupleApp: App {
             fatalError("Failed to create ModelContainer: \(error)")
         }
         playerRepository = SwiftDataPlayerRepository(modelContainer: modelContainer)
+        gameTypeRepository = SwiftDataGameTypeRepository(modelContainer: modelContainer)
     }
 
     var body: some Scene {
         WindowGroup {
-            RootView(viewModel: RootViewModel(playerRepository: playerRepository))
+            RootView(viewModel: RootViewModel(playerRepository: playerRepository, gameTypeRepository: gameTypeRepository))
         }
         .modelContainer(modelContainer)
     }

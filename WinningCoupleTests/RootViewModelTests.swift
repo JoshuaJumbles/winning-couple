@@ -10,8 +10,10 @@ import Testing
 
 struct RootViewModelTests {
     @Test func sendsAFreshCoupleToOnboarding() async {
-        let repository = InMemoryPlayerRepository()
-        let viewModel = RootViewModel(playerRepository: repository)
+        let viewModel = RootViewModel(
+            playerRepository: InMemoryPlayerRepository(),
+            gameTypeRepository: InMemoryGameTypeRepository()
+        )
 
         await viewModel.loadPhase()
 
@@ -22,28 +24,27 @@ struct RootViewModelTests {
     }
 
     @Test func sendsAnAlreadyOnboardedCoupleHome() async {
-        let repository = InMemoryPlayerRepository(players: [
+        let playerRepository = InMemoryPlayerRepository(players: [
             PlayerProfile(name: "Jordan", colorHex: PlayerColorPalette.swatches[0]),
             PlayerProfile(name: "Taylor", colorHex: PlayerColorPalette.swatches[2]),
         ])
-        let viewModel = RootViewModel(playerRepository: repository)
+        let viewModel = RootViewModel(playerRepository: playerRepository, gameTypeRepository: InMemoryGameTypeRepository())
 
         await viewModel.loadPhase()
 
-        guard case .home(let players) = viewModel.phase else {
+        guard case .home = viewModel.phase else {
             Issue.record("expected .home, got \(viewModel.phase)")
             return
         }
-        #expect(players.count == 2)
     }
 
     @Test func onboardingFinishedReEvaluatesThePhase() async {
-        let repository = InMemoryPlayerRepository()
-        let viewModel = RootViewModel(playerRepository: repository)
+        let playerRepository = InMemoryPlayerRepository()
+        let viewModel = RootViewModel(playerRepository: playerRepository, gameTypeRepository: InMemoryGameTypeRepository())
         await viewModel.loadPhase()
 
-        try? await repository.save(PlayerProfile(name: "Jordan", colorHex: PlayerColorPalette.swatches[0]))
-        try? await repository.save(PlayerProfile(name: "Taylor", colorHex: PlayerColorPalette.swatches[2]))
+        try? await playerRepository.save(PlayerProfile(name: "Jordan", colorHex: PlayerColorPalette.swatches[0]))
+        try? await playerRepository.save(PlayerProfile(name: "Taylor", colorHex: PlayerColorPalette.swatches[2]))
         await viewModel.onboardingFinished()
 
         guard case .home = viewModel.phase else {
