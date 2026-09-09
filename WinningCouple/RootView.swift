@@ -7,21 +7,33 @@
 
 import SwiftUI
 
-/// Temporary placeholder root. Will become the onboarding / game-list
-/// navigation flow as those screens are built out.
 struct RootView: View {
+    let viewModel: RootViewModel
+
     var body: some View {
-        VStack(spacing: 8) {
-            Text("Winning Couple")
-                .font(.largeTitle.bold())
-            Text("Project scaffold — screens coming soon.")
-                .font(.subheadline)
-                .foregroundStyle(.secondary)
+        Group {
+            switch viewModel.phase {
+            case .loading:
+                ProgressView()
+            case .onboarding:
+                OnboardingView(viewModel: viewModel.makeOnboardingViewModel()) {
+                    Task { await viewModel.onboardingFinished() }
+                }
+            case .home(let players):
+                HomePlaceholderView(players: players)
+            }
         }
-        .padding()
+        .task {
+            await viewModel.loadPhase()
+        }
     }
 }
 
 #Preview {
-    RootView()
+    RootView(viewModel: RootViewModel(playerRepository: PreviewPlayerRepository()))
+}
+
+private final class PreviewPlayerRepository: PlayerRepositoryProtocol {
+    func fetchAll() async throws -> [PlayerProfile] { [] }
+    func save(_ player: PlayerProfile) async throws {}
 }
