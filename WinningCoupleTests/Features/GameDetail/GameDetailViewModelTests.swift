@@ -165,4 +165,30 @@ struct GameDetailViewModelTests {
         #expect(!viewModel.hasNoSessions)
         #expect(viewModel.sessions.first?.resultText == "Jordan won")
     }
+
+    @Test func scoringAPointsSessionReloadsTheDetailScreen() async throws {
+        let game = GameType(title: "Scrabble", category: .competitive, scoringStyle: .points)
+        let scoringRepository = InMemoryScoringSessionRepository()
+        let viewModel = GameDetailViewModel(
+            gameType: game,
+            playerRepository: InMemoryPlayerRepository(players: [jordan, taylor]),
+            scoringSessionRepository: scoringRepository,
+            winLossSessionRepository: InMemoryWinLossSessionRepository(),
+            coopWinLossSessionRepository: InMemoryCoopWinLossSessionRepository()
+        )
+        await viewModel.load()
+
+        viewModel.isPresentingScoreSession = true
+        let scoreViewModel = try #require(viewModel.makeScorePointsSessionViewModel())
+        await scoreViewModel.start()
+        await scoreViewModel.addTurn(for: jordan, delta: 60)
+        await scoreViewModel.addTurn(for: taylor, delta: 40)
+        scoreViewModel.requestFinish()
+        let succeeded = await scoreViewModel.finish()
+
+        #expect(succeeded)
+        #expect(!viewModel.isPresentingScoreSession)
+        #expect(!viewModel.hasNoSessions)
+        #expect(viewModel.sessions.first?.resultText == "Jordan won \u{00B7} 60\u{2013}40")
+    }
 }

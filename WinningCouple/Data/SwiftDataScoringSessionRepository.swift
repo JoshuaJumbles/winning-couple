@@ -34,4 +34,25 @@ final class SwiftDataScoringSessionRepository: ScoringSessionRepositoryProtocol 
         )
         return try context.fetch(descriptor)
     }
+
+    @MainActor
+    func save(_ session: ScoringSession) async throws {
+        let context = modelContainer.mainContext
+        context.insert(session)
+        try context.save()
+    }
+
+    @MainActor
+    func addTurn(_ turn: ScoreTurn) async throws {
+        let context = modelContainer.mainContext
+        context.insert(turn)
+        try context.save()
+    }
+
+    @MainActor
+    func deleteTurn(_ turn: ScoreTurn) async throws {
+        let context = modelContainer.mainContext
+        context.delete(turn)
+        try context.save()
+    }
 }

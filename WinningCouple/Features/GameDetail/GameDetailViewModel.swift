@@ -63,6 +63,20 @@ final class GameDetailViewModel {
         )
     }
 
+    func makeScorePointsSessionViewModel() -> ScorePointsSessionViewModel? {
+        guard let playerOne, let playerTwo else { return nil }
+        return ScorePointsSessionViewModel(
+            gameType: gameType,
+            playerOne: playerOne,
+            playerTwo: playerTwo,
+            repository: scoringSessionRepository,
+            onFinished: { [weak self] in
+                self?.isPresentingScoreSession = false
+                await self?.load()
+            }
+        )
+    }
+
     func makeScoreCoopSessionViewModel() -> ScoreCoopSessionViewModel {
         ScoreCoopSessionViewModel(
             gameType: gameType,
