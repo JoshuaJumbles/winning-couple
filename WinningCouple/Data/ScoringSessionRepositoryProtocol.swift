@@ -7,6 +7,7 @@
 
 import Foundation
 
+@MainActor
 protocol ScoringSessionRepositoryProtocol {
     /// Finished sessions for a game, oldest first.
     func fetchFinished(gameTypeID: UUID) async throws -> [ScoringSession]

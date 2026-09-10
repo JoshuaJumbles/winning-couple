@@ -8,6 +8,7 @@
 import Testing
 @testable import WinningCouple
 
+@MainActor
 struct AddGameTypeViewModelTests {
     @Test func cannotSaveWithoutATitle() async {
         let viewModel = AddGameTypeViewModel(gameTypeRepository: InMemoryGameTypeRepository(), onSaved: {})

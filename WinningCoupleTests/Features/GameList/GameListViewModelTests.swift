@@ -8,6 +8,7 @@
 import Testing
 @testable import WinningCouple
 
+@MainActor
 struct GameListViewModelTests {
     private func makeViewModel(gameTypeRepository: GameTypeRepositoryProtocol) -> GameListViewModel {
         GameListViewModel(

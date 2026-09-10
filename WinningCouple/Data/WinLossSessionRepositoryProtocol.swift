@@ -7,6 +7,7 @@
 
 import Foundation
 
+@MainActor
 protocol WinLossSessionRepositoryProtocol {
     /// Finished sessions for a game, oldest first.
     func fetchFinished(gameTypeID: UUID) async throws -> [WinLossSession]

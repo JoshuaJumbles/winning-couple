@@ -8,6 +8,7 @@
 import Testing
 @testable import WinningCouple
 
+@MainActor
 struct ScoreWinLossSessionViewModelTests {
     private let jordan = PlayerProfile(name: "Jordan", colorHex: PlayerColorPalette.swatches[0])
     private let taylor = PlayerProfile(name: "Taylor", colorHex: PlayerColorPalette.swatches[2])
