@@ -15,9 +15,23 @@ final class GameListViewModel {
     var isPresentingAddGame = false
 
     private let gameTypeRepository: GameTypeRepositoryProtocol
+    private let playerRepository: PlayerRepositoryProtocol
+    private let scoringSessionRepository: ScoringSessionRepositoryProtocol
+    private let winLossSessionRepository: WinLossSessionRepositoryProtocol
+    private let coopWinLossSessionRepository: CoopWinLossSessionRepositoryProtocol
 
-    init(gameTypeRepository: GameTypeRepositoryProtocol) {
+    init(
+        gameTypeRepository: GameTypeRepositoryProtocol,
+        playerRepository: PlayerRepositoryProtocol,
+        scoringSessionRepository: ScoringSessionRepositoryProtocol,
+        winLossSessionRepository: WinLossSessionRepositoryProtocol,
+        coopWinLossSessionRepository: CoopWinLossSessionRepositoryProtocol
+    ) {
         self.gameTypeRepository = gameTypeRepository
+        self.playerRepository = playerRepository
+        self.scoringSessionRepository = scoringSessionRepository
+        self.winLossSessionRepository = winLossSessionRepository
+        self.coopWinLossSessionRepository = coopWinLossSessionRepository
     }
 
     var hasNoGames: Bool {
@@ -39,5 +53,15 @@ final class GameListViewModel {
             self?.isPresentingAddGame = false
             await self?.load()
         }
+    }
+
+    func makeGameDetailViewModel(for gameType: GameType) -> GameDetailViewModel {
+        GameDetailViewModel(
+            gameType: gameType,
+            playerRepository: playerRepository,
+            scoringSessionRepository: scoringSessionRepository,
+            winLossSessionRepository: winLossSessionRepository,
+            coopWinLossSessionRepository: coopWinLossSessionRepository
+        )
     }
 }

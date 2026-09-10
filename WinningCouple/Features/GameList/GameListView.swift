@@ -40,7 +40,7 @@ struct GameListView: View {
             }
             .navigationTitle("Winning Couple")
             .navigationDestination(for: GameType.self) { game in
-                GameDetailPlaceholderView(gameType: game)
+                GameDetailView(viewModel: viewModel.makeGameDetailViewModel(for: game))
             }
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
@@ -133,10 +133,32 @@ private struct GameRow: View {
 }
 
 #Preview {
-    GameListView(viewModel: GameListViewModel(gameTypeRepository: PreviewGameTypeRepository()))
+    GameListView(
+        viewModel: GameListViewModel(
+            gameTypeRepository: PreviewGameTypeRepository(),
+            playerRepository: PreviewPlayerRepository(),
+            scoringSessionRepository: PreviewScoringSessionRepository(),
+            winLossSessionRepository: PreviewWinLossSessionRepository(),
+            coopWinLossSessionRepository: PreviewCoopWinLossSessionRepository()
+        )
+    )
 }
 
 private final class PreviewGameTypeRepository: GameTypeRepositoryProtocol {
     func fetchAll() async throws -> [GameType] { [] }
     func save(_ gameType: GameType) async throws {}
+}
+private final class PreviewPlayerRepository: PlayerRepositoryProtocol {
+    func fetchAll() async throws -> [PlayerProfile] { [] }
+    func save(_ player: PlayerProfile) async throws {}
+}
+private final class PreviewScoringSessionRepository: ScoringSessionRepositoryProtocol {
+    func fetchFinished(gameTypeID: UUID) async throws -> [ScoringSession] { [] }
+    func fetchTurns(sessionID: UUID) async throws -> [ScoreTurn] { [] }
+}
+private final class PreviewWinLossSessionRepository: WinLossSessionRepositoryProtocol {
+    func fetchFinished(gameTypeID: UUID) async throws -> [WinLossSession] { [] }
+}
+private final class PreviewCoopWinLossSessionRepository: CoopWinLossSessionRepositoryProtocol {
+    func fetchFinished(gameTypeID: UUID) async throws -> [CoopWinLossSession] { [] }
 }

@@ -30,7 +30,13 @@ struct RootView: View {
 }
 
 #Preview {
-    RootView(viewModel: RootViewModel(playerRepository: PreviewPlayerRepository(), gameTypeRepository: PreviewGameTypeRepository()))
+    RootView(viewModel: RootViewModel(
+        playerRepository: PreviewPlayerRepository(),
+        gameTypeRepository: PreviewGameTypeRepository(),
+        scoringSessionRepository: PreviewScoringSessionRepository(),
+        winLossSessionRepository: PreviewWinLossSessionRepository(),
+        coopWinLossSessionRepository: PreviewCoopWinLossSessionRepository()
+    ))
 }
 
 private final class PreviewPlayerRepository: PlayerRepositoryProtocol {
@@ -41,4 +47,17 @@ private final class PreviewPlayerRepository: PlayerRepositoryProtocol {
 private final class PreviewGameTypeRepository: GameTypeRepositoryProtocol {
     func fetchAll() async throws -> [GameType] { [] }
     func save(_ gameType: GameType) async throws {}
+}
+
+private final class PreviewScoringSessionRepository: ScoringSessionRepositoryProtocol {
+    func fetchFinished(gameTypeID: UUID) async throws -> [ScoringSession] { [] }
+    func fetchTurns(sessionID: UUID) async throws -> [ScoreTurn] { [] }
+}
+
+private final class PreviewWinLossSessionRepository: WinLossSessionRepositoryProtocol {
+    func fetchFinished(gameTypeID: UUID) async throws -> [WinLossSession] { [] }
+}
+
+private final class PreviewCoopWinLossSessionRepository: CoopWinLossSessionRepositoryProtocol {
+    func fetchFinished(gameTypeID: UUID) async throws -> [CoopWinLossSession] { [] }
 }

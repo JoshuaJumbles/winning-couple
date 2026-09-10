@@ -9,11 +9,18 @@ import Testing
 @testable import WinningCouple
 
 struct RootViewModelTests {
-    @Test func sendsAFreshCoupleToOnboarding() async {
-        let viewModel = RootViewModel(
-            playerRepository: InMemoryPlayerRepository(),
-            gameTypeRepository: InMemoryGameTypeRepository()
+    private func makeViewModel(playerRepository: InMemoryPlayerRepository) -> RootViewModel {
+        RootViewModel(
+            playerRepository: playerRepository,
+            gameTypeRepository: InMemoryGameTypeRepository(),
+            scoringSessionRepository: InMemoryScoringSessionRepository(),
+            winLossSessionRepository: InMemoryWinLossSessionRepository(),
+            coopWinLossSessionRepository: InMemoryCoopWinLossSessionRepository()
         )
+    }
+
+    @Test func sendsAFreshCoupleToOnboarding() async {
+        let viewModel = makeViewModel(playerRepository: InMemoryPlayerRepository())
 
         await viewModel.loadPhase()
 
@@ -28,7 +35,7 @@ struct RootViewModelTests {
             PlayerProfile(name: "Jordan", colorHex: PlayerColorPalette.swatches[0]),
             PlayerProfile(name: "Taylor", colorHex: PlayerColorPalette.swatches[2]),
         ])
-        let viewModel = RootViewModel(playerRepository: playerRepository, gameTypeRepository: InMemoryGameTypeRepository())
+        let viewModel = makeViewModel(playerRepository: playerRepository)
 
         await viewModel.loadPhase()
 
@@ -40,7 +47,7 @@ struct RootViewModelTests {
 
     @Test func onboardingFinishedReEvaluatesThePhase() async {
         let playerRepository = InMemoryPlayerRepository()
-        let viewModel = RootViewModel(playerRepository: playerRepository, gameTypeRepository: InMemoryGameTypeRepository())
+        let viewModel = makeViewModel(playerRepository: playerRepository)
         await viewModel.loadPhase()
 
         try? await playerRepository.save(PlayerProfile(name: "Jordan", colorHex: PlayerColorPalette.swatches[0]))

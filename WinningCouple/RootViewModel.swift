@@ -18,10 +18,22 @@ final class RootViewModel {
     private(set) var phase: Phase = .loading
     private let playerRepository: PlayerRepositoryProtocol
     private let gameTypeRepository: GameTypeRepositoryProtocol
+    private let scoringSessionRepository: ScoringSessionRepositoryProtocol
+    private let winLossSessionRepository: WinLossSessionRepositoryProtocol
+    private let coopWinLossSessionRepository: CoopWinLossSessionRepositoryProtocol
 
-    init(playerRepository: PlayerRepositoryProtocol, gameTypeRepository: GameTypeRepositoryProtocol) {
+    init(
+        playerRepository: PlayerRepositoryProtocol,
+        gameTypeRepository: GameTypeRepositoryProtocol,
+        scoringSessionRepository: ScoringSessionRepositoryProtocol,
+        winLossSessionRepository: WinLossSessionRepositoryProtocol,
+        coopWinLossSessionRepository: CoopWinLossSessionRepositoryProtocol
+    ) {
         self.playerRepository = playerRepository
         self.gameTypeRepository = gameTypeRepository
+        self.scoringSessionRepository = scoringSessionRepository
+        self.winLossSessionRepository = winLossSessionRepository
+        self.coopWinLossSessionRepository = coopWinLossSessionRepository
     }
 
     /// Two players configured during onboarding means onboarding is
@@ -36,7 +48,13 @@ final class RootViewModel {
     }
 
     func makeGameListViewModel() -> GameListViewModel {
-        GameListViewModel(gameTypeRepository: gameTypeRepository)
+        GameListViewModel(
+            gameTypeRepository: gameTypeRepository,
+            playerRepository: playerRepository,
+            scoringSessionRepository: scoringSessionRepository,
+            winLossSessionRepository: winLossSessionRepository,
+            coopWinLossSessionRepository: coopWinLossSessionRepository
+        )
     }
 
     func onboardingFinished() async {

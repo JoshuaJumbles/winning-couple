@@ -13,6 +13,9 @@ struct WinningCoupleApp: App {
     let modelContainer: ModelContainer
     private let playerRepository: PlayerRepositoryProtocol
     private let gameTypeRepository: GameTypeRepositoryProtocol
+    private let scoringSessionRepository: ScoringSessionRepositoryProtocol
+    private let winLossSessionRepository: WinLossSessionRepositoryProtocol
+    private let coopWinLossSessionRepository: CoopWinLossSessionRepositoryProtocol
 
     init() {
         do {
@@ -22,11 +25,20 @@ struct WinningCoupleApp: App {
         }
         playerRepository = SwiftDataPlayerRepository(modelContainer: modelContainer)
         gameTypeRepository = SwiftDataGameTypeRepository(modelContainer: modelContainer)
+        scoringSessionRepository = SwiftDataScoringSessionRepository(modelContainer: modelContainer)
+        winLossSessionRepository = SwiftDataWinLossSessionRepository(modelContainer: modelContainer)
+        coopWinLossSessionRepository = SwiftDataCoopWinLossSessionRepository(modelContainer: modelContainer)
     }
 
     var body: some Scene {
         WindowGroup {
-            RootView(viewModel: RootViewModel(playerRepository: playerRepository, gameTypeRepository: gameTypeRepository))
+            RootView(viewModel: RootViewModel(
+                playerRepository: playerRepository,
+                gameTypeRepository: gameTypeRepository,
+                scoringSessionRepository: scoringSessionRepository,
+                winLossSessionRepository: winLossSessionRepository,
+                coopWinLossSessionRepository: coopWinLossSessionRepository
+            ))
         }
         .modelContainer(modelContainer)
     }
