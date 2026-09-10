@@ -10,6 +10,7 @@ import Foundation
 
 final class InMemoryCoopWinLossSessionRepository: CoopWinLossSessionRepositoryProtocol {
     private(set) var sessions: [CoopWinLossSession]
+    var saveError: Error?
 
     init(sessions: [CoopWinLossSession] = []) {
         self.sessions = sessions
@@ -19,5 +20,10 @@ final class InMemoryCoopWinLossSessionRepository: CoopWinLossSessionRepositoryPr
         sessions
             .filter { $0.gameTypeID == gameTypeID && $0.finishedDate != nil }
             .sorted { $0.sessionDate < $1.sessionDate }
+    }
+
+    func save(_ session: CoopWinLossSession) async throws {
+        if let saveError { throw saveError }
+        sessions.append(session)
     }
 }

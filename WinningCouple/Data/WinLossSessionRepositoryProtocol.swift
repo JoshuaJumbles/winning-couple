@@ -10,4 +10,5 @@ import Foundation
 protocol WinLossSessionRepositoryProtocol {
     /// Finished sessions for a game, oldest first.
     func fetchFinished(gameTypeID: UUID) async throws -> [WinLossSession]
+    func save(_ session: WinLossSession) async throws
 }

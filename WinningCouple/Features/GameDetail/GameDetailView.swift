@@ -10,7 +10,6 @@ import Charts
 
 struct GameDetailView: View {
     @Bindable var viewModel: GameDetailViewModel
-    @State private var isPresentingScoreSession = false
 
     var body: some View {
         Group {
@@ -22,11 +21,27 @@ struct GameDetailView: View {
         }
         .navigationTitle(viewModel.gameType.title)
         .navigationBarTitleDisplayMode(.inline)
-        .sheet(isPresented: $isPresentingScoreSession) {
-            ScoreSessionPlaceholderView(gameType: viewModel.gameType)
+        .sheet(isPresented: $viewModel.isPresentingScoreSession) {
+            scoreSessionSheet
         }
         .task {
             await viewModel.load()
+        }
+    }
+
+    @ViewBuilder
+    private var scoreSessionSheet: some View {
+        if viewModel.gameType.category == .cooperative {
+            ScoreCoopSessionView(viewModel: viewModel.makeScoreCoopSessionViewModel())
+        } else if viewModel.gameType.scoringStyle == .points {
+            ScoreSessionPlaceholderView(gameType: viewModel.gameType)
+        } else if let winLossViewModel = viewModel.makeScoreWinLossSessionViewModel() {
+            ScoreWinLossSessionView(viewModel: winLossViewModel)
+        } else {
+            // Players haven't finished loading yet — practically
+            // unreachable, since the button that presents this sheet
+            // is disabled until they have.
+            ProgressView()
         }
     }
 
@@ -97,13 +112,14 @@ struct GameDetailView: View {
 
     private var scoreNewSessionButton: some View {
         Button {
-            isPresentingScoreSession = true
+            viewModel.isPresentingScoreSession = true
         } label: {
             Label("Score a New Session", systemImage: "plus")
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 8)
         }
         .buttonStyle(.borderedProminent)
+        .disabled(viewModel.playerOne == nil || viewModel.playerTwo == nil)
         .padding(.horizontal, 20)
         .padding(.top, 14)
         .padding(.bottom, 4)
@@ -122,11 +138,12 @@ struct GameDetailView: View {
                 .multilineTextAlignment(.center)
                 .padding(.horizontal, 32)
             Button {
-                isPresentingScoreSession = true
+                viewModel.isPresentingScoreSession = true
             } label: {
                 Label("Score a New Session", systemImage: "plus")
             }
             .buttonStyle(.borderedProminent)
+            .disabled(viewModel.playerOne == nil || viewModel.playerTwo == nil)
             .padding(.top, 8)
         }
         .frame(maxHeight: .infinity)
@@ -182,7 +199,9 @@ private final class PreviewScoringSessionRepository: ScoringSessionRepositoryPro
 }
 private final class PreviewWinLossSessionRepository: WinLossSessionRepositoryProtocol {
     func fetchFinished(gameTypeID: UUID) async throws -> [WinLossSession] { [] }
+    func save(_ session: WinLossSession) async throws {}
 }
 private final class PreviewCoopWinLossSessionRepository: CoopWinLossSessionRepositoryProtocol {
     func fetchFinished(gameTypeID: UUID) async throws -> [CoopWinLossSession] { [] }
+    func save(_ session: CoopWinLossSession) async throws {}
 }
