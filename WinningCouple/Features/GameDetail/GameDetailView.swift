@@ -34,7 +34,11 @@ struct GameDetailView: View {
         if viewModel.gameType.category == .cooperative {
             ScoreCoopSessionView(viewModel: viewModel.makeScoreCoopSessionViewModel())
         } else if viewModel.gameType.scoringStyle == .points {
-            ScoreSessionPlaceholderView(gameType: viewModel.gameType)
+            if let pointsViewModel = viewModel.makeScorePointsSessionViewModel() {
+                ScorePointsSessionView(viewModel: pointsViewModel)
+            } else {
+                ProgressView()
+            }
         } else if let winLossViewModel = viewModel.makeScoreWinLossSessionViewModel() {
             ScoreWinLossSessionView(viewModel: winLossViewModel)
         } else {
@@ -196,6 +200,9 @@ private final class PreviewPlayerRepository: PlayerRepositoryProtocol {
 private final class PreviewScoringSessionRepository: ScoringSessionRepositoryProtocol {
     func fetchFinished(gameTypeID: UUID) async throws -> [ScoringSession] { [] }
     func fetchTurns(sessionID: UUID) async throws -> [ScoreTurn] { [] }
+    func save(_ session: ScoringSession) async throws {}
+    func addTurn(_ turn: ScoreTurn) async throws {}
+    func deleteTurn(_ turn: ScoreTurn) async throws {}
 }
 private final class PreviewWinLossSessionRepository: WinLossSessionRepositoryProtocol {
     func fetchFinished(gameTypeID: UUID) async throws -> [WinLossSession] { [] }

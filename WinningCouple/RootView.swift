@@ -52,6 +52,9 @@ private final class PreviewGameTypeRepository: GameTypeRepositoryProtocol {
 private final class PreviewScoringSessionRepository: ScoringSessionRepositoryProtocol {
     func fetchFinished(gameTypeID: UUID) async throws -> [ScoringSession] { [] }
     func fetchTurns(sessionID: UUID) async throws -> [ScoreTurn] { [] }
+    func save(_ session: ScoringSession) async throws {}
+    func addTurn(_ turn: ScoreTurn) async throws {}
+    func deleteTurn(_ turn: ScoreTurn) async throws {}
 }
 
 private final class PreviewWinLossSessionRepository: WinLossSessionRepositoryProtocol {
