@@ -7,6 +7,7 @@
 
 import Foundation
 
+@MainActor
 protocol GameTypeRepositoryProtocol {
     func fetchAll() async throws -> [GameType]
     func save(_ gameType: GameType) async throws

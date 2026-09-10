@@ -7,6 +7,7 @@
 
 import Foundation
 
+@MainActor
 protocol PlayerRepositoryProtocol {
     func fetchAll() async throws -> [PlayerProfile]
     func save(_ player: PlayerProfile) async throws

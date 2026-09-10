@@ -8,6 +8,7 @@
 import Testing
 @testable import WinningCouple
 
+@MainActor
 struct ScoreCoopSessionViewModelTests {
     private let game = GameType(title: "Pandemic", category: .cooperative, scoringStyle: .winLoss)
 

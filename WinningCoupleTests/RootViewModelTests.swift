@@ -8,6 +8,7 @@
 import Testing
 @testable import WinningCouple
 
+@MainActor
 struct RootViewModelTests {
     private func makeViewModel(playerRepository: InMemoryPlayerRepository) -> RootViewModel {
         RootViewModel(

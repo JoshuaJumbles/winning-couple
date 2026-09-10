@@ -8,6 +8,7 @@
 import Testing
 @testable import WinningCouple
 
+@MainActor
 struct OnboardingViewModelTests {
     @Test func cannotFinishUntilBothNamesAreEntered() async {
         let repository = InMemoryPlayerRepository()
