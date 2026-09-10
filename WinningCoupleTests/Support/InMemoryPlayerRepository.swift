@@ -24,6 +24,10 @@ final class InMemoryPlayerRepository: PlayerRepositoryProtocol {
 
     func save(_ player: PlayerProfile) async throws {
         if let saveError { throw saveError }
-        players.append(player)
+        if let index = players.firstIndex(where: { $0.id == player.id }) {
+            players[index] = player
+        } else {
+            players.append(player)
+        }
     }
 }
