@@ -17,6 +17,7 @@ final class GameDetailViewModel {
     private(set) var playerOne: PlayerProfile?
     private(set) var playerTwo: PlayerProfile?
     var errorMessage: String?
+    var isPresentingScoreSession = false
 
     private let playerRepository: PlayerRepositoryProtocol
     private let scoringSessionRepository: ScoringSessionRepositoryProtocol
@@ -46,6 +47,31 @@ final class GameDetailViewModel {
     /// there's no cooperative points variant to graph either way).
     var isCompetitive: Bool {
         gameType.category == .competitive
+    }
+
+    func makeScoreWinLossSessionViewModel() -> ScoreWinLossSessionViewModel? {
+        guard let playerOne, let playerTwo else { return nil }
+        return ScoreWinLossSessionViewModel(
+            gameType: gameType,
+            playerOne: playerOne,
+            playerTwo: playerTwo,
+            repository: winLossSessionRepository,
+            onFinished: { [weak self] in
+                self?.isPresentingScoreSession = false
+                await self?.load()
+            }
+        )
+    }
+
+    func makeScoreCoopSessionViewModel() -> ScoreCoopSessionViewModel {
+        ScoreCoopSessionViewModel(
+            gameType: gameType,
+            repository: coopWinLossSessionRepository,
+            onFinished: { [weak self] in
+                self?.isPresentingScoreSession = false
+                await self?.load()
+            }
+        )
     }
 
     func load() async {

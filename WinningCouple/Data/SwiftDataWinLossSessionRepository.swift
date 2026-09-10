@@ -24,4 +24,11 @@ final class SwiftDataWinLossSessionRepository: WinLossSessionRepositoryProtocol 
         )
         return try context.fetch(descriptor)
     }
+
+    @MainActor
+    func save(_ session: WinLossSession) async throws {
+        let context = modelContainer.mainContext
+        context.insert(session)
+        try context.save()
+    }
 }

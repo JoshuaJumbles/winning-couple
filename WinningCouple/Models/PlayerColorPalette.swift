@@ -23,6 +23,11 @@ enum PlayerColorPalette {
     ]
 
     static let `default`: String = swatches[0]
+
+    // Semantic colors for cooperative outcomes, which aren't tied to
+    // either player. Just two of the same swatches, named for reuse.
+    static let coopWin: String = swatches[6]  // sage
+    static let coopLoss: String = swatches[5] // rose
 }
 
 extension Color {

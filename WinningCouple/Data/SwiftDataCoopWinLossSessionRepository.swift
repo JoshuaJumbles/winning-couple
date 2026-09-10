@@ -24,4 +24,11 @@ final class SwiftDataCoopWinLossSessionRepository: CoopWinLossSessionRepositoryP
         )
         return try context.fetch(descriptor)
     }
+
+    @MainActor
+    func save(_ session: CoopWinLossSession) async throws {
+        let context = modelContainer.mainContext
+        context.insert(session)
+        try context.save()
+    }
 }

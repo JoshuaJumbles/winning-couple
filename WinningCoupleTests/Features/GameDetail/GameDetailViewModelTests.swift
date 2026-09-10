@@ -124,4 +124,45 @@ struct GameDetailViewModelTests {
         #expect(viewModel.sessions.first?.hasNote == true)
         #expect(viewModel.sessions.first?.hasPhoto == true)
     }
+
+    @Test func makeScoreWinLossSessionViewModelNeedsPlayersLoadedFirst() async {
+        let game = GameType(title: "Chess", category: .competitive, scoringStyle: .winLoss)
+        let viewModel = GameDetailViewModel(
+            gameType: game,
+            playerRepository: InMemoryPlayerRepository(players: [jordan, taylor]),
+            scoringSessionRepository: InMemoryScoringSessionRepository(),
+            winLossSessionRepository: InMemoryWinLossSessionRepository(),
+            coopWinLossSessionRepository: InMemoryCoopWinLossSessionRepository()
+        )
+
+        #expect(viewModel.makeScoreWinLossSessionViewModel() == nil)
+
+        await viewModel.load()
+
+        #expect(viewModel.makeScoreWinLossSessionViewModel() != nil)
+    }
+
+    @Test func scoringAWinLossSessionReloadsTheDetailScreen() async throws {
+        let game = GameType(title: "Chess", category: .competitive, scoringStyle: .winLoss)
+        let winLossRepository = InMemoryWinLossSessionRepository()
+        let viewModel = GameDetailViewModel(
+            gameType: game,
+            playerRepository: InMemoryPlayerRepository(players: [jordan, taylor]),
+            scoringSessionRepository: InMemoryScoringSessionRepository(),
+            winLossSessionRepository: winLossRepository,
+            coopWinLossSessionRepository: InMemoryCoopWinLossSessionRepository()
+        )
+        await viewModel.load()
+        #expect(viewModel.hasNoSessions)
+
+        viewModel.isPresentingScoreSession = true
+        let scoreViewModel = try #require(viewModel.makeScoreWinLossSessionViewModel())
+        scoreViewModel.declareWinner(jordan)
+        let succeeded = await scoreViewModel.finish()
+
+        #expect(succeeded)
+        #expect(!viewModel.isPresentingScoreSession)
+        #expect(!viewModel.hasNoSessions)
+        #expect(viewModel.sessions.first?.resultText == "Jordan won")
+    }
 }

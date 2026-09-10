@@ -10,4 +10,5 @@ import Foundation
 protocol CoopWinLossSessionRepositoryProtocol {
     /// Finished sessions for a game, oldest first.
     func fetchFinished(gameTypeID: UUID) async throws -> [CoopWinLossSession]
+    func save(_ session: CoopWinLossSession) async throws
 }
