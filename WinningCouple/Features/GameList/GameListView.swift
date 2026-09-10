@@ -43,6 +43,13 @@ struct GameListView: View {
                 GameDetailView(viewModel: viewModel.makeGameDetailViewModel(for: game))
             }
             .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Button {
+                        viewModel.isPresentingSettings = true
+                    } label: {
+                        Image(systemName: "slider.horizontal.3")
+                    }
+                }
                 ToolbarItem(placement: .primaryAction) {
                     Button {
                         viewModel.isPresentingAddGame = true
@@ -50,6 +57,9 @@ struct GameListView: View {
                         Image(systemName: "plus")
                     }
                 }
+            }
+            .navigationDestination(isPresented: $viewModel.isPresentingSettings) {
+                SettingsView(viewModel: viewModel.makeSettingsViewModel())
             }
             .sheet(isPresented: $viewModel.isPresentingAddGame) {
                 AddGameTypeView(viewModel: viewModel.makeAddGameTypeViewModel()) {

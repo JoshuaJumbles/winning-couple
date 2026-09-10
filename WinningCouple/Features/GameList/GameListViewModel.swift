@@ -13,6 +13,7 @@ final class GameListViewModel {
     private(set) var cooperativeGames: [GameType] = []
     var errorMessage: String?
     var isPresentingAddGame = false
+    var isPresentingSettings = false
 
     private let gameTypeRepository: GameTypeRepositoryProtocol
     private let playerRepository: PlayerRepositoryProtocol
@@ -53,6 +54,10 @@ final class GameListViewModel {
             self?.isPresentingAddGame = false
             await self?.load()
         }
+    }
+
+    func makeSettingsViewModel() -> SettingsViewModel {
+        SettingsViewModel(playerRepository: playerRepository)
     }
 
     func makeGameDetailViewModel(for gameType: GameType) -> GameDetailViewModel {
