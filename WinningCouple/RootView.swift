@@ -19,8 +19,8 @@ struct RootView: View {
                 OnboardingView(viewModel: viewModel.makeOnboardingViewModel()) {
                     Task { await viewModel.onboardingFinished() }
                 }
-            case .home(let players):
-                HomePlaceholderView(players: players)
+            case .home:
+                GameListView(viewModel: viewModel.makeGameListViewModel())
             }
         }
         .task {
@@ -30,10 +30,15 @@ struct RootView: View {
 }
 
 #Preview {
-    RootView(viewModel: RootViewModel(playerRepository: PreviewPlayerRepository()))
+    RootView(viewModel: RootViewModel(playerRepository: PreviewPlayerRepository(), gameTypeRepository: PreviewGameTypeRepository()))
 }
 
 private final class PreviewPlayerRepository: PlayerRepositoryProtocol {
     func fetchAll() async throws -> [PlayerProfile] { [] }
     func save(_ player: PlayerProfile) async throws {}
+}
+
+private final class PreviewGameTypeRepository: GameTypeRepositoryProtocol {
+    func fetchAll() async throws -> [GameType] { [] }
+    func save(_ gameType: GameType) async throws {}
 }
