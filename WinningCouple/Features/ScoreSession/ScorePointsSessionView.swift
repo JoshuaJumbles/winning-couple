@@ -176,7 +176,7 @@ struct ScorePointsSessionView: View {
                     accentColor: Color(hex: winner.colorHex),
                     badge: .initials(initial(for: winner.name)),
                     headline: "\(winner.name) wins!",
-                    subheadline: "\(viewModel.gameType.title) \u{00B7} \(highScore)\u{2013}\(lowScore)",
+                    subheadline: "\(viewModel.gameType.title) \u{00B7} \(highScore) to \(lowScore)",
                     notes: $viewModel.notes,
                     photoData: $viewModel.photoData,
                     isSaving: viewModel.isSaving,

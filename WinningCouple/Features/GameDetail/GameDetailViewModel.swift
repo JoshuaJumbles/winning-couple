@@ -128,12 +128,12 @@ final class GameDetailViewModel {
             let resultText: String
             if playerOneTotal > playerTwoTotal {
                 playerOneWins += 1
-                resultText = "\(playerOne?.name ?? "Player one") won \u{00B7} \(playerOneTotal)\u{2013}\(playerTwoTotal)"
+                resultText = "\(playerOne?.name ?? "Player one") won \u{00B7} \(playerOneTotal) to \(playerTwoTotal)"
             } else if playerTwoTotal > playerOneTotal {
                 playerTwoWins += 1
-                resultText = "\(playerTwo?.name ?? "Player two") won \u{00B7} \(playerTwoTotal)\u{2013}\(playerOneTotal)"
+                resultText = "\(playerTwo?.name ?? "Player two") won \u{00B7} \(playerTwoTotal) to \(playerOneTotal)"
             } else {
-                resultText = "Tied \u{00B7} \(playerOneTotal)\u{2013}\(playerTwoTotal)"
+                resultText = "Tied \u{00B7} \(playerOneTotal) to \(playerTwoTotal)"
             }
 
             summaries.append(makeSummary(id: session.id, date: session.sessionDate, resultText: resultText, notes: session.notes, photoData: session.photoData))

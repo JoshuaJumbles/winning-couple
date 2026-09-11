@@ -10,34 +10,33 @@ import SwiftUI
 /// The "action sheet with a scrollable number wheel" from the pitch —
 /// picks one turn's point delta for one player.
 ///
-/// Scoped to non-negative deltas (0...150) for now, which covers
-/// normal Scrabble-style turns; a game with penalty/negative scoring
-/// isn't representable yet.
+
 struct ScoreEntrySheet: View {
     let player: PlayerProfile
     let onAdd: (Int) -> Void
 
     @Environment(\.dismiss) private var dismiss
-    let numbers = Array(stride(from: 150, through: -150, by: -1))
-    @State private var value = 1
+    @State private var value = 0
 
     var body: some View {
         NavigationStack {
             VStack(spacing: 0) {
                 Text("\(player.name)'s turn")
                     .font(.headline)
-                    .padding(.top, 20)
                 Picker("Points", selection: $value) {
-                    ForEach(numbers, id: \.self) { points in
-                        Text("\(points)").tag(points)
+                    ForEach((-150...150).reversed(), id: \.self) { points in
+                        Text("\(points > 0 ? "+" : "")\(points)").tag(points)
                     }
                 }
                 .pickerStyle(.wheel)
                 .labelsHidden()
             }
             .toolbar {
-                ToolbarItem(placement: .bottomBar) {
-                    Button("Add points") {
+                ToolbarItem(placement: .cancellationAction) {
+                                    Button("Cancel") { dismiss() }
+                                }
+                ToolbarItem(placement: .confirmationAction) {
+                    Button("Add") {
                         onAdd(value)
                         dismiss()
                     }
@@ -45,7 +44,7 @@ struct ScoreEntrySheet: View {
                     .tint(Color(hex: player.colorHex))
                 }
             }
-            .presentationDetents([.height(280)])
+            .presentationDetents([.height(260)])
         }
     }
 }
