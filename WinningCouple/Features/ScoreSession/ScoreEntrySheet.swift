@@ -10,9 +10,7 @@ import SwiftUI
 /// The "action sheet with a scrollable number wheel" from the pitch —
 /// picks one turn's point delta for one player.
 ///
-/// Scoped to non-negative deltas (0...150) for now, which covers
-/// normal Scrabble-style turns; a game with penalty/negative scoring
-/// isn't representable yet.
+
 struct ScoreEntrySheet: View {
     let player: PlayerProfile
     let onAdd: (Int) -> Void
@@ -25,10 +23,9 @@ struct ScoreEntrySheet: View {
             VStack(spacing: 0) {
                 Text("\(player.name)'s turn")
                     .font(.headline)
-                    .padding(.top, 20)
                 Picker("Points", selection: $value) {
-                    ForEach(0...150, id: \.self) { points in
-                        Text("\(points)").tag(points)
+                    ForEach((-150...150).reversed(), id: \.self) { points in
+                        Text("\(points > 0 ? "+" : "")\(points)").tag(points)
                     }
                 }
                 .pickerStyle(.wheel)
@@ -36,16 +33,18 @@ struct ScoreEntrySheet: View {
             }
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button("Cancel") { dismiss() }
-                }
+                                    Button("Cancel") { dismiss() }
+                                }
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Add") {
                         onAdd(value)
                         dismiss()
                     }
+                    .buttonStyle(.borderedProminent)
+                    .tint(Color(hex: player.colorHex))
                 }
             }
-            .presentationDetents([.height(280)])
+            .presentationDetents([.height(260)])
         }
     }
 }
