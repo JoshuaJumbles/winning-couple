@@ -21,7 +21,7 @@ struct GameDetailView: View {
         }
         .navigationTitle(viewModel.gameType.title)
         .navigationBarTitleDisplayMode(.inline)
-        .sheet(isPresented: $viewModel.isPresentingScoreSession) {
+        .fullScreenCover(isPresented: $viewModel.isPresentingScoreSession) {
             scoreSessionSheet
         }
         .task {

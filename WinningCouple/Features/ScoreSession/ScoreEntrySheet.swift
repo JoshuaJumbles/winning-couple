@@ -18,7 +18,8 @@ struct ScoreEntrySheet: View {
     let onAdd: (Int) -> Void
 
     @Environment(\.dismiss) private var dismiss
-    @State private var value = 0
+    let numbers = Array(stride(from: 150, through: -150, by: -1))
+    @State private var value = 1
 
     var body: some View {
         NavigationStack {
@@ -27,7 +28,7 @@ struct ScoreEntrySheet: View {
                     .font(.headline)
                     .padding(.top, 20)
                 Picker("Points", selection: $value) {
-                    ForEach(0...150, id: \.self) { points in
+                    ForEach(numbers, id: \.self) { points in
                         Text("\(points)").tag(points)
                     }
                 }
@@ -35,14 +36,13 @@ struct ScoreEntrySheet: View {
                 .labelsHidden()
             }
             .toolbar {
-                ToolbarItem(placement: .cancellationAction) {
-                    Button("Cancel") { dismiss() }
-                }
-                ToolbarItem(placement: .confirmationAction) {
-                    Button("Add") {
+                ToolbarItem(placement: .bottomBar) {
+                    Button("Add points") {
                         onAdd(value)
                         dismiss()
                     }
+                    .buttonStyle(.borderedProminent)
+                    .tint(Color(hex: player.colorHex))
                 }
             }
             .presentationDetents([.height(280)])

@@ -49,7 +49,7 @@ struct ScorePointsSessionView: View {
     // MARK: Live scoring
 
     private var liveScoring: some View {
-        VStack(spacing: 0) {
+        VStack(spacing: 12) {
             sessionGraphCard
             HStack(spacing: 12) {
                 column(for: viewModel.playerOne)
@@ -58,6 +58,7 @@ struct ScorePointsSessionView: View {
             .padding(.horizontal, 16)
             .padding(.bottom, 12)
         }
+        .background(Color("AppBackground"))
     }
 
     private var sessionGraphCard: some View {
@@ -89,9 +90,11 @@ struct ScorePointsSessionView: View {
             }
         }
         .padding(14)
-        .background(.background.secondary, in: RoundedRectangle(cornerRadius: 16))
+        .background(Color("Panel"), in: RoundedRectangle(cornerRadius: 16))
         .padding(.horizontal, 16)
         .padding(.top, 8)
+        .compositingGroup()
+        .shadow(radius: 1)
     }
 
     private func column(for player: PlayerProfile) -> some View {
@@ -109,15 +112,28 @@ struct ScorePointsSessionView: View {
                 Text("\(viewModel.total(for: player))")
                     .font(.title.bold())
                     .foregroundStyle(color)
-            }
+            }.padding(.top,12)
 
             List {
                 ForEach(viewModel.turns(for: player)) { turn in
-                    Text("+\(turn.delta)")
+                    Text("\(turn.delta > 0 ? "+" : "")\(turn.delta)")
                         .font(.subheadline.bold())
                         .foregroundStyle(color)
                         .frame(maxWidth: .infinity)
-                        .listRowBackground(color.opacity(0.14))
+                        .listRowBackground(
+                            RoundedRectangle(cornerRadius: 12)
+                                .fill(color.opacity(0.14))
+                                .shadow(
+                                    color: Color.black.opacity(0.05),
+                                    radius: 5,
+                                    x: 0,
+                                    y: 2
+                                )
+                                .padding(.vertical, 4)
+                                .padding(.horizontal, 12)
+                        )
+                        .listRowSeparator(.hidden)
+
                 }
                 .onDelete { offsets in
                     Task { await viewModel.deleteTurns(for: player, at: offsets) }
@@ -137,7 +153,13 @@ struct ScorePointsSessionView: View {
                     .padding(.vertical, 12)
             }
             .background(color, in: RoundedRectangle(cornerRadius: 14))
+            .padding(12)
         }
+        .background(Color("Panel"), in:
+            RoundedRectangle(cornerRadius: 14)
+        )
+        .compositingGroup()
+        .shadow(radius: 1)
     }
 
     // MARK: Celebration
