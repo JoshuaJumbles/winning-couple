@@ -40,6 +40,7 @@ struct OnboardingView: View {
             .padding(.horizontal, 20)
             .padding(.bottom, 12)
         }
+        .background(Theme.background)
         .safeAreaInset(edge: .bottom) {
             Button {
                 Task {
@@ -122,7 +123,7 @@ private struct PlayerFormSection: View {
             }
         }
         .padding(18)
-        .background(.background.secondary, in: RoundedRectangle(cornerRadius: 22))
+        .background(Theme.panel, in: RoundedRectangle(cornerRadius: 22))
     }
 }
 

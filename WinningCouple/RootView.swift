@@ -15,6 +15,8 @@ struct RootView: View {
             switch viewModel.phase {
             case .loading:
                 ProgressView()
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .background(Theme.background)
             case .onboarding:
                 OnboardingView(viewModel: viewModel.makeOnboardingViewModel()) {
                     Task { await viewModel.onboardingFinished() }

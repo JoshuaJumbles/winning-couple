@@ -42,6 +42,7 @@ struct PostGameCelebrationView: View {
                 .padding(20)
             }
         }
+        .background(Theme.background)
         .safeAreaInset(edge: .bottom) {
             saveButton
         }
@@ -84,7 +85,7 @@ struct PostGameCelebrationView: View {
             TextField("How'd it go? Any highlights worth remembering?", text: $notes, axis: .vertical)
                 .lineLimit(3...6)
                 .padding(12)
-                .background(.background.secondary, in: RoundedRectangle(cornerRadius: 14))
+                .background(Theme.panel, in: RoundedRectangle(cornerRadius: 14))
         }
     }
 

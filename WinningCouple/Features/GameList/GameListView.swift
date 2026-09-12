@@ -24,6 +24,7 @@ struct GameListView: View {
                                     NavigationLink(value: game) {
                                         GameRow(game: game)
                                     }
+                                    .listRowBackground(Theme.panel)
                                 }
                             }
                         }
@@ -33,12 +34,15 @@ struct GameListView: View {
                                     NavigationLink(value: game) {
                                         GameRow(game: game)
                                     }
+                                    .listRowBackground(Theme.panel)
                                 }
                             }
                         }
                     }
+                    .scrollContentBackground(.hidden)
                 }
             }
+            .background(Theme.background)
             .navigationTitle("Winning Couple")
             .navigationDestination(for: GameType.self) { game in
                 GameDetailView(viewModel: viewModel.makeGameDetailViewModel(for: game))

@@ -35,6 +35,7 @@ struct EditPlayerView: View {
                 TextField("Name", text: $viewModel.name)
                     .textInputAutocapitalization(.words)
             }
+            .listRowBackground(Theme.panel)
 
             Section("Color") {
                 HStack(spacing: 10) {
@@ -52,11 +53,14 @@ struct EditPlayerView: View {
                 }
                 .padding(.vertical, 4)
             }
+            .listRowBackground(Theme.panel)
 
             if let errorMessage = viewModel.errorMessage {
                 Text(errorMessage).foregroundStyle(.red)
             }
         }
+        .scrollContentBackground(.hidden)
+        .background(Theme.background)
         .navigationTitle(viewModel.player.name)
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {

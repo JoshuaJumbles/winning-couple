@@ -50,6 +50,7 @@ struct AddGameTypeView: View {
                 Section("Game Title") {
                     TextField("e.g. Scrabble", text: $viewModel.title)
                 }
+                .listRowBackground(Theme.panel)
 
                 Section("Type") {
                     Picker("Type", selection: $viewModel.category) {
@@ -59,6 +60,7 @@ struct AddGameTypeView: View {
                     .pickerStyle(.segmented)
                     .labelsHidden()
                 }
+                .listRowBackground(Theme.panel)
 
                 Section {
                     Picker("Scoring", selection: $viewModel.scoringStyle) {
@@ -77,11 +79,14 @@ struct AddGameTypeView: View {
                         Text("Points: log a running score each turn, with a live graph. Win/Loss: just tap who won.")
                     }
                 }
+                .listRowBackground(Theme.panel)
 
                 if let errorMessage = viewModel.errorMessage {
                     Text(errorMessage).foregroundStyle(.red)
                 }
             }
+            .scrollContentBackground(.hidden)
+            .background(Theme.background)
             .navigationTitle("New Game")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
