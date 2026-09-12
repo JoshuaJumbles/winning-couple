@@ -19,6 +19,7 @@ struct GameDetailView: View {
                 populatedContent
             }
         }
+        .background(Theme.background)
         .navigationTitle(viewModel.gameType.title)
         .navigationBarTitleDisplayMode(.inline)
         .fullScreenCover(isPresented: $viewModel.isPresentingScoreSession) {
@@ -66,10 +67,12 @@ struct GameDetailView: View {
             Section("Past Sessions") {
                 ForEach(viewModel.sessions) { session in
                     SessionRow(session: session)
+                        .listRowBackground(Theme.panel)
                 }
             }
         }
         .listStyle(.plain)
+        .scrollContentBackground(.hidden)
     }
 
     private var winHistoryCard: some View {
@@ -92,7 +95,7 @@ struct GameDetailView: View {
             .frame(height: 140)
         }
         .padding(16)
-        .background(.background.secondary, in: RoundedRectangle(cornerRadius: 18))
+        .background(Theme.panel, in: RoundedRectangle(cornerRadius: 18))
         .padding(.horizontal, 20)
         .padding(.top, 12)
     }
@@ -109,7 +112,7 @@ struct GameDetailView: View {
             Spacer()
         }
         .padding(16)
-        .background(.background.secondary, in: RoundedRectangle(cornerRadius: 18))
+        .background(Theme.panel, in: RoundedRectangle(cornerRadius: 18))
         .padding(.horizontal, 20)
         .padding(.top, 12)
     }

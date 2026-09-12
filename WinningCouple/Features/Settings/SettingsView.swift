@@ -17,29 +17,32 @@ struct SettingsView: View {
                     .font(.footnote)
                     .foregroundStyle(.secondary)
             }
+            .listRowBackground(Color.clear)
 
             Section("Players") {
                 ForEach(viewModel.players) { player in
                     NavigationLink(value: player) {
                         PlayerRow(player: player)
                     }
+                    .listRowBackground(Theme.panel)
                 }
             }
         }
+        .scrollContentBackground(.hidden)
+        .background(Theme.background)
         .navigationTitle("Settings")
         .navigationBarTitleDisplayMode(.inline)
-        // Registered here rather than at GameListView's stack root: this
-        // view is itself presented via `.navigationDestination(isPresented:)`,
-        // and nesting a second `.navigationDestination(for:)` inside that
-        // presentation is what actually resolves reliably (registering
-        // PlayerProfile's destination at the true stack root silently
-        // swallowed the push instead — presumably a quirk of the two
-        // presentation styles interacting). The original duplicate-
-        // registration warning came from `SettingsViewModel` being
-        // rebuilt fresh on every presentation (see
-        // `GameListViewModel.settingsViewModel`), not from where this
-        // modifier lives, so keeping it here is safe now that the view
-        // model is stable.
+        // Registered here rather than at GameListView's stack root:
+        // nesting this inside GameListView's own `SettingsRoute` push
+        // instead resolved reliably in testing (registering it at the
+        // true stack root alongside `GameType` silently swallowed the
+        // push to EditPlayerView instead — presumably a quirk of two
+        // destinations at different depths for different types). The
+        // original duplicate-registration warning came from
+        // `SettingsViewModel` being rebuilt fresh on every presentation
+        // (see `GameListViewModel.settingsViewModel`), not from where
+        // this modifier lives, so keeping it here is safe now that the
+        // view model is stable.
         .navigationDestination(for: PlayerProfile.self) { player in
             EditPlayerView(viewModel: viewModel.makeEditPlayerViewModel(for: player))
         }

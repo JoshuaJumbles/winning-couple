@@ -39,6 +39,7 @@ struct ScoreCoopSessionView: View {
                     outcomePicker
                 }
             }
+            .background(Theme.background)
             .navigationTitle(viewModel.gameType.title)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {

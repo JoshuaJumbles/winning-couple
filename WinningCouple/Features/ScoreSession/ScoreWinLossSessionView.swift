@@ -35,6 +35,7 @@ struct ScoreWinLossSessionView: View {
                     winnerPicker
                 }
             }
+            .background(Theme.background)
             .navigationTitle(viewModel.gameType.title)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {

@@ -58,7 +58,7 @@ struct ScorePointsSessionView: View {
             .padding(.horizontal, 16)
             .padding(.bottom, 12)
         }
-        .background(Color("AppBackground"))
+        .background(Theme.background)
     }
 
     private var sessionGraphCard: some View {
@@ -90,7 +90,7 @@ struct ScorePointsSessionView: View {
             }
         }
         .padding(14)
-        .background(Color("Panel"), in: RoundedRectangle(cornerRadius: 16))
+        .background(Theme.panel, in: RoundedRectangle(cornerRadius: 16))
         .padding(.horizontal, 16)
         .padding(.top, 8)
         .compositingGroup()
@@ -149,7 +149,7 @@ struct ScorePointsSessionView: View {
             .background(color, in: RoundedRectangle(cornerRadius: 14))
             .padding(12)
         }
-        .background(Color("Panel"), in:
+        .background(Theme.panel, in:
             RoundedRectangle(cornerRadius: 14)
         )
         .compositingGroup()
