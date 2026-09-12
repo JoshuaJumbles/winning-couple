@@ -43,8 +43,19 @@ struct ScorePointsSessionViewModelTests {
         #expect(repository.turns.count == 3)
 
         let history = viewModel.scoreHistory
-        #expect(history.map(\.playerOneTotal) == [32, 32, 77])
-        #expect(history.map(\.playerTwoTotal) == [0, 18, 18])
+        // Leads with a synthetic 0/0 point so the chart has somewhere to
+        // draw its first line segment *from* — see scoreHistory's doc comment.
+        #expect(history.map(\.playerOneTotal) == [0, 32, 32, 77])
+        #expect(history.map(\.playerTwoTotal) == [0, 0, 18, 18])
+        #expect(history.map(\.turnNumber) == [0, 1, 2, 3])
+    }
+
+    @Test func scoreHistoryIsEmptyBeforeAnyTurns() async {
+        let repository = InMemoryScoringSessionRepository()
+        let viewModel = makeViewModel(repository: repository)
+        await viewModel.start()
+
+        #expect(viewModel.scoreHistory.isEmpty)
     }
 
     @Test func deletingATurnRemovesItFromTheLogAndTheTotal() async {

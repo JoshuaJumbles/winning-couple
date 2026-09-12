@@ -96,20 +96,32 @@ final class ScorePointsSessionViewModel {
         turns.filter { $0.playerID == player.id }.reduce(0) { $0 + $1.delta }
     }
 
+    /// A single data point can't draw a line — Swift Charts needs at
+    /// least two to render a segment. So once there's been at least one
+    /// turn, this leads with a synthetic 0/0 point at turnNumber 0 (real
+    /// turns shift to 1, 2, ...) purely for the chart to have somewhere
+    /// to draw *from*. That baseline is presentation-only: nothing is
+    /// persisted for it, and its `id` is a fixed constant (not derived
+    /// per-call) so the chart doesn't see it as a "new" point on every
+    /// access of this computed property.
+    private static let baselinePointID = UUID()
+
     var scoreHistory: [SessionScorePoint] {
+        let sortedTurns = turns.sorted { $0.turnIndex < $1.turnIndex }
+        guard !sortedTurns.isEmpty else { return [] }
+
         var playerOneTotal = 0
         var playerTwoTotal = 0
-        return turns
-            .sorted { $0.turnIndex < $1.turnIndex }
-            .enumerated()
-            .map { index, turn in
-                if turn.playerID == playerOne.id {
-                    playerOneTotal += turn.delta
-                } else {
-                    playerTwoTotal += turn.delta
-                }
-                return SessionScorePoint(id: turn.id, turnNumber: index, playerOneTotal: playerOneTotal, playerTwoTotal: playerTwoTotal)
+        var points = [SessionScorePoint(id: Self.baselinePointID, turnNumber: 0, playerOneTotal: 0, playerTwoTotal: 0)]
+        for (index, turn) in sortedTurns.enumerated() {
+            if turn.playerID == playerOne.id {
+                playerOneTotal += turn.delta
+            } else {
+                playerTwoTotal += turn.delta
             }
+            points.append(SessionScorePoint(id: turn.id, turnNumber: index + 1, playerOneTotal: playerOneTotal, playerTwoTotal: playerTwoTotal))
+        }
+        return points
     }
 
     /// `nil` means a tie — no single winner to celebrate.

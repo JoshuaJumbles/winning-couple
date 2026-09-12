@@ -13,7 +13,12 @@ final class GameListViewModel {
     private(set) var cooperativeGames: [GameType] = []
     var errorMessage: String?
     var isPresentingAddGame = false
-    var isPresentingSettings = false
+
+    /// Stable across the lifetime of this screen — not rebuilt on every
+    /// presentation of Settings — so `EditPlayerViewModel`s it hands out
+    /// stay backed by the same player list/repository across pushes and
+    /// pops instead of a fresh, disconnected instance each time.
+    let settingsViewModel: SettingsViewModel
 
     private let gameTypeRepository: GameTypeRepositoryProtocol
     private let playerRepository: PlayerRepositoryProtocol
@@ -33,6 +38,7 @@ final class GameListViewModel {
         self.scoringSessionRepository = scoringSessionRepository
         self.winLossSessionRepository = winLossSessionRepository
         self.coopWinLossSessionRepository = coopWinLossSessionRepository
+        self.settingsViewModel = SettingsViewModel(playerRepository: playerRepository)
     }
 
     var hasNoGames: Bool {
@@ -54,10 +60,6 @@ final class GameListViewModel {
             self?.isPresentingAddGame = false
             await self?.load()
         }
-    }
-
-    func makeSettingsViewModel() -> SettingsViewModel {
-        SettingsViewModel(playerRepository: playerRepository)
     }
 
     func makeGameDetailViewModel(for gameType: GameType) -> GameDetailViewModel {

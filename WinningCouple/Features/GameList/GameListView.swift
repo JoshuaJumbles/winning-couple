@@ -9,9 +9,10 @@ import SwiftUI
 
 struct GameListView: View {
     @Bindable var viewModel: GameListViewModel
+    @State private var path = NavigationPath()
 
     var body: some View {
-        NavigationStack {
+        NavigationStack(path: $path) {
             Group {
                 if viewModel.hasNoGames {
                     emptyState
@@ -42,10 +43,21 @@ struct GameListView: View {
             .navigationDestination(for: GameType.self) { game in
                 GameDetailView(viewModel: viewModel.makeGameDetailViewModel(for: game))
             }
+            // A plain marker type pushed onto the same path as `GameType`,
+            // rather than a `.navigationDestination(isPresented:)` — mixing
+            // that boolean-driven style with a value-based one further
+            // down the tree (SettingsView's own `PlayerProfile` destination)
+            // is what caused SwiftUI's "navigationDestination ... declared
+            // earlier on the stack" warning, and silently broke the push
+            // to EditPlayerView entirely. Keeping everything path-based
+            // avoids both.
+            .navigationDestination(for: SettingsRoute.self) { _ in
+                SettingsView(viewModel: viewModel.settingsViewModel)
+            }
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     Button {
-                        viewModel.isPresentingSettings = true
+                        path.append(SettingsRoute())
                     } label: {
                         Image(systemName: "slider.horizontal.3")
                     }
@@ -57,9 +69,6 @@ struct GameListView: View {
                         Image(systemName: "plus")
                     }
                 }
-            }
-            .navigationDestination(isPresented: $viewModel.isPresentingSettings) {
-                SettingsView(viewModel: viewModel.makeSettingsViewModel())
             }
             .sheet(isPresented: $viewModel.isPresentingAddGame) {
                 AddGameTypeView(viewModel: viewModel.makeAddGameTypeViewModel()) {
@@ -92,6 +101,11 @@ struct GameListView: View {
         }
     }
 }
+
+/// An empty value pushed onto the stack's path purely to trigger
+/// `SettingsView`'s `.navigationDestination(for:)` — see the comment
+/// where it's registered in `GameListView.body`.
+private struct SettingsRoute: Hashable {}
 
 private struct GameRow: View {
     let game: GameType

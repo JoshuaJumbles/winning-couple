@@ -123,12 +123,6 @@ struct ScorePointsSessionView: View {
                         .listRowBackground(
                             RoundedRectangle(cornerRadius: 12)
                                 .fill(color.opacity(0.14))
-                                .shadow(
-                                    color: Color.black.opacity(0.05),
-                                    radius: 5,
-                                    x: 0,
-                                    y: 2
-                                )
                                 .padding(.vertical, 4)
                                 .padding(.horizontal, 12)
                         )
@@ -191,7 +185,7 @@ struct ScorePointsSessionView: View {
                     accentColor: .gray,
                     badge: .symbol("equal.circle.fill"),
                     headline: "It's a tie!",
-                    subheadline: "\(viewModel.gameType.title) \u{00B7} \(playerOneTotal)\u{2013}\(playerTwoTotal)",
+                    subheadline: "\(viewModel.gameType.title) \u{00B7} \(playerOneTotal) to \(playerTwoTotal)",
                     notes: $viewModel.notes,
                     photoData: $viewModel.photoData,
                     isSaving: viewModel.isSaving,
