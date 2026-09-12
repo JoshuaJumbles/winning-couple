@@ -28,6 +28,18 @@ struct SettingsView: View {
         }
         .navigationTitle("Settings")
         .navigationBarTitleDisplayMode(.inline)
+        // Registered here rather than at GameListView's stack root: this
+        // view is itself presented via `.navigationDestination(isPresented:)`,
+        // and nesting a second `.navigationDestination(for:)` inside that
+        // presentation is what actually resolves reliably (registering
+        // PlayerProfile's destination at the true stack root silently
+        // swallowed the push instead — presumably a quirk of the two
+        // presentation styles interacting). The original duplicate-
+        // registration warning came from `SettingsViewModel` being
+        // rebuilt fresh on every presentation (see
+        // `GameListViewModel.settingsViewModel`), not from where this
+        // modifier lives, so keeping it here is safe now that the view
+        // model is stable.
         .navigationDestination(for: PlayerProfile.self) { player in
             EditPlayerView(viewModel: viewModel.makeEditPlayerViewModel(for: player))
         }

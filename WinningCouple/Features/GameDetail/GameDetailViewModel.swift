@@ -110,6 +110,15 @@ final class GameDetailViewModel {
         }
     }
 
+    /// Same reasoning as `ScorePointsSessionViewModel.scoreHistory`: one
+    /// data point can't draw a line, so once there's at least one
+    /// finished session, both history-building methods below lead with
+    /// a synthetic 0/0 point purely so the chart has somewhere to draw
+    /// its first segment from. Presentation-only; nothing is persisted
+    /// for it, and the id is a fixed constant so it isn't seen as a
+    /// "new" point on every reload.
+    private static let baselineHistoryPointID = UUID()
+
     private func loadPointsSessions() async throws {
         let playerOneID = playerOne?.id
         let playerTwoID = playerTwo?.id
@@ -117,6 +126,9 @@ final class GameDetailViewModel {
 
         var summaries: [GameSessionSummary] = []
         var history: [WinHistoryPoint] = []
+        if !scoringSessions.isEmpty {
+            history.append(WinHistoryPoint(id: Self.baselineHistoryPointID, sessionIndex: 0, playerOneWins: 0, playerTwoWins: 0))
+        }
         var playerOneWins = 0
         var playerTwoWins = 0
 
@@ -137,7 +149,7 @@ final class GameDetailViewModel {
             }
 
             summaries.append(makeSummary(id: session.id, date: session.sessionDate, resultText: resultText, notes: session.notes, photoData: session.photoData))
-            history.append(WinHistoryPoint(id: session.id, sessionIndex: index, playerOneWins: playerOneWins, playerTwoWins: playerTwoWins))
+            history.append(WinHistoryPoint(id: session.id, sessionIndex: index + 1, playerOneWins: playerOneWins, playerTwoWins: playerTwoWins))
         }
 
         sessions = summaries.sorted { $0.date > $1.date }
@@ -149,6 +161,9 @@ final class GameDetailViewModel {
 
         var summaries: [GameSessionSummary] = []
         var history: [WinHistoryPoint] = []
+        if !winLossSessions.isEmpty {
+            history.append(WinHistoryPoint(id: Self.baselineHistoryPointID, sessionIndex: 0, playerOneWins: 0, playerTwoWins: 0))
+        }
         var playerOneWins = 0
         var playerTwoWins = 0
 
@@ -165,7 +180,7 @@ final class GameDetailViewModel {
             }
 
             summaries.append(makeSummary(id: session.id, date: session.sessionDate, resultText: "\(winnerName) won", notes: session.notes, photoData: session.photoData))
-            history.append(WinHistoryPoint(id: session.id, sessionIndex: index, playerOneWins: playerOneWins, playerTwoWins: playerTwoWins))
+            history.append(WinHistoryPoint(id: session.id, sessionIndex: index + 1, playerOneWins: playerOneWins, playerTwoWins: playerTwoWins))
         }
 
         sessions = summaries.sorted { $0.date > $1.date }

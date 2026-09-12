@@ -55,9 +55,11 @@ struct GameDetailViewModelTests {
         #expect(!viewModel.hasNoSessions)
         #expect(viewModel.isCompetitive)
         #expect(viewModel.sessions.count == 2) // the draft session is excluded
-        #expect(viewModel.sessions.map(\.resultText) == ["Taylor won \u{00B7} 90\u{2013}10", "Jordan won \u{00B7} 77\u{2013}28"]) // newest first
-        #expect(viewModel.winHistory.map(\.playerOneWins) == [1, 1])
-        #expect(viewModel.winHistory.map(\.playerTwoWins) == [0, 1])
+        #expect(viewModel.sessions.map(\.resultText) == ["Taylor won \u{00B7} 90 to 10", "Jordan won \u{00B7} 77 to 28"]) // newest first
+        // Leads with a synthetic 0/0 baseline point so the chart has
+        // somewhere to draw its first segment from.
+        #expect(viewModel.winHistory.map(\.playerOneWins) == [0, 1, 1])
+        #expect(viewModel.winHistory.map(\.playerTwoWins) == [0, 0, 1])
     }
 
     @Test func winLossSessionsComputeWinnerAndRunningHistory() async {
@@ -76,8 +78,8 @@ struct GameDetailViewModelTests {
         await viewModel.load()
 
         #expect(viewModel.sessions.map(\.resultText) == ["Taylor won", "Jordan won"]) // newest first
-        #expect(viewModel.winHistory.map(\.playerOneWins) == [1, 1])
-        #expect(viewModel.winHistory.map(\.playerTwoWins) == [0, 1])
+        #expect(viewModel.winHistory.map(\.playerOneWins) == [0, 1, 1])
+        #expect(viewModel.winHistory.map(\.playerTwoWins) == [0, 0, 1])
     }
 
     @Test func coopSessionsComputeRecord() async {
@@ -190,6 +192,6 @@ struct GameDetailViewModelTests {
         #expect(succeeded)
         #expect(!viewModel.isPresentingScoreSession)
         #expect(!viewModel.hasNoSessions)
-        #expect(viewModel.sessions.first?.resultText == "Jordan won \u{00B7} 60\u{2013}40")
+        #expect(viewModel.sessions.first?.resultText == "Jordan won \u{00B7} 60 to 40")
     }
 }
