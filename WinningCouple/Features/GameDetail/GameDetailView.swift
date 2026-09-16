@@ -81,18 +81,29 @@ struct GameDetailView: View {
                 .font(.caption.bold())
                 .foregroundStyle(.secondary)
 
-            Chart(viewModel.winHistory) { point in
-                LineMark(x: .value("Session", point.sessionIndex), y: .value("Wins", point.playerOneWins))
-                    .foregroundStyle(by: .value("Player", viewModel.playerOne?.name ?? "Player One"))
-                LineMark(x: .value("Session", point.sessionIndex), y: .value("Wins", point.playerTwoWins))
-                    .foregroundStyle(by: .value("Player", viewModel.playerTwo?.name ?? "Player Two"))
+            // A Chart's first layout in the process is noticeably
+            // slower than every one after (see ChartPrewarmer, which
+            // makes this mostly moot in practice) — deferring it keeps
+            // that cost from blocking this screen's own appearance.
+            DeferredReveal {
+                Text("\u{2026}")
+                    .font(.footnote)
+                    .foregroundStyle(.secondary)
+                    .frame(maxWidth: .infinity, minHeight: 140)
+            } content: {
+                Chart(viewModel.winHistory) { point in
+                    LineMark(x: .value("Session", point.sessionIndex), y: .value("Wins", point.playerOneWins))
+                        .foregroundStyle(by: .value("Player", viewModel.playerOne?.name ?? "Player One"))
+                    LineMark(x: .value("Session", point.sessionIndex), y: .value("Wins", point.playerTwoWins))
+                        .foregroundStyle(by: .value("Player", viewModel.playerTwo?.name ?? "Player Two"))
+                }
+                .chartForegroundStyleScale([
+                    (viewModel.playerOne?.name ?? "Player One"): Color(hex: viewModel.playerOne?.colorHex ?? PlayerColorPalette.default),
+                    (viewModel.playerTwo?.name ?? "Player Two"): Color(hex: viewModel.playerTwo?.colorHex ?? PlayerColorPalette.default),
+                ])
+                .chartXAxis(.hidden)
+                .frame(height: 140)
             }
-            .chartForegroundStyleScale([
-                (viewModel.playerOne?.name ?? "Player One"): Color(hex: viewModel.playerOne?.colorHex ?? PlayerColorPalette.default),
-                (viewModel.playerTwo?.name ?? "Player Two"): Color(hex: viewModel.playerTwo?.colorHex ?? PlayerColorPalette.default),
-            ])
-            .chartXAxis(.hidden)
-            .frame(height: 140)
         }
         .padding(16)
         .background(Theme.panel, in: RoundedRectangle(cornerRadius: 18))
