@@ -21,7 +21,7 @@ struct ModelPersistenceTests {
 
     @Test func playerProfileRoundTrips() throws {
         let context = try makeInMemoryContext()
-        let player = PlayerProfile(name: "Jordan", colorHex: "#FF6F61")
+        let player = PlayerProfile(name: "Jordan", colorHex: "#FF6F61", emoji: "👨‍👩‍👧")
         context.insert(player)
         try context.save()
 
@@ -29,6 +29,7 @@ struct ModelPersistenceTests {
         #expect(fetched.count == 1)
         #expect(fetched.first?.name == "Jordan")
         #expect(fetched.first?.colorHex == "#FF6F61")
+        #expect(fetched.first?.emoji == "👨‍👩‍👧")
     }
 
     @Test func gameTypeRoundTrips() throws {

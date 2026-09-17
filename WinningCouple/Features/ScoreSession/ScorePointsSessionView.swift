@@ -101,11 +101,7 @@ struct ScorePointsSessionView: View {
         let color = Color(hex: player.colorHex)
         return VStack(spacing: 10) {
             VStack(spacing: 4) {
-                Text(initial(for: player.name))
-                    .font(.subheadline.bold())
-                    .foregroundStyle(.white)
-                    .frame(width: 32, height: 32)
-                    .background(color, in: Circle())
+                PlayerAvatar(player: player, size: 32)
                 Text(player.name)
                     .font(.footnote)
                     .foregroundStyle(.secondary)
@@ -168,7 +164,7 @@ struct ScorePointsSessionView: View {
             if let winner = viewModel.winner {
                 PostGameCelebrationView(
                     accentColor: Color(hex: winner.colorHex),
-                    badge: .initials(initial(for: winner.name)),
+                    badge: .player(winner),
                     headline: "\(winner.name) wins!",
                     subheadline: "\(viewModel.gameType.title) \u{00B7} \(highScore) to \(lowScore)",
                     notes: $viewModel.notes,
@@ -197,10 +193,6 @@ struct ScorePointsSessionView: View {
                 )
             }
         }
-    }
-
-    private func initial(for name: String) -> String {
-        String(name.prefix(1)).uppercased()
     }
 }
 

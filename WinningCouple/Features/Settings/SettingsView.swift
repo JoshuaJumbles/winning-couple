@@ -13,7 +13,7 @@ struct SettingsView: View {
     var body: some View {
         List {
             Section {
-                Text("Tap a player to edit their name, color, or photo.")
+                Text("Tap a player to edit their name, color, or avatar.")
                     .font(.footnote)
                     .foregroundStyle(.secondary)
             }
@@ -57,7 +57,7 @@ private struct PlayerRow: View {
 
     var body: some View {
         HStack(spacing: 12) {
-            avatar
+            PlayerAvatar(player: player)
             Text(player.name)
                 .font(.body.weight(.semibold))
             Spacer()
@@ -66,26 +66,6 @@ private struct PlayerRow: View {
                 .frame(width: 16, height: 16)
         }
         .padding(.vertical, 2)
-    }
-
-    @ViewBuilder
-    private var avatar: some View {
-        if let data = player.photoData, let uiImage = UIImage(data: data) {
-            Image(uiImage: uiImage)
-                .resizable()
-                .scaledToFill()
-                .frame(width: 44, height: 44)
-                .clipShape(Circle())
-        } else {
-            Circle()
-                .fill(Color(hex: player.colorHex))
-                .frame(width: 44, height: 44)
-                .overlay {
-                    Text(String(player.name.prefix(1)).uppercased())
-                        .font(.subheadline.bold())
-                        .foregroundStyle(.white)
-                }
-        }
     }
 }
 
