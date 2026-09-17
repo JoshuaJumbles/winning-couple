@@ -91,7 +91,10 @@ private struct EmojiInputField: UIViewRepresentable {
             frame: CGRect(x: 0, y: 0, width: 320, height: EmojiGridKeyboard.height),
             inputViewStyle: .keyboard
         )
-        private lazy var systemKeyboardBar = makeSystemKeyboardBar()
+        private let barHost = UIHostingController(rootView: SystemKeyboardBar(onBack: {}, onDone: {}))
+        /// Solid on purpose: the default glass toolbar let the form behind
+        /// show through and read as clutter.
+        private let systemKeyboardBar = UIView(frame: CGRect(x: 0, y: 0, width: 320, height: pickerHeaderHeight))
 
         init(parent: EmojiInputField) {
             self.parent = parent
@@ -101,6 +104,16 @@ private struct EmojiInputField: UIViewRepresentable {
             gridHost.view.frame = gridContainer.bounds
             gridHost.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
             gridContainer.addSubview(gridHost.view)
+
+            barHost.rootView = SystemKeyboardBar(
+                onBack: { [weak self] in self?.showCuratedGrid() },
+                onDone: { [weak self] in self?.field?.resignFirstResponder() }
+            )
+            barHost.view.backgroundColor = .clear
+            barHost.view.frame = systemKeyboardBar.bounds
+            barHost.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            systemKeyboardBar.backgroundColor = .secondarySystemBackground
+            systemKeyboardBar.addSubview(barHost.view)
         }
 
         func attach(to field: EmojiTextField) {
@@ -143,23 +156,6 @@ private struct EmojiInputField: UIViewRepresentable {
             if field.isFirstResponder {
                 field.reloadInputViews()
             }
-        }
-
-        /// The system emoji keyboard has no "done" or "back" of its own,
-        /// so this bar supplies both while it's showing.
-        private func makeSystemKeyboardBar() -> UIToolbar {
-            let bar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 44))
-            bar.items = [
-                UIBarButtonItem(title: "Favorites", primaryAction: UIAction { [weak self] _ in
-                    self?.showCuratedGrid()
-                }),
-                .flexibleSpace(),
-                UIBarButtonItem(systemItem: .done, primaryAction: UIAction { [weak self] _ in
-                    self?.field?.resignFirstResponder()
-                }),
-            ]
-            bar.sizeToFit()
-            return bar
         }
 
         // MARK: UITextFieldDelegate
@@ -232,19 +228,10 @@ private struct EmojiGridKeyboard: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            HStack {
+            PickerHeader(onDone: onDone) {
                 Button("Clear", action: onClear)
                     .disabled(selection == nil)
-                Spacer()
-                Text("Pick an avatar")
-                    .font(.subheadline.weight(.semibold))
-                    .foregroundStyle(.secondary)
-                Spacer()
-                Button("Done", action: onDone)
-                    .fontWeight(.semibold)
             }
-            .padding(.horizontal, 16)
-            .padding(.vertical, 10)
 
             ScrollView {
                 grid
@@ -285,6 +272,50 @@ private struct EmojiGridKeyboard: View {
         }
         .padding(.horizontal, 12)
         .padding(.bottom, 12)
+    }
+}
+
+// MARK: - Header
+
+private let pickerHeaderHeight: CGFloat = 44
+
+/// The row above both halves of the picker, so the curated grid and the
+/// system emoji keyboard read as one control: a leading action, the
+/// title, and Done.
+private struct PickerHeader<Leading: View>: View {
+    let onDone: () -> Void
+    @ViewBuilder var leading: () -> Leading
+
+    var body: some View {
+        ZStack {
+            // Centered independently of the buttons, whose widths differ.
+            Text("Pick an avatar")
+                .font(.subheadline.weight(.semibold))
+                .foregroundStyle(.secondary)
+            HStack {
+                leading()
+                Spacer()
+                Button("Done", action: onDone)
+                    .fontWeight(.semibold)
+            }
+        }
+        .padding(.horizontal, 16)
+        .frame(height: pickerHeaderHeight)
+    }
+}
+
+/// The header shown above the system emoji keyboard, which has no way
+/// back to the curated grid or to dismiss on its own.
+private struct SystemKeyboardBar: View {
+    let onBack: () -> Void
+    let onDone: () -> Void
+
+    var body: some View {
+        PickerHeader(onDone: onDone) {
+            Button(action: onBack) {
+                Label("Back", systemImage: "chevron.left")
+            }
+        }
     }
 }
 
