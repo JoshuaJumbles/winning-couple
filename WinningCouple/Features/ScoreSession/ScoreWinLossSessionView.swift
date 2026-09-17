@@ -17,7 +17,7 @@ struct ScoreWinLossSessionView: View {
                 if let winner = viewModel.declaredWinner {
                     PostGameCelebrationView(
                         accentColor: Color(hex: winner.colorHex),
-                        badge: .initials(initial(for: winner.name)),
+                        badge: .player(winner),
                         headline: "\(winner.name) wins!",
                         subheadline: viewModel.gameType.title,
                         notes: $viewModel.notes,
@@ -72,11 +72,7 @@ struct ScoreWinLossSessionView: View {
             viewModel.declareWinner(player)
         } label: {
             VStack(spacing: 10) {
-                Text(initial(for: player.name))
-                    .font(.title2.bold())
-                    .foregroundStyle(.white)
-                    .frame(width: 56, height: 56)
-                    .background(.white.opacity(0.24), in: Circle())
+                PlayerAvatar(player: player, size: 56, style: .onAccent)
                 Text(player.name)
                     .font(.title3.bold())
                     .foregroundStyle(.white)
@@ -89,10 +85,6 @@ struct ScoreWinLossSessionView: View {
             .background(Color(hex: player.colorHex), in: RoundedRectangle(cornerRadius: 26))
         }
         .buttonStyle(.plain)
-    }
-
-    private func initial(for name: String) -> String {
-        String(name.prefix(1)).uppercased()
     }
 }
 

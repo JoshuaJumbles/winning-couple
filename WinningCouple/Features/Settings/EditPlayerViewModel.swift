@@ -12,7 +12,7 @@ final class EditPlayerViewModel {
     let player: PlayerProfile
     var name: String
     var colorHex: String
-    var photoData: Data?
+    var emoji: String?
     var errorMessage: String?
     private(set) var isSaving = false
 
@@ -23,7 +23,7 @@ final class EditPlayerViewModel {
         self.player = player
         self.name = player.name
         self.colorHex = player.colorHex
-        self.photoData = player.photoData
+        self.emoji = player.emoji
         self.playerRepository = playerRepository
         self.onSaved = onSaved
     }
@@ -48,7 +48,7 @@ final class EditPlayerViewModel {
 
         player.name = trimmedName
         player.colorHex = colorHex
-        player.photoData = photoData
+        player.emoji = emoji
 
         do {
             try await playerRepository.save(player)

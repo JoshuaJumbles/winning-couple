@@ -7,14 +7,14 @@
 
 import Foundation
 
-/// The in-progress name/color/photo for one of the two players on the
+/// The in-progress name/color/emoji for one of the two players on the
 /// onboarding form. Not persisted until `OnboardingViewModel.finish()`
 /// succeeds.
 @Observable
 final class DraftPlayer {
     var name: String = ""
     var colorHex: String
-    var photoData: Data?
+    var emoji: String?
 
     init(colorHex: String) {
         self.colorHex = colorHex
@@ -57,10 +57,10 @@ final class OnboardingViewModel {
 
         do {
             try await playerRepository.save(
-                PlayerProfile(name: playerOne.trimmedName, colorHex: playerOne.colorHex, photoData: playerOne.photoData)
+                PlayerProfile(name: playerOne.trimmedName, colorHex: playerOne.colorHex, emoji: playerOne.emoji)
             )
             try await playerRepository.save(
-                PlayerProfile(name: playerTwo.trimmedName, colorHex: playerTwo.colorHex, photoData: playerTwo.photoData)
+                PlayerProfile(name: playerTwo.trimmedName, colorHex: playerTwo.colorHex, emoji: playerTwo.emoji)
             )
             return true
         } catch {

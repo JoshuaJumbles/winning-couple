@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import PhotosUI
 
 struct OnboardingView: View {
     let viewModel: OnboardingViewModel
@@ -72,7 +71,6 @@ struct OnboardingView: View {
 private struct PlayerFormSection: View {
     let label: String
     @Bindable var player: DraftPlayer
-    @State private var photoItem: PhotosPickerItem?
 
     var body: some View {
         VStack(spacing: 12) {
@@ -81,26 +79,20 @@ private struct PlayerFormSection: View {
                 .foregroundStyle(.secondary)
                 .frame(maxWidth: .infinity, alignment: .leading)
 
-            PhotosPicker(selection: $photoItem, matching: .images) {
-                if let photoData = player.photoData, let uiImage = UIImage(data: photoData) {
-                    Image(uiImage: uiImage)
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 64, height: 64)
-                        .clipShape(Circle())
-                } else {
+            EmojiPicker(emoji: $player.emoji) {
+                if player.emoji == nil && player.trimmedName.isEmpty {
+                    // Nothing to show yet — invite a pick instead of an
+                    // empty colored circle.
                     Circle()
                         .strokeBorder(.secondary.opacity(0.4), style: StrokeStyle(lineWidth: 2, dash: [4]))
                         .frame(width: 64, height: 64)
                         .overlay {
-                            Image(systemName: "camera.fill")
+                            Image(systemName: "face.smiling")
+                                .font(.title2)
                                 .foregroundStyle(.secondary)
                         }
-                }
-            }
-            .onChange(of: photoItem) {
-                Task {
-                    player.photoData = try? await photoItem?.loadTransferable(type: Data.self)
+                } else {
+                    PlayerAvatar(name: player.trimmedName, emoji: player.emoji, colorHex: player.colorHex, size: 64)
                 }
             }
 

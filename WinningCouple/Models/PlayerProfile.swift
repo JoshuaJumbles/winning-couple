@@ -21,10 +21,10 @@ final class PlayerProfile {
     /// trivially Codable and portable to a future sync backend.
     var colorHex: String
 
-    /// Small photo thumbnail, stored inline for now. Fine at this
-    /// app's scale (two people, a handful of KB each); revisit if
-    /// full-resolution photos ever end up here instead of thumbnails.
-    var photoData: Data?
+    /// A single emoji the player picked as their avatar — their "game
+    /// piece". Optional: `PlayerAvatar` falls back to the name's first
+    /// letter when it's `nil`.
+    var emoji: String?
 
     var createdAt: Date
 
@@ -32,13 +32,13 @@ final class PlayerProfile {
         id: UUID = UUID(),
         name: String,
         colorHex: String,
-        photoData: Data? = nil,
+        emoji: String? = nil,
         createdAt: Date = .now
     ) {
         self.id = id
         self.name = name
         self.colorHex = colorHex
-        self.photoData = photoData
+        self.emoji = emoji
         self.createdAt = createdAt
     }
 }

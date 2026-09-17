@@ -6,29 +6,25 @@
 //
 
 import SwiftUI
-import PhotosUI
 
 struct EditPlayerView: View {
     @Bindable var viewModel: EditPlayerViewModel
     @Environment(\.dismiss) private var dismiss
-    @State private var photoItem: PhotosPickerItem?
 
     var body: some View {
         Form {
             Section {
                 HStack {
                     Spacer()
-                    PhotosPicker(selection: $photoItem, matching: .images) {
-                        avatarPreview
+                    EmojiPicker(emoji: $viewModel.emoji) {
+                        PlayerAvatar(name: viewModel.name, emoji: viewModel.emoji, colorHex: viewModel.colorHex, size: 84)
                     }
                     Spacer()
                 }
                 .listRowBackground(Color.clear)
-            }
-            .onChange(of: photoItem) {
-                Task {
-                    viewModel.photoData = try? await photoItem?.loadTransferable(type: Data.self)
-                }
+            } footer: {
+                Text("Tap to pick an emoji avatar.")
+                    .frame(maxWidth: .infinity)
             }
 
             Section("Name") {
@@ -76,26 +72,6 @@ struct EditPlayerView: View {
                     .disabled(!viewModel.canSave)
                 }
             }
-        }
-    }
-
-    @ViewBuilder
-    private var avatarPreview: some View {
-        if let data = viewModel.photoData, let uiImage = UIImage(data: data) {
-            Image(uiImage: uiImage)
-                .resizable()
-                .scaledToFill()
-                .frame(width: 84, height: 84)
-                .clipShape(Circle())
-        } else {
-            Circle()
-                .fill(Color(hex: viewModel.colorHex))
-                .frame(width: 84, height: 84)
-                .overlay {
-                    Text(String(viewModel.name.prefix(1)).uppercased())
-                        .font(.title.bold())
-                        .foregroundStyle(.white)
-                }
         }
     }
 }

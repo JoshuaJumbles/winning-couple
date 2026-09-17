@@ -8,11 +8,11 @@
 import SwiftUI
 import PhotosUI
 
-/// What goes in the celebration badge circle — a player's initial for
+/// What goes in the celebration badge circle — the winner's avatar for
 /// a competitive win, or a symbol for a cooperative outcome (there's
-/// no single winner to put an initial to).
+/// no single winner to show).
 enum PostGameBadge {
-    case initials(String)
+    case player(PlayerProfile)
     case symbol(String)
 }
 
@@ -50,19 +50,16 @@ struct PostGameCelebrationView: View {
 
     private var celebrationBanner: some View {
         VStack(spacing: 12) {
-            Group {
-                switch badge {
-                case .initials(let text):
-                    Text(text)
-                        .font(.system(size: 30, weight: .bold))
-                case .symbol(let name):
-                    Image(systemName: name)
-                        .font(.system(size: 26, weight: .semibold))
-                }
+            switch badge {
+            case .player(let player):
+                PlayerAvatar(player: player, size: 84, style: .onAccent)
+            case .symbol(let name):
+                Image(systemName: name)
+                    .font(.system(size: 26, weight: .semibold))
+                    .foregroundStyle(.white)
+                    .frame(width: 84, height: 84)
+                    .background(.white.opacity(0.22), in: Circle())
             }
-            .foregroundStyle(.white)
-            .frame(width: 84, height: 84)
-            .background(.white.opacity(0.22), in: Circle())
 
             Text(headline)
                 .font(.title.bold())
@@ -145,7 +142,7 @@ struct PostGameCelebrationView: View {
 #Preview {
     PostGameCelebrationView(
         accentColor: Color(hex: PlayerColorPalette.swatches[0]),
-        badge: .initials("J"),
+        badge: .player(PlayerProfile(name: "Jordan", colorHex: PlayerColorPalette.swatches[0], emoji: "🦊")),
         headline: "Jordan wins!",
         subheadline: "Scrabble",
         notes: .constant(""),

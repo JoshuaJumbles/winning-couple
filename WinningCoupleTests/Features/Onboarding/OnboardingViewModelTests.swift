@@ -25,11 +25,12 @@ struct OnboardingViewModelTests {
         #expect(viewModel.canFinish)
     }
 
-    @Test func finishSavesBothPlayersWithTheirChosenColor() async {
+    @Test func finishSavesBothPlayersWithTheirChosenColorAndEmoji() async {
         let repository = InMemoryPlayerRepository()
         let viewModel = OnboardingViewModel(playerRepository: repository)
         viewModel.playerOne.name = "Jordan"
         viewModel.playerOne.colorHex = PlayerColorPalette.swatches[0]
+        viewModel.playerOne.emoji = "🦊"
         viewModel.playerTwo.name = "Taylor"
         viewModel.playerTwo.colorHex = PlayerColorPalette.swatches[2]
 
@@ -39,8 +40,10 @@ struct OnboardingViewModelTests {
         #expect(repository.players.count == 2)
         #expect(repository.players[0].name == "Jordan")
         #expect(repository.players[0].colorHex == PlayerColorPalette.swatches[0])
+        #expect(repository.players[0].emoji == "🦊")
         #expect(repository.players[1].name == "Taylor")
         #expect(repository.players[1].colorHex == PlayerColorPalette.swatches[2])
+        #expect(repository.players[1].emoji == nil) // skipping the emoji is fine
     }
 
     @Test func finishSurfacesARepositoryFailureWithoutCrashing() async {
