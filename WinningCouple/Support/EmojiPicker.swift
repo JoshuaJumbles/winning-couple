@@ -83,25 +83,24 @@ private struct EmojiInputField: UIViewRepresentable {
 
         private weak var field: EmojiTextField?
         private let gridHost = UIHostingController(rootView: EmojiGridKeyboard.placeholder)
-        private let gridContainer = UIInputView(frame: .zero, inputViewStyle: .keyboard)
+        /// Given an explicit height (the system stretches the width).
+        /// A self-sizing `UIInputView` driven by Auto Layout never
+        /// resolved a size here — it stayed 0×0, so the grid never
+        /// appeared at all.
+        private let gridContainer = UIInputView(
+            frame: CGRect(x: 0, y: 0, width: 320, height: EmojiGridKeyboard.height),
+            inputViewStyle: .keyboard
+        )
         private lazy var systemKeyboardBar = makeSystemKeyboardBar()
 
         init(parent: EmojiInputField) {
             self.parent = parent
             super.init()
 
-            gridHost.safeAreaRegions = []
             gridHost.view.backgroundColor = .clear
-            gridHost.view.translatesAutoresizingMaskIntoConstraints = false
-            gridContainer.allowsSelfSizing = true
+            gridHost.view.frame = gridContainer.bounds
+            gridHost.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
             gridContainer.addSubview(gridHost.view)
-            NSLayoutConstraint.activate([
-                gridHost.view.topAnchor.constraint(equalTo: gridContainer.topAnchor),
-                gridHost.view.leadingAnchor.constraint(equalTo: gridContainer.leadingAnchor),
-                gridHost.view.trailingAnchor.constraint(equalTo: gridContainer.trailingAnchor),
-                gridHost.view.bottomAnchor.constraint(equalTo: gridContainer.safeAreaLayoutGuide.bottomAnchor),
-                gridHost.view.heightAnchor.constraint(equalToConstant: EmojiGridKeyboard.height),
-            ])
         }
 
         func attach(to field: EmojiTextField) {
@@ -130,6 +129,7 @@ private struct EmojiInputField: UIViewRepresentable {
 
         private func showSystemKeyboard() {
             guard let field else { return }
+            field.prefersEmojiKeyboard = true
             field.inputView = nil
             field.inputAccessoryView = systemKeyboardBar
             field.reloadInputViews()
@@ -137,6 +137,7 @@ private struct EmojiInputField: UIViewRepresentable {
 
         private func showCuratedGrid() {
             guard let field else { return }
+            field.prefersEmojiKeyboard = false
             field.inputView = gridContainer
             field.inputAccessoryView = nil
             if field.isFirstResponder {
@@ -187,22 +188,25 @@ private struct EmojiInputField: UIViewRepresentable {
     }
 }
 
-/// A text field that asks for the emoji keyboard whenever it's using the
-/// system keyboard.
+/// A text field that asks for the emoji keyboard while it's showing the
+/// system keyboard (`prefersEmojiKeyboard`), rather than whichever
+/// keyboard was used last.
 ///
-/// Both overrides are public `UIResponder` API, but the behavior they
-/// produce isn't formally documented. If the emoji keyboard isn't
-/// enabled on the device, or a future iOS ignores the request, this
-/// quietly falls back to the regular keyboard, where the globe key
-/// still reaches emoji.
+/// `textInputMode` is public, overridable `UIResponder` API, but the
+/// behavior it produces isn't formally documented. If the emoji
+/// keyboard isn't enabled on the device, or a future iOS ignores the
+/// request, this quietly falls back to the regular keyboard, where the
+/// globe key still reaches emoji.
 private final class EmojiTextField: UITextField {
-    /// Without a non-nil identifier, the system restores whichever
-    /// keyboard this field used last instead of honoring
-    /// `textInputMode`.
-    override var textInputContextIdentifier: String? { "" }
+    /// Only set while the system keyboard is up. Requesting emoji input
+    /// while the curated grid is the `inputView` asks for a keyboard
+    /// that isn't there — on device that showed up as emoji-search
+    /// "requires a valid sessionID" warnings.
+    var prefersEmojiKeyboard = false
 
     override var textInputMode: UITextInputMode? {
-        UITextInputMode.activeInputModes.first { $0.primaryLanguage == "emoji" } ?? super.textInputMode
+        guard prefersEmojiKeyboard else { return super.textInputMode }
+        return UITextInputMode.activeInputModes.first { $0.primaryLanguage == "emoji" } ?? super.textInputMode
     }
 
     override func caretRect(for position: UITextPosition) -> CGRect { .zero }
