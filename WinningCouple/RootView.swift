@@ -17,6 +17,14 @@ struct RootView: View {
                 ProgressView()
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .background(Theme.background)
+                    // Eat Swift Charts' one-time first-layout cost here,
+                    // while the user's already looking at an expected
+                    // brief spinner, instead of on whichever screen
+                    // happens to show a real chart first (see
+                    // ChartPrewarmer). `.loading` is only ever the
+                    // starting phase — nothing sets it again — so this
+                    // naturally runs exactly once per launch.
+                    .background { ChartPrewarmer() }
             case .onboarding:
                 OnboardingView(viewModel: viewModel.makeOnboardingViewModel()) {
                     Task { await viewModel.onboardingFinished() }
