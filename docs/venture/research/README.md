@@ -66,12 +66,28 @@ What this raised and did not settle.
 
 Every study gets a sample of its citations checked independently before it is
 merged — app metadata against Apple's public search API, quotes against the
-public review feed, links opened. Research agents produce fluent, plausible
-detail; this step is what separates that from evidence, and it takes minutes.
-Study 01's spot checks are recorded in its PR.
+public review feed, links opened, YouTube figures re-parsed from the channel
+pages' own `ytInitialData`. Research agents produce fluent, plausible detail;
+this step is what separates that from evidence, and it takes minutes. Each
+study's spot checks are recorded in its PR.
+
+Two cautions learned by doing it:
+
+- **Apple's legacy customer-reviews RSS feed is unreliable.** On 2026-09-30 it
+  returned HTTP 200 with zero entries for every app tried, including controls
+  with six-figure rating counts. When it comes back empty, review quotes cannot
+  be re-checked — say so, rather than recording them as verified.
+- **Search rankings are volatile.** App Store search order moves day to day and
+  varies with query parameters. Verify the *direction* of a search finding, not
+  the exact ranks, and note in the study when a rank failed to reproduce.
 
 ## Index
 
 | # | Topic | Status |
 |---|---|---|
 | [01](01-competitors-two-player.md) | Competitors: two-player and couples score tracking | Done — amended assumption 1 |
+| [02](02-collection-and-play-logging.md) | Collection managers and play loggers | Done — BGG's API is now gated; the differentiator is the absent roster, not the win chart |
+| [05](05-channels-and-creators.md) | Channels and creators reaching two-player / couples gamers | Done — amended assumption 4 |
+| [06](06-sponsorship-precedent.md) | Sponsorship and partnership precedent in the niche | Done — no precedent found, and Apple removed the mechanism in 2018 |
+| [07](07-name-availability.md) | App Store name availability and search collisions | Done — "Winning Couple" is uncontested everywhere checked |
+| [08](08-couples-app-category.md) | The couples app category, and whether our name belongs there | Done — keep the name, position on game night |

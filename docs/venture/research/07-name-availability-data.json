@@ -1,0 +1,2662 @@
+{
+  "study": "07-name-availability",
+  "date_observed_utc": "2026-09-30",
+  "run_by": "subagent",
+  "important_limitation": "App Store name availability can only be confirmed in App Store Connect (developer credentials required). Not checked. All findings below are public-record evidence of absence of visible collisions, not proof of reservation availability.",
+  "sources": {
+    "app_store": "https://itunes.apple.com/search and /lookup (public, entity=software)",
+    "uspto": "POST https://tmsearch.uspto.gov/prod-stage-v1-0-0/tmsearch (the tmsearch.uspto.gov UI's own backend; the UI's URL query params do not carry a query, verified with a control search)",
+    "domains": "whois(1) and RDAP via https://rdap.org/domain/<name>",
+    "autocomplete": "https://suggestqueries.google.com/complete/search?client=chrome",
+    "apple_search_hints": "https://search.itunes.apple.com/WebObjects/MZSearchHints.woa/wa/hints -- returned an EMPTY hints array for every term; unusable"
+  },
+  "collisions": {
+    "app_store_sweep": {
+      "terms": [
+        "winning couple",
+        "winningcouple",
+        "winning couples",
+        "couple score",
+        "couples scorekeeper"
+      ],
+      "storefronts": [
+        "us",
+        "gb",
+        "ca",
+        "au"
+      ],
+      "queries": 20,
+      "limit_per_query": 200,
+      "apps_named_winning_couple_or_variant": 0,
+      "apps_with_both_words_in_name_or_seller": 0,
+      "only_winning_matches_found": [
+        {
+          "name": "Winning Edge Investments",
+          "seller": "Horseracing Professionals Pty Ltd",
+          "trackId": 1468888308,
+          "stores": [
+            "au",
+            "ca"
+          ],
+          "domain": "horse racing"
+        },
+        {
+          "name": "Winning Post",
+          "seller": "9791 Media LTD",
+          "trackId": 6758026125,
+          "stores": [
+            "gb"
+          ],
+          "domain": "horse racing"
+        },
+        {
+          "name": "Winning Edge AI",
+          "seller": "SmartGPT LLC",
+          "trackId": 6451224904,
+          "stores": [
+            "us"
+          ],
+          "domain": "AI"
+        },
+        {
+          "name": "iWon - Start Winning",
+          "seller": "Turner Eison",
+          "trackId": 1604013995,
+          "stores": [
+            "us",
+            "ca"
+          ],
+          "domain": "unknown"
+        },
+        {
+          "name": "Winnings",
+          "seller": "Revolve Works LLC",
+          "trackId": 6477840518,
+          "stores": [
+            "us",
+            "ca"
+          ],
+          "domain": "unknown"
+        }
+      ]
+    },
+    "other_apple_entities_us": {
+      "movie": 0,
+      "tvSeason": 0,
+      "ebook": {
+        "results": 30,
+        "exact_title_match": 0,
+        "nearest": [
+          "Winning Marriage (Marc Solomon, 2015)",
+          "Winning Your Wife Back Before It's Too Late (Smalley, 2004)"
+        ]
+      },
+      "song": {
+        "results": 25,
+        "exact_title_match": 0
+      },
+      "podcast": {
+        "results": 25,
+        "exact_title_match": 0
+      }
+    },
+    "products_books_brands": {
+      "exact_name_product_found": false,
+      "note": "Web search for the phrase plus board game / card game / product / book title found no product. Only direct product-name hit is the project's own public repo github.com/JoshuaJumbles/winning-couple, which is indexed."
+    }
+  },
+  "phrase_semantics": {
+    "google_autocomplete_winning_couple": [
+      "winning couple of love island",
+      "winning couples halloween costumes",
+      "winning couples of love island usa",
+      "winning couple love island season 8",
+      "winning couple love island season 7",
+      "winning couples costumes",
+      "winning couple love island odds",
+      "winning couple costume ideas",
+      "winning couples of strictly come dancing",
+      "winning couple quotes"
+    ],
+    "google_autocomplete_winning_couple_app": [],
+    "google_autocomplete_winning_couple_game": [],
+    "google_autocomplete_two_player_score": [
+      "two player score counter",
+      "two player scoreboard",
+      "two player score keeper",
+      "two player score tracker",
+      "2 player score keeper",
+      "2 player score board",
+      "2 player score counter online",
+      "2 player score sheet",
+      "2 player scorer",
+      "two player stats"
+    ],
+    "google_autocomplete_board_game_score": [
+      "board game score tracker",
+      "board game score tracker app",
+      "board game scoreboard",
+      "board game score keeper",
+      "board game score tracker online",
+      "board game score sheet",
+      "board game score book",
+      "board game score counter",
+      "board game score app",
+      "board game scorer"
+    ],
+    "web_search_top_meanings": [
+      "The Real Love Boat 'And the Winning Couple is...' (IMDb, 2022)",
+      "Love Island USA season 7 winners",
+      "Bachelor in Paradise 2025",
+      "Dancing with the Stars season 34"
+    ],
+    "app_store_winning_couple_us_top4": [
+      {
+        "name": "Between, Couples Love Tracker",
+        "ratings": 21211,
+        "trackId": 458035189
+      },
+      {
+        "name": "Paired: Couples & Relationship",
+        "ratings": 208099,
+        "trackId": 1469609343
+      },
+      {
+        "name": "Couple Life 3D",
+        "ratings": 92217,
+        "trackId": 1596698632
+      },
+      {
+        "name": "Couple Run!",
+        "ratings": 6691,
+        "trackId": 1591407336
+      }
+    ],
+    "app_store_winning_couple_us_results_containing_word_winning": 0,
+    "conclusion": "The phrase means 'the couple who won the reality dating show' on the open web, and 'gambling' in software contexts."
+  },
+  "keyword_competitiveness": {
+    "score keeper": {
+      "resultCount": 20,
+      "top10": [
+        {
+          "name": "Scoreboard - On The Go",
+          "seller": "Villegas Ventures LLC",
+          "ratings": 26195,
+          "avg": 4.40191,
+          "price": "Free",
+          "updated": "2026-06-23",
+          "id": 1388012712
+        },
+        {
+          "name": "Score Keeper for Game Night",
+          "seller": "Appcano LLC",
+          "ratings": 3538,
+          "avg": 4.64641,
+          "price": "Free",
+          "updated": "2026-06-09",
+          "id": 1245390236
+        },
+        {
+          "name": "Super Scoreboard",
+          "seller": "Appcano LLC",
+          "ratings": 12092,
+          "avg": 4.66077,
+          "price": "Free",
+          "updated": "2025-06-20",
+          "id": 1197048725
+        },
+        {
+          "name": "Scorekeeper XL",
+          "seller": "Matt Rix",
+          "ratings": 248,
+          "avg": 4.6371,
+          "price": "Free",
+          "updated": "2017-09-02",
+          "id": 463243024
+        },
+        {
+          "name": "Score_Keeper",
+          "seller": "Steven Ludmon",
+          "ratings": 5,
+          "avg": 4.8,
+          "price": "Free",
+          "updated": "2023-12-04",
+          "id": 1527160556
+        },
+        {
+          "name": "Score Anything \u2013 Scorekeeper",
+          "seller": "Ilya Panchenko",
+          "ratings": 978,
+          "avg": 4.91615,
+          "price": "Free",
+          "updated": "2026-04-08",
+          "id": 1541777240
+        },
+        {
+          "name": "Keep Score: Game Score Tracker",
+          "seller": "Aaron Orr",
+          "ratings": 4288,
+          "avg": 4.73576,
+          "price": "Free",
+          "updated": "2026-09-09",
+          "id": 1140300229
+        },
+        {
+          "name": "Scoreboard: Keep Score, Points",
+          "seller": "Natalia Jakubczyk-Gajewska",
+          "ratings": 364,
+          "avg": 4.40385,
+          "price": "Free",
+          "updated": "2026-09-02",
+          "id": 6468240268
+        },
+        {
+          "name": "Point Counter - Scoreboard",
+          "seller": "One Pixel Studio s. r. o.",
+          "ratings": 976,
+          "avg": 4.70697,
+          "price": "Free",
+          "updated": "2026-03-20",
+          "id": 6448441700
+        },
+        {
+          "name": "Score Keeper FREE",
+          "seller": "Imagenuity LLC",
+          "ratings": 28,
+          "avg": 2.17857,
+          "price": "Free",
+          "updated": "2017-03-14",
+          "id": 490888743
+        }
+      ]
+    },
+    "scorekeeper": {
+      "resultCount": 20,
+      "top10": [
+        {
+          "name": "APA Scorekeeper",
+          "seller": "American Poolplayers Association, Inc.",
+          "ratings": 261,
+          "avg": 3.02682,
+          "price": "Free",
+          "updated": "2026-09-25",
+          "id": 1480884510
+        },
+        {
+          "name": "Scoreboard - On The Go",
+          "seller": "Villegas Ventures LLC",
+          "ratings": 26195,
+          "avg": 4.40191,
+          "price": "Free",
+          "updated": "2026-06-23",
+          "id": 1388012712
+        },
+        {
+          "name": "Scorekeeper XL",
+          "seller": "Matt Rix",
+          "ratings": 248,
+          "avg": 4.6371,
+          "price": "Free",
+          "updated": "2017-09-02",
+          "id": 463243024
+        },
+        {
+          "name": "Score Keeper for Game Night",
+          "seller": "Appcano LLC",
+          "ratings": 3538,
+          "avg": 4.64641,
+          "price": "Free",
+          "updated": "2026-06-09",
+          "id": 1245390236
+        },
+        {
+          "name": "Score Anything \u2013 Scorekeeper",
+          "seller": "Ilya Panchenko",
+          "ratings": 978,
+          "avg": 4.91615,
+          "price": "Free",
+          "updated": "2026-04-08",
+          "id": 1541777240
+        },
+        {
+          "name": "Super Scoreboard",
+          "seller": "Appcano LLC",
+          "ratings": 12092,
+          "avg": 4.66077,
+          "price": "Free",
+          "updated": "2025-06-20",
+          "id": 1197048725
+        },
+        {
+          "name": "Score Keeper FREE",
+          "seller": "Imagenuity LLC",
+          "ratings": 28,
+          "avg": 2.17857,
+          "price": "Free",
+          "updated": "2017-03-14",
+          "id": 490888743
+        },
+        {
+          "name": "Score_Keeper",
+          "seller": "Steven Ludmon",
+          "ratings": 5,
+          "avg": 4.8,
+          "price": "Free",
+          "updated": "2023-12-04",
+          "id": 1527160556
+        },
+        {
+          "name": "Keep Score: Game Score Tracker",
+          "seller": "Aaron Orr",
+          "ratings": 4288,
+          "avg": 4.73576,
+          "price": "Free",
+          "updated": "2026-09-09",
+          "id": 1140300229
+        },
+        {
+          "name": "Point Counter - Scoreboard",
+          "seller": "One Pixel Studio s. r. o.",
+          "ratings": 976,
+          "avg": 4.70697,
+          "price": "Free",
+          "updated": "2026-03-20",
+          "id": 6448441700
+        }
+      ]
+    },
+    "board game score": {
+      "resultCount": 20,
+      "top10": [
+        {
+          "name": "Keep Score: Game Score Tracker",
+          "seller": "Aaron Orr",
+          "ratings": 4288,
+          "avg": 4.73576,
+          "price": "Free",
+          "updated": "2026-09-09",
+          "id": 1140300229
+        },
+        {
+          "name": "Score Anything \u2013 Scorekeeper",
+          "seller": "Ilya Panchenko",
+          "ratings": 978,
+          "avg": 4.91615,
+          "price": "Free",
+          "updated": "2026-04-08",
+          "id": 1541777240
+        },
+        {
+          "name": "Score Keeper for Game Night",
+          "seller": "Appcano LLC",
+          "ratings": 3538,
+          "avg": 4.64641,
+          "price": "Free",
+          "updated": "2026-06-09",
+          "id": 1245390236
+        },
+        {
+          "name": "Super Scoreboard",
+          "seller": "Appcano LLC",
+          "ratings": 12092,
+          "avg": 4.66077,
+          "price": "Free",
+          "updated": "2025-06-20",
+          "id": 1197048725
+        },
+        {
+          "name": "Board Game Stats",
+          "seller": "Eerko Vissering",
+          "ratings": 452,
+          "avg": 4.86947,
+          "price": "$5.99",
+          "updated": "2026-09-22",
+          "id": 892542000
+        },
+        {
+          "name": "domino konkan score sheet",
+          "seller": "Sarmed Sulaiman",
+          "ratings": 3,
+          "avg": 5,
+          "price": "Free",
+          "updated": "2021-12-15",
+          "id": 1600426768
+        },
+        {
+          "name": "Board Game Buddy",
+          "seller": "Andrew Morrison",
+          "ratings": 2,
+          "avg": 5,
+          "price": "Free",
+          "updated": "2026-09-29",
+          "id": 6478406883
+        },
+        {
+          "name": "GameScore - Scorekeeper",
+          "seller": "Peramanayagam Marimuthu",
+          "ratings": 1392,
+          "avg": 4.71983,
+          "price": "Free",
+          "updated": "2020-09-03",
+          "id": 1164683696
+        },
+        {
+          "name": "Scoreo - Score Keeper",
+          "seller": "Erik Sargent",
+          "ratings": 128,
+          "avg": 4.59375,
+          "price": "Free",
+          "updated": "2026-09-29",
+          "id": 1028914394
+        },
+        {
+          "name": "Score Pad - board game tracker",
+          "seller": "Nicolas Lehovetzki",
+          "ratings": 6,
+          "avg": 4.5,
+          "price": "Free",
+          "updated": "2026-04-19",
+          "id": 6754190892
+        }
+      ]
+    },
+    "board game score tracker": {
+      "resultCount": 20,
+      "top10": [
+        {
+          "name": "Score Keeper for Game Night",
+          "seller": "Appcano LLC",
+          "ratings": 3538,
+          "avg": 4.64641,
+          "price": "Free",
+          "updated": "2026-06-09",
+          "id": 1245390236
+        },
+        {
+          "name": "Score Anything \u2013 Scorekeeper",
+          "seller": "Ilya Panchenko",
+          "ratings": 978,
+          "avg": 4.91615,
+          "price": "Free",
+          "updated": "2026-04-08",
+          "id": 1541777240
+        },
+        {
+          "name": "Board Game Score Tracker",
+          "seller": "LSM SOFT Sp. z o.o",
+          "ratings": 0,
+          "avg": 0,
+          "price": "Free",
+          "updated": "2026-07-07",
+          "id": 6785441941
+        },
+        {
+          "name": "Keep Score: Game Score Tracker",
+          "seller": "Aaron Orr",
+          "ratings": 4288,
+          "avg": 4.73576,
+          "price": "Free",
+          "updated": "2026-09-09",
+          "id": 1140300229
+        },
+        {
+          "name": "Board Game Score Tracker",
+          "seller": "Jeremy Skelland",
+          "ratings": 0,
+          "avg": 0,
+          "price": "Free",
+          "updated": "2026-09-21",
+          "id": 6760858216
+        },
+        {
+          "name": "Board Game Now - Score Tracker",
+          "seller": "Murat Yucel",
+          "ratings": 0,
+          "avg": 0,
+          "price": "Free",
+          "updated": "2026-04-22",
+          "id": 6759579818
+        },
+        {
+          "name": "Board Game Stats",
+          "seller": "Eerko Vissering",
+          "ratings": 452,
+          "avg": 4.86947,
+          "price": "$5.99",
+          "updated": "2026-09-22",
+          "id": 892542000
+        },
+        {
+          "name": "Super Scoreboard",
+          "seller": "Appcano LLC",
+          "ratings": 12092,
+          "avg": 4.66077,
+          "price": "Free",
+          "updated": "2025-06-20",
+          "id": 1197048725
+        },
+        {
+          "name": "Game Score Tracker",
+          "seller": "Andrew White",
+          "ratings": 80,
+          "avg": 4.72499,
+          "price": "Free",
+          "updated": "2020-02-23",
+          "id": 1306906466
+        },
+        {
+          "name": "TallyUp: Game Score Keeper",
+          "seller": "PEDRO ALEXANDER SUSA REYES",
+          "ratings": 0,
+          "avg": 0,
+          "price": "Free",
+          "updated": "2026-08-31",
+          "id": 6788992802
+        }
+      ]
+    },
+    "score tracker": {
+      "resultCount": 18,
+      "top10": [
+        {
+          "name": "Scoreboard - On The Go",
+          "seller": "Villegas Ventures LLC",
+          "ratings": 26195,
+          "avg": 4.40191,
+          "price": "Free",
+          "updated": "2026-06-23",
+          "id": 1388012712
+        },
+        {
+          "name": "Super Scoreboard",
+          "seller": "Appcano LLC",
+          "ratings": 12092,
+          "avg": 4.66077,
+          "price": "Free",
+          "updated": "2025-06-20",
+          "id": 1197048725
+        },
+        {
+          "name": "Score Anything \u2013 Scorekeeper",
+          "seller": "Ilya Panchenko",
+          "ratings": 978,
+          "avg": 4.91615,
+          "price": "Free",
+          "updated": "2026-04-08",
+          "id": 1541777240
+        },
+        {
+          "name": "Keep Score: Game Score Tracker",
+          "seller": "Aaron Orr",
+          "ratings": 4288,
+          "avg": 4.73576,
+          "price": "Free",
+          "updated": "2026-09-09",
+          "id": 1140300229
+        },
+        {
+          "name": "Game Score Tracker",
+          "seller": "Andrew White",
+          "ratings": 80,
+          "avg": 4.72499,
+          "price": "Free",
+          "updated": "2020-02-23",
+          "id": 1306906466
+        },
+        {
+          "name": "Skorer - Your Score Tracker",
+          "seller": "Touseef Hassan Nasir",
+          "ratings": 0,
+          "avg": 0,
+          "price": "Free",
+          "updated": "2025-11-26",
+          "id": 6575389948
+        },
+        {
+          "name": "Riftcount: Score Tracker",
+          "seller": "OKAY KAAN UNAL",
+          "ratings": 0,
+          "avg": 0,
+          "price": "Free",
+          "updated": "2026-09-12",
+          "id": 6755601459
+        },
+        {
+          "name": "ScoreTracker: Score Like a Pro",
+          "seller": "Gavin Anthony, Inc",
+          "ratings": 1,
+          "avg": 5,
+          "price": "Free",
+          "updated": "2023-01-07",
+          "id": 1661736333
+        },
+        {
+          "name": "Steel Challenge Score Tracker",
+          "seller": "David Asatrian",
+          "ratings": 77,
+          "avg": 4.89609,
+          "price": "Free",
+          "updated": "2026-07-24",
+          "id": 6744840168
+        },
+        {
+          "name": "Board Game Score Tracker",
+          "seller": "LSM SOFT Sp. z o.o",
+          "ratings": 0,
+          "avg": 0,
+          "price": "Free",
+          "updated": "2026-07-07",
+          "id": 6785441941
+        }
+      ]
+    },
+    "scorepad": {
+      "resultCount": 17,
+      "top10": [
+        {
+          "name": "Scorepad for Two",
+          "seller": "Mature Solutions, Inc.",
+          "ratings": 13,
+          "avg": 5,
+          "price": "Free",
+          "updated": "2020-06-22",
+          "id": 1390894073
+        },
+        {
+          "name": "ScorePad with Rounds",
+          "seller": "Justin Wyne",
+          "ratings": 26,
+          "avg": 4.80769,
+          "price": "Free",
+          "updated": "2026-09-12",
+          "id": 1577906063
+        },
+        {
+          "name": "Score Pad - board game tracker",
+          "seller": "Nicolas Lehovetzki",
+          "ratings": 6,
+          "avg": 4.5,
+          "price": "Free",
+          "updated": "2026-04-19",
+          "id": 6754190892
+        },
+        {
+          "name": "Scorepad \u2013 Board & Card Games",
+          "seller": "Kalden Ficklin",
+          "ratings": 1,
+          "avg": 5,
+          "price": "Free",
+          "updated": "2026-07-29",
+          "id": 6791029024
+        },
+        {
+          "name": "ScorePad - Simple Scoring",
+          "seller": "Justin Brown",
+          "ratings": 0,
+          "avg": 0,
+          "price": "Free",
+          "updated": "2026-05-07",
+          "id": 6767075703
+        },
+        {
+          "name": "Keep Score: Game Score Tracker",
+          "seller": "Aaron Orr",
+          "ratings": 4288,
+          "avg": 4.73576,
+          "price": "Free",
+          "updated": "2026-09-09",
+          "id": 1140300229
+        },
+        {
+          "name": "Easy Score Pad",
+          "seller": "Matt Graves",
+          "ratings": 3,
+          "avg": 4.33333,
+          "price": "Free",
+          "updated": "2025-04-24",
+          "id": 6496859354
+        },
+        {
+          "name": "GameScore - Scorekeeper",
+          "seller": "Peramanayagam Marimuthu",
+          "ratings": 1392,
+          "avg": 4.71983,
+          "price": "Free",
+          "updated": "2020-09-03",
+          "id": 1164683696
+        },
+        {
+          "name": "Chess Score Pad",
+          "seller": "Roger Carey",
+          "ratings": 178,
+          "avg": 4.65169,
+          "price": "$9.99",
+          "updated": "2026-02-03",
+          "id": 518018730
+        },
+        {
+          "name": "Scorepad Deluxe",
+          "seller": "Ventura Educational Systems",
+          "ratings": 2,
+          "avg": 2,
+          "price": "$0.99",
+          "updated": "2026-02-02",
+          "id": 492107911
+        }
+      ]
+    },
+    "score pad": {
+      "resultCount": 17,
+      "top10": [
+        {
+          "name": "Score Pad - board game tracker",
+          "seller": "Nicolas Lehovetzki",
+          "ratings": 6,
+          "avg": 4.5,
+          "price": "Free",
+          "updated": "2026-04-19",
+          "id": 6754190892
+        },
+        {
+          "name": "Scorepad for Two",
+          "seller": "Mature Solutions, Inc.",
+          "ratings": 13,
+          "avg": 5,
+          "price": "Free",
+          "updated": "2020-06-22",
+          "id": 1390894073
+        },
+        {
+          "name": "ScorePad with Rounds",
+          "seller": "Justin Wyne",
+          "ratings": 26,
+          "avg": 4.80769,
+          "price": "Free",
+          "updated": "2026-09-12",
+          "id": 1577906063
+        },
+        {
+          "name": "Keep Score: Game Score Tracker",
+          "seller": "Aaron Orr",
+          "ratings": 4288,
+          "avg": 4.73576,
+          "price": "Free",
+          "updated": "2026-09-09",
+          "id": 1140300229
+        },
+        {
+          "name": "Easy Score Pad",
+          "seller": "Matt Graves",
+          "ratings": 3,
+          "avg": 4.33333,
+          "price": "Free",
+          "updated": "2025-04-24",
+          "id": 6496859354
+        },
+        {
+          "name": "MyScorePad",
+          "seller": "Daniel TenEyck",
+          "ratings": 1,
+          "avg": 5,
+          "price": "Free",
+          "updated": "2025-12-13",
+          "id": 6443719650
+        },
+        {
+          "name": "Score Anything \u2013 Scorekeeper",
+          "seller": "Ilya Panchenko",
+          "ratings": 978,
+          "avg": 4.91615,
+          "price": "Free",
+          "updated": "2026-04-08",
+          "id": 1541777240
+        },
+        {
+          "name": "GameNightScorePad",
+          "seller": "Easy Chair Apps Lab, LLC",
+          "ratings": 1,
+          "avg": 5,
+          "price": "Free",
+          "updated": "2026-07-25",
+          "id": 6763194916
+        },
+        {
+          "name": "GameScore - Scorekeeper",
+          "seller": "Peramanayagam Marimuthu",
+          "ratings": 1392,
+          "avg": 4.71983,
+          "price": "Free",
+          "updated": "2020-09-03",
+          "id": 1164683696
+        },
+        {
+          "name": "Score Keeper for Game Night",
+          "seller": "Appcano LLC",
+          "ratings": 3538,
+          "avg": 4.64641,
+          "price": "Free",
+          "updated": "2026-06-09",
+          "id": 1245390236
+        }
+      ]
+    },
+    "game night scores": {
+      "resultCount": 20,
+      "top10": [
+        {
+          "name": "Score Keeper for Game Night",
+          "seller": "Appcano LLC",
+          "ratings": 3538,
+          "avg": 4.64641,
+          "price": "Free",
+          "updated": "2026-06-09",
+          "id": 1245390236
+        },
+        {
+          "name": "Game Night Score Card",
+          "seller": "MacHead",
+          "ratings": 2,
+          "avg": 5,
+          "price": "Free",
+          "updated": "2025-08-26",
+          "id": 6748092434
+        },
+        {
+          "name": "What's The Score? - Game Night",
+          "seller": "JACK RYAN JOHNSON",
+          "ratings": 0,
+          "avg": 0,
+          "price": "Free",
+          "updated": "2026-09-20",
+          "id": 6772616074
+        },
+        {
+          "name": "Apple Sports",
+          "seller": "Apple Inc.",
+          "ratings": 206211,
+          "avg": 4.73843,
+          "price": "Free",
+          "updated": "2026-09-23",
+          "id": 6446788829
+        },
+        {
+          "name": "FotMob - Soccer Live Scores",
+          "seller": "FotMob AS",
+          "ratings": 173290,
+          "avg": 4.91251,
+          "price": "Free",
+          "updated": "2026-09-11",
+          "id": 488575683
+        },
+        {
+          "name": "Farkle Scorekeeper",
+          "seller": "NieStudio Creative LLC",
+          "ratings": 2487,
+          "avg": 4.83876,
+          "price": "Free",
+          "updated": "2023-08-10",
+          "id": 1271269413
+        },
+        {
+          "name": "GameNightScorePad",
+          "seller": "Easy Chair Apps Lab, LLC",
+          "ratings": 1,
+          "avg": 5,
+          "price": "Free",
+          "updated": "2026-07-25",
+          "id": 6763194916
+        },
+        {
+          "name": "GOAL Live Scores",
+          "seller": "FootballCo Media Limited",
+          "ratings": 5583,
+          "avg": 4.6835,
+          "price": "Free",
+          "updated": "2026-09-16",
+          "id": 687276446
+        },
+        {
+          "name": "Scores and Odds Sports Betting",
+          "seller": "Rical LLC",
+          "ratings": 18318,
+          "avg": 4.72851,
+          "price": "Free",
+          "updated": "2026-09-24",
+          "id": 430671164
+        },
+        {
+          "name": "Kapicu Domino Game Score",
+          "seller": "RedTracker LLC",
+          "ratings": 3906,
+          "avg": 4.85663,
+          "price": "Free",
+          "updated": "2026-06-08",
+          "id": 413642222
+        }
+      ]
+    },
+    "two player score": {
+      "resultCount": 19,
+      "top10": [
+        {
+          "name": "Head Ball 2 - Soccer Game",
+          "seller": "MASOMO LIMITED",
+          "ratings": 201248,
+          "avg": 4.67065,
+          "price": "Free",
+          "updated": "2026-09-15",
+          "id": 1193933380
+        },
+        {
+          "name": "Scorepad for Two",
+          "seller": "Mature Solutions, Inc.",
+          "ratings": 13,
+          "avg": 5,
+          "price": "Free",
+          "updated": "2020-06-22",
+          "id": 1390894073
+        },
+        {
+          "name": "PlayScore 2",
+          "seller": "Organum Limited",
+          "ratings": 4689,
+          "avg": 4.14993,
+          "price": "Free",
+          "updated": "2026-03-20",
+          "id": 1449591118
+        },
+        {
+          "name": "Challenge Your Friends 2Player",
+          "seller": "Jovan Jovanovski",
+          "ratings": 8110,
+          "avg": 4.59704,
+          "price": "Free",
+          "updated": "2026-08-08",
+          "id": 1312634900
+        },
+        {
+          "name": "Super Scoreboard",
+          "seller": "Appcano LLC",
+          "ratings": 12092,
+          "avg": 4.66077,
+          "price": "Free",
+          "updated": "2025-06-20",
+          "id": 1197048725
+        },
+        {
+          "name": "Countable - Score Tracker",
+          "seller": "Adam Garrett-Harris",
+          "ratings": 2,
+          "avg": 5,
+          "price": "Free",
+          "updated": "2024-03-30",
+          "id": 6479331579
+        },
+        {
+          "name": "Score Keeper for Game Night",
+          "seller": "Appcano LLC",
+          "ratings": 3538,
+          "avg": 4.64641,
+          "price": "Free",
+          "updated": "2026-06-09",
+          "id": 1245390236
+        },
+        {
+          "name": "Sheet Music Scanner",
+          "seller": "App Sub 1 LLC",
+          "ratings": 6449,
+          "avg": 4.48628,
+          "price": "Free",
+          "updated": "2026-07-16",
+          "id": 884984324
+        },
+        {
+          "name": "Score Keeper HD Lite",
+          "seller": "D2Tech Software",
+          "ratings": 27,
+          "avg": 3.48148,
+          "price": "Free",
+          "updated": "2016-06-21",
+          "id": 394773729
+        },
+        {
+          "name": "Keep Score: Game Score Tracker",
+          "seller": "Aaron Orr",
+          "ratings": 4288,
+          "avg": 4.73576,
+          "price": "Free",
+          "updated": "2026-09-09",
+          "id": 1140300229
+        }
+      ]
+    },
+    "head to head record": {
+      "resultCount": 15,
+      "top10": [
+        {
+          "name": "VideoNystagmoGraph To Go",
+          "seller": "MacroPinch ltd.",
+          "ratings": 0,
+          "avg": 0,
+          "price": "Free",
+          "updated": "2026-05-09",
+          "id": 6499525226
+        },
+        {
+          "name": "Voice Recorder Meeting Record",
+          "seller": "Sandeep Bhandari",
+          "ratings": 3,
+          "avg": 4.33333,
+          "price": "Free",
+          "updated": "2026-09-02",
+          "id": 1436399602
+        },
+        {
+          "name": "Voice Recorder - Record & Edit",
+          "seller": "LiveBird Technologies, Inc",
+          "ratings": 22,
+          "avg": 4.72727,
+          "price": "Free",
+          "updated": "2024-07-29",
+          "id": 6504787601
+        },
+        {
+          "name": "Report-IT Enterprise Edition",
+          "seller": "Tieline Technology",
+          "ratings": 9,
+          "avg": 4,
+          "price": "Free",
+          "updated": "2024-11-07",
+          "id": 384091752
+        },
+        {
+          "name": "Record Phone Conversation App",
+          "seller": "Preston Rice",
+          "ratings": 1,
+          "avg": 5,
+          "price": "Free",
+          "updated": "2026-07-23",
+          "id": 6756631584
+        },
+        {
+          "name": "Golden Record",
+          "seller": "Unicorn Road LLC",
+          "ratings": 2,
+          "avg": 5,
+          "price": "Free",
+          "updated": "2024-11-18",
+          "id": 6501951254
+        },
+        {
+          "name": "Super Headache",
+          "seller": "Computer Techniques LLC",
+          "ratings": 64,
+          "avg": 4.76563,
+          "price": "Free",
+          "updated": "2023-09-18",
+          "id": 1564034248
+        },
+        {
+          "name": "MinuteWise: AI Note Taker",
+          "seller": "Trivia Tribe LLP",
+          "ratings": 38,
+          "avg": 4.60526,
+          "price": "Free",
+          "updated": "2026-09-19",
+          "id": 6739527717
+        },
+        {
+          "name": "Boom Share AI",
+          "seller": "dando on line ltd",
+          "ratings": 63,
+          "avg": 4.93651,
+          "price": "Free",
+          "updated": "2025-12-03",
+          "id": 6744551325
+        },
+        {
+          "name": "RecExport: Voice Memo to Cloud",
+          "seller": "TAKAYOSHI YOSHIKAWA",
+          "ratings": 0,
+          "avg": 0,
+          "price": "Free",
+          "updated": "2026-09-26",
+          "id": 6761234228
+        }
+      ]
+    },
+    "win loss tracker": {
+      "resultCount": 19,
+      "top10": [
+        {
+          "name": "Win-Loss Counter",
+          "seller": "kota tada",
+          "ratings": 1,
+          "avg": 3,
+          "price": "Free",
+          "updated": "2026-09-28",
+          "id": 6479538766
+        },
+        {
+          "name": "Profit and Loss Calendar",
+          "seller": "WizardCoders, LLC",
+          "ratings": 45,
+          "avg": 4.2,
+          "price": "Free",
+          "updated": "2026-08-13",
+          "id": 6478928180
+        },
+        {
+          "name": "CasinoIQ: Gambling Tracker",
+          "seller": "Andres Gandara",
+          "ratings": 124,
+          "avg": 4.75,
+          "price": "Free",
+          "updated": "2026-09-25",
+          "id": 6455256722
+        },
+        {
+          "name": "Smart Gambler",
+          "seller": "Marinos Kaitis",
+          "ratings": 0,
+          "avg": 0,
+          "price": "Free",
+          "updated": "2026-08-31",
+          "id": 6755205617
+        },
+        {
+          "name": "Pikkit: Sports Betting Tracker",
+          "seller": "Pikkit, Inc.",
+          "ratings": 21521,
+          "avg": 4.86599,
+          "price": "Free",
+          "updated": "2026-09-28",
+          "id": 1586567110
+        },
+        {
+          "name": "Game Session Tracker",
+          "seller": "Jeffrey Ellin",
+          "ratings": 1,
+          "avg": 5,
+          "price": "Free",
+          "updated": "2026-06-12",
+          "id": 6757566209
+        },
+        {
+          "name": "Juice Reel: Bet Tracker & Tips",
+          "seller": "Juice Integration, INC.",
+          "ratings": 4357,
+          "avg": 4.76245,
+          "price": "Free",
+          "updated": "2026-09-24",
+          "id": 1527960097
+        },
+        {
+          "name": "Sweatcoin Walking Step Counter",
+          "seller": "Sweatco Ltd",
+          "ratings": 398865,
+          "avg": 4.52839,
+          "price": "Free",
+          "updated": "2026-09-29",
+          "id": 971023427
+        },
+        {
+          "name": "Bink Poker Bankroll Tracker",
+          "seller": "Heater LLC",
+          "ratings": 805,
+          "avg": 4.77019,
+          "price": "Free",
+          "updated": "2025-08-31",
+          "id": 6445878829
+        },
+        {
+          "name": "Matched Betting: Tracker",
+          "seller": "Shivam Paw Ltd",
+          "ratings": 0,
+          "avg": 0,
+          "price": "Free",
+          "updated": "2026-05-09",
+          "id": 6744360270
+        }
+      ]
+    },
+    "board game stats": {
+      "resultCount": 19,
+      "top10": [
+        {
+          "name": "Board Game Stats",
+          "seller": "Eerko Vissering",
+          "ratings": 452,
+          "avg": 4.86947,
+          "price": "$5.99",
+          "updated": "2026-09-22",
+          "id": 892542000
+        },
+        {
+          "name": "Board Game Shelf",
+          "seller": "Saku Studio",
+          "ratings": 15,
+          "avg": 4.86667,
+          "price": "Free",
+          "updated": "2026-09-13",
+          "id": 6469036106
+        },
+        {
+          "name": "BoardGameGeek",
+          "seller": "BOARDGAMEGEEK , LLC",
+          "ratings": 114,
+          "avg": 3.85088,
+          "price": "Free",
+          "updated": "2026-09-19",
+          "id": 1559701270
+        },
+        {
+          "name": "Scored: Board Game Tracker",
+          "seller": "Adrian Cabala",
+          "ratings": 0,
+          "avg": 0,
+          "price": "Free",
+          "updated": "2026-09-21",
+          "id": 6755980243
+        },
+        {
+          "name": "Board Game Bible",
+          "seller": "Michael Costa",
+          "ratings": 1160,
+          "avg": 4.73879,
+          "price": "Free",
+          "updated": "2025-10-30",
+          "id": 988802369
+        },
+        {
+          "name": "BG Catalog",
+          "seller": "Fco. Javier Perez Pacheco",
+          "ratings": 255,
+          "avg": 4.53725,
+          "price": "Free",
+          "updated": "2026-09-18",
+          "id": 1558147475
+        },
+        {
+          "name": "Keep Score: Game Score Tracker",
+          "seller": "Aaron Orr",
+          "ratings": 4288,
+          "avg": 4.73576,
+          "price": "Free",
+          "updated": "2026-09-09",
+          "id": 1140300229
+        },
+        {
+          "name": "CardBoard: Board Game Scoring",
+          "seller": "Gavin Jones",
+          "ratings": 5,
+          "avg": 4.59999,
+          "price": "Free",
+          "updated": "2023-07-21",
+          "id": 1571123320
+        },
+        {
+          "name": "Your Game Stats",
+          "seller": "Board Game Stats LLC",
+          "ratings": 0,
+          "avg": 0,
+          "price": "Free",
+          "updated": "2025-10-21",
+          "id": 6737965870
+        },
+        {
+          "name": "Board Games Companion",
+          "seller": "Mikolaj Kieres",
+          "ratings": 28,
+          "avg": 4.17856,
+          "price": "Free",
+          "updated": "2025-11-12",
+          "id": 1506458832
+        }
+      ]
+    },
+    "tally counter game": {
+      "resultCount": 20,
+      "top10": [
+        {
+          "name": "Tally \u2022 Quick Counter",
+          "seller": "Agile Tortoise",
+          "ratings": 1765,
+          "avg": 4.65552,
+          "price": "Free",
+          "updated": "2026-09-10",
+          "id": 957912407
+        },
+        {
+          "name": "Tally Counter",
+          "seller": "Pixel Research Labs, Inc.",
+          "ratings": 496,
+          "avg": 4.36895,
+          "price": "Free",
+          "updated": "2019-02-12",
+          "id": 288732372
+        },
+        {
+          "name": "Tally - Counter and Dice",
+          "seller": "Kyle Halevi",
+          "ratings": 2,
+          "avg": 3.5,
+          "price": "Free",
+          "updated": "2025-09-15",
+          "id": 1086402904
+        },
+        {
+          "name": "Counter Tally Count",
+          "seller": "Tevfik Yucek",
+          "ratings": 13832,
+          "avg": 4.79988,
+          "price": "Free",
+          "updated": "2026-05-03",
+          "id": 1144352844
+        },
+        {
+          "name": "Tally Counter - Clicker",
+          "seller": "Natalia Jakubczyk-Gajewska",
+          "ratings": 273,
+          "avg": 4.2967,
+          "price": "Free",
+          "updated": "2026-09-22",
+          "id": 6450890091
+        },
+        {
+          "name": "Point Counter - Scoreboard",
+          "seller": "One Pixel Studio s. r. o.",
+          "ratings": 976,
+          "avg": 4.70697,
+          "price": "Free",
+          "updated": "2026-03-20",
+          "id": 6448441700
+        },
+        {
+          "name": "Count That Now - Tally counter",
+          "seller": "Jarig Duval",
+          "ratings": 5398,
+          "avg": 4.67099,
+          "price": "Free",
+          "updated": "2024-09-07",
+          "id": 955952873
+        },
+        {
+          "name": "Vivid Counter",
+          "seller": "Mamoru Sato",
+          "ratings": 149,
+          "avg": 4.67114,
+          "price": "Free",
+          "updated": "2020-01-30",
+          "id": 794889884
+        },
+        {
+          "name": "Domino Counter",
+          "seller": "Zach Miles",
+          "ratings": 5981,
+          "avg": 4.63317,
+          "price": "Free",
+          "updated": "2021-11-12",
+          "id": 485382994
+        },
+        {
+          "name": "Counter+.",
+          "seller": "Unicom TOV",
+          "ratings": 1416,
+          "avg": 4.6702,
+          "price": "Free",
+          "updated": "2024-12-28",
+          "id": 986800297
+        }
+      ]
+    },
+    "couples game night": {
+      "resultCount": 19,
+      "top10": [
+        {
+          "name": "21 Questions - Card Games",
+          "seller": "Linear Lab LLC",
+          "ratings": 9330,
+          "avg": 4.68391,
+          "price": "Free",
+          "updated": "2026-09-10",
+          "id": 6451004192
+        },
+        {
+          "name": "Couples Games for Date Night",
+          "seller": "DH3 Games Ltd",
+          "ratings": 478,
+          "avg": 4.54603,
+          "price": "Free",
+          "updated": "2026-05-13",
+          "id": 1582814195
+        },
+        {
+          "name": "Couples Games & Challenges",
+          "seller": "Chouic",
+          "ratings": 23189,
+          "avg": 4.89064,
+          "price": "Free",
+          "updated": "2026-09-18",
+          "id": 933524873
+        },
+        {
+          "name": "Fun Couples Games - AfterDark",
+          "seller": "Ankur Gor",
+          "ratings": 10,
+          "avg": 3.3,
+          "price": "Free",
+          "updated": "2026-01-29",
+          "id": 6754186271
+        },
+        {
+          "name": "Would You Rather? Adult",
+          "seller": "Boris Mikic",
+          "ratings": 19954,
+          "avg": 4.57507,
+          "price": "Free",
+          "updated": "2025-04-24",
+          "id": 1437263404
+        },
+        {
+          "name": "Couples Game Night",
+          "seller": "Christian Johansson",
+          "ratings": 0,
+          "avg": 0,
+          "price": "Free",
+          "updated": "2026-08-28",
+          "id": 6760894317
+        },
+        {
+          "name": "How Well Do You Know Me?",
+          "seller": "DH3 Games Ltd",
+          "ratings": 24975,
+          "avg": 4.71668,
+          "price": "Free",
+          "updated": "2026-06-08",
+          "id": 1295936594
+        },
+        {
+          "name": "Couples Games: Spicy Challenge",
+          "seller": "Marjhorie D Mahinay",
+          "ratings": 6759,
+          "avg": 4.47152,
+          "price": "Free",
+          "updated": "2026-03-14",
+          "id": 6476441461
+        },
+        {
+          "name": "Couple Games: 99+ Couples Game",
+          "seller": "Zamalabs Yazilim ve Bilgi Teknolojileri Sanayi Ticaret Limited Sirketi",
+          "ratings": 223,
+          "avg": 4.72646,
+          "price": "Free",
+          "updated": "2026-06-30",
+          "id": 6748642216
+        },
+        {
+          "name": "Truth Or Dare : Party Game",
+          "seller": "DH3 Games Ltd",
+          "ratings": 44054,
+          "avg": 4.62764,
+          "price": "Free",
+          "updated": "2026-07-23",
+          "id": 1225189596
+        }
+      ]
+    },
+    "couple score tracker": {
+      "resultCount": 20,
+      "top10": [
+        {
+          "name": "Between, Couples Love Tracker",
+          "seller": "DLT Partners Inc.",
+          "ratings": 21211,
+          "avg": 4.79685,
+          "price": "Free",
+          "updated": "2026-09-22",
+          "id": 458035189
+        },
+        {
+          "name": "Couple Joy - Relationship App",
+          "seller": "HEARTBIT S.R.L.",
+          "ratings": 38070,
+          "avg": 4.85653,
+          "price": "Free",
+          "updated": "2026-07-27",
+          "id": 1624758651
+        },
+        {
+          "name": "Super Scoreboard",
+          "seller": "Appcano LLC",
+          "ratings": 12092,
+          "avg": 4.66077,
+          "price": "Free",
+          "updated": "2025-06-20",
+          "id": 1197048725
+        },
+        {
+          "name": "Paired: Couples & Relationship",
+          "seller": "Better Half Limited",
+          "ratings": 208099,
+          "avg": 4.7252,
+          "price": "Free",
+          "updated": "2026-09-28",
+          "id": 1469609343
+        },
+        {
+          "name": "My Love\u30fbRelationship Tracker",
+          "seller": "INVENTO ONE PRIVATE LIMITED",
+          "ratings": 2307,
+          "avg": 4.65713,
+          "price": "Free",
+          "updated": "2026-09-21",
+          "id": 6463850758
+        },
+        {
+          "name": "iScore Baseball and Softball",
+          "seller": "Faster Than Monkeys",
+          "ratings": 1426,
+          "avg": 4.18443,
+          "price": "Free",
+          "updated": "2026-08-18",
+          "id": 364364675
+        },
+        {
+          "name": "Love Counter - Dating Tracker",
+          "seller": "Zipo Apps Ltd.",
+          "ratings": 1846,
+          "avg": 4.75569,
+          "price": "Free",
+          "updated": "2026-06-23",
+          "id": 1027500086
+        },
+        {
+          "name": "WhatsTheScore?",
+          "seller": "Aaron Spencer",
+          "ratings": 27,
+          "avg": 3.66667,
+          "price": "Free",
+          "updated": "2025-04-03",
+          "id": 1397651154
+        },
+        {
+          "name": "Scoreboard - On The Go",
+          "seller": "Villegas Ventures LLC",
+          "ratings": 26195,
+          "avg": 4.40191,
+          "price": "Free",
+          "updated": "2026-06-23",
+          "id": 1388012712
+        },
+        {
+          "name": "My Love - Relationship Counter",
+          "seller": "Bjoern Bartels",
+          "ratings": 1024456,
+          "avg": 4.83251,
+          "price": "Free",
+          "updated": "2023-05-08",
+          "id": 409609608
+        }
+      ]
+    },
+    "winning couple": {
+      "resultCount": 19,
+      "top10": [
+        {
+          "name": "Between, Couples Love Tracker",
+          "seller": "DLT Partners Inc.",
+          "ratings": 21211,
+          "avg": 4.79685,
+          "price": "Free",
+          "updated": "2026-09-22",
+          "id": 458035189
+        },
+        {
+          "name": "Paired: Couples & Relationship",
+          "seller": "Better Half Limited",
+          "ratings": 208099,
+          "avg": 4.7252,
+          "price": "Free",
+          "updated": "2026-09-28",
+          "id": 1469609343
+        },
+        {
+          "name": "Couple Life 3D",
+          "seller": "Li-Ho Tseng",
+          "ratings": 92217,
+          "avg": 4.58348,
+          "price": "Free",
+          "updated": "2025-11-03",
+          "id": 1596698632
+        },
+        {
+          "name": "Couple Run!",
+          "seller": "Rollic Games Oyun Yazilim ve Pazarlama Anonim Sirketi",
+          "ratings": 6691,
+          "avg": 4.54775,
+          "price": "Free",
+          "updated": "2022-02-19",
+          "id": 1591407336
+        },
+        {
+          "name": "Couple Widget : Love Countdown",
+          "seller": "Jae Young Kim",
+          "ratings": 3586,
+          "avg": 4.59509,
+          "price": "Free",
+          "updated": "2026-09-17",
+          "id": 1127692604
+        },
+        {
+          "name": "Couple360-Relationship App",
+          "seller": "Wuhan DiDi Technology Co.,Ltd.",
+          "ratings": 3277,
+          "avg": 4.64205,
+          "price": "Free",
+          "updated": "2026-08-28",
+          "id": 6753863312
+        },
+        {
+          "name": "Couple Joy - Relationship App",
+          "seller": "HEARTBIT S.R.L.",
+          "ratings": 38070,
+          "avg": 4.85653,
+          "price": "Free",
+          "updated": "2026-07-27",
+          "id": 1624758651
+        },
+        {
+          "name": "CoupleGrow - Relationship App",
+          "seller": "Wuhan LoveDaily Technology Co.,Ltd.",
+          "ratings": 6443,
+          "avg": 4.66521,
+          "price": "Free",
+          "updated": "2025-12-04",
+          "id": 6443615953
+        },
+        {
+          "name": "AI Couple Photo: Video Rizz AI",
+          "seller": "Heena Gathiyawala",
+          "ratings": 29,
+          "avg": 4.37931,
+          "price": "Free",
+          "updated": "2026-09-14",
+          "id": 6758515819
+        },
+        {
+          "name": "Couples Games: Spicy Challenge",
+          "seller": "Marjhorie D Mahinay",
+          "ratings": 6759,
+          "avg": 4.47152,
+          "price": "Free",
+          "updated": "2026-03-14",
+          "id": 6476441461
+        }
+      ]
+    },
+    "game score": {
+      "resultCount": 18,
+      "top10": [
+        {
+          "name": "Scoreboard - On The Go",
+          "seller": "Villegas Ventures LLC",
+          "ratings": 26195,
+          "avg": 4.40191,
+          "price": "Free",
+          "updated": "2026-06-23",
+          "id": 1388012712
+        },
+        {
+          "name": "Apple Sports",
+          "seller": "Apple Inc.",
+          "ratings": 206211,
+          "avg": 4.73843,
+          "price": "Free",
+          "updated": "2026-09-23",
+          "id": 6446788829
+        },
+        {
+          "name": "GameScore - Scorekeeper",
+          "seller": "Peramanayagam Marimuthu",
+          "ratings": 1392,
+          "avg": 4.71983,
+          "price": "Free",
+          "updated": "2020-09-03",
+          "id": 1164683696
+        },
+        {
+          "name": "theScore: Sports News & Scores",
+          "seller": "Score Media and Gaming Inc.",
+          "ratings": 853752,
+          "avg": 4.81942,
+          "price": "Free",
+          "updated": "2026-09-16",
+          "id": 285692706
+        },
+        {
+          "name": "Super Scoreboard",
+          "seller": "Appcano LLC",
+          "ratings": 12092,
+          "avg": 4.66077,
+          "price": "Free",
+          "updated": "2025-06-20",
+          "id": 1197048725
+        },
+        {
+          "name": "Keep Score: Game Score Tracker",
+          "seller": "Aaron Orr",
+          "ratings": 4288,
+          "avg": 4.73576,
+          "price": "Free",
+          "updated": "2026-09-09",
+          "id": 1140300229
+        },
+        {
+          "name": "Score Keeper for Game Night",
+          "seller": "Appcano LLC",
+          "ratings": 3538,
+          "avg": 4.64641,
+          "price": "Free",
+          "updated": "2026-06-09",
+          "id": 1245390236
+        },
+        {
+          "name": "Game Score Tracker",
+          "seller": "Andrew White",
+          "ratings": 80,
+          "avg": 4.72499,
+          "price": "Free",
+          "updated": "2020-02-23",
+          "id": 1306906466
+        },
+        {
+          "name": "NBA: Live Games & Scores",
+          "seller": "NBA MEDIA VENTURES, LLC",
+          "ratings": 94009,
+          "avg": 4.65632,
+          "price": "Free",
+          "updated": "2026-09-25",
+          "id": 484672289
+        },
+        {
+          "name": "PointTally: Game Score Keeper",
+          "seller": "Daniel Laidig",
+          "ratings": 15,
+          "avg": 4.86667,
+          "price": "Free",
+          "updated": "2026-08-19",
+          "id": 6473301654
+        }
+      ]
+    },
+    "scoreboard app": {
+      "resultCount": 20,
+      "top10": [
+        {
+          "name": "Super Scoreboard",
+          "seller": "Appcano LLC",
+          "ratings": 12092,
+          "avg": 4.66077,
+          "price": "Free",
+          "updated": "2025-06-20",
+          "id": 1197048725
+        },
+        {
+          "name": "Virtual Scoreboard: Keep Score",
+          "seller": "Leonardo Bortolotti",
+          "ratings": 23356,
+          "avg": 4.74345,
+          "price": "Free",
+          "updated": "2026-09-21",
+          "id": 477793710
+        },
+        {
+          "name": "Scoreboard - On The Go",
+          "seller": "Villegas Ventures LLC",
+          "ratings": 26195,
+          "avg": 4.40191,
+          "price": "Free",
+          "updated": "2026-06-23",
+          "id": 1388012712
+        },
+        {
+          "name": "Ultimate Scoreboard",
+          "seller": "AgiDev AB",
+          "ratings": 379,
+          "avg": 4.65435,
+          "price": "Free",
+          "updated": "2026-08-29",
+          "id": 1066296974
+        },
+        {
+          "name": "Scoreboard \u221e",
+          "seller": "Craig Sheppard",
+          "ratings": 0,
+          "avg": 0,
+          "price": "Free",
+          "updated": "2025-12-30",
+          "id": 6741716834
+        },
+        {
+          "name": "Scoreboard FR",
+          "seller": "Scoreboard, LLC",
+          "ratings": 153,
+          "avg": 4.70587,
+          "price": "Free",
+          "updated": "2026-09-03",
+          "id": 1384921522
+        },
+        {
+          "name": "Scoreboard: Keep 2 Teams Score",
+          "seller": "Edwin Chan",
+          "ratings": 2244,
+          "avg": 4.61585,
+          "price": "Free",
+          "updated": "2026-09-22",
+          "id": 1530170223
+        },
+        {
+          "name": "Point Counter - Scoreboard",
+          "seller": "One Pixel Studio s. r. o.",
+          "ratings": 976,
+          "avg": 4.70697,
+          "price": "Free",
+          "updated": "2026-03-20",
+          "id": 6448441700
+        },
+        {
+          "name": "Score Board - Game Play Tacker",
+          "seller": "\u5a77 \u8463",
+          "ratings": 0,
+          "avg": 0,
+          "price": "$0.99",
+          "updated": "2026-02-06",
+          "id": 6477260623
+        },
+        {
+          "name": "Scoreboard Go - Keep Score",
+          "seller": "Plate Lookup LLC",
+          "ratings": 227,
+          "avg": 4.77533,
+          "price": "Free",
+          "updated": "2025-12-26",
+          "id": 1636008471
+        }
+      ]
+    },
+    "card game score": {
+      "resultCount": 20,
+      "top10": [
+        {
+          "name": "Score Keeper Card Games",
+          "seller": "Nguyen Duc Anh",
+          "ratings": 0,
+          "avg": 0,
+          "price": "Free",
+          "updated": "2026-01-23",
+          "id": 6758082341
+        },
+        {
+          "name": "Score Keeper for Game Night",
+          "seller": "Appcano LLC",
+          "ratings": 3538,
+          "avg": 4.64641,
+          "price": "Free",
+          "updated": "2026-06-09",
+          "id": 1245390236
+        },
+        {
+          "name": "Keep Score: Game Score Tracker",
+          "seller": "Aaron Orr",
+          "ratings": 4288,
+          "avg": 4.73576,
+          "price": "Free",
+          "updated": "2026-09-09",
+          "id": 1140300229
+        },
+        {
+          "name": "Score Anything \u2013 Scorekeeper",
+          "seller": "Ilya Panchenko",
+          "ratings": 978,
+          "avg": 4.91615,
+          "price": "Free",
+          "updated": "2026-04-08",
+          "id": 1541777240
+        },
+        {
+          "name": "CardScores",
+          "seller": "Arlan Lavoie",
+          "ratings": 0,
+          "avg": 0,
+          "price": "Free",
+          "updated": "2025-11-05",
+          "id": 6503990150
+        },
+        {
+          "name": "GameScore - Scorekeeper",
+          "seller": "Peramanayagam Marimuthu",
+          "ratings": 1392,
+          "avg": 4.71983,
+          "price": "Free",
+          "updated": "2020-09-03",
+          "id": 1164683696
+        },
+        {
+          "name": "Super Scoreboard",
+          "seller": "Appcano LLC",
+          "ratings": 12092,
+          "avg": 4.66077,
+          "price": "Free",
+          "updated": "2025-06-20",
+          "id": 1197048725
+        },
+        {
+          "name": "Oh Hell Card Game Scoring",
+          "seller": "Jan Adamec",
+          "ratings": 216,
+          "avg": 4.61111,
+          "price": "Free",
+          "updated": "2023-04-11",
+          "id": 1110805574
+        },
+        {
+          "name": "Pointedly",
+          "seller": "BSN Design LLC",
+          "ratings": 2535,
+          "avg": 4.81538,
+          "price": "Free",
+          "updated": "2021-09-20",
+          "id": 933257819
+        },
+        {
+          "name": "Scoreo - Score Keeper",
+          "seller": "Erik Sargent",
+          "ratings": 128,
+          "avg": 4.59375,
+          "price": "Free",
+          "updated": "2026-09-29",
+          "id": 1028914394
+        }
+      ]
+    },
+    "rivalry tracker": {
+      "resultCount": 20,
+      "top10": [
+        {
+          "name": "Football Rivalry Tracker",
+          "seller": "Syeda Sara Batool",
+          "ratings": 1,
+          "avg": 4,
+          "price": "Free",
+          "updated": "2026-07-24",
+          "id": 6771737235
+        },
+        {
+          "name": "Tracker Network Stats",
+          "seller": "Tracker Network LLC",
+          "ratings": 157521,
+          "avg": 4.66392,
+          "price": "Free",
+          "updated": "2026-09-22",
+          "id": 1287696482
+        },
+        {
+          "name": "Rivals Tracker",
+          "seller": "Miguel Anthony Oyler-Castrillo",
+          "ratings": 6,
+          "avg": 3,
+          "price": "Free",
+          "updated": "2026-03-23",
+          "id": 6744082824
+        },
+        {
+          "name": "Momento: Live Events",
+          "seller": "Momento Market, Inc.",
+          "ratings": 2471,
+          "avg": 4.74179,
+          "price": "Free",
+          "updated": "2026-09-23",
+          "id": 1598957582
+        },
+        {
+          "name": "HOF: Sports Stats & Data",
+          "seller": "Hofbets LLC",
+          "ratings": 10636,
+          "avg": 4.85831,
+          "price": "Free",
+          "updated": "2026-09-29",
+          "id": 6449443337
+        },
+        {
+          "name": "Sportstats Tracker",
+          "seller": "Dilltree Inc",
+          "ratings": 183,
+          "avg": 4.81967,
+          "price": "Free",
+          "updated": "2024-04-09",
+          "id": 1457761131
+        },
+        {
+          "name": "KickRank - Match Tracker",
+          "seller": "Eyal Rubinstein",
+          "ratings": 0,
+          "avg": 0,
+          "price": "Free",
+          "updated": "2026-08-04",
+          "id": 6768617698
+        },
+        {
+          "name": "Love Counter - Dating Tracker",
+          "seller": "Zipo Apps Ltd.",
+          "ratings": 1846,
+          "avg": 4.75569,
+          "price": "Free",
+          "updated": "2026-06-23",
+          "id": 1027500086
+        },
+        {
+          "name": "Scoreboard: Game tracker",
+          "seller": "Valentin Walker",
+          "ratings": 150,
+          "avg": 4.62667,
+          "price": "Free",
+          "updated": "2026-06-02",
+          "id": 6650931747
+        },
+        {
+          "name": "Seated - Stadium Tracker",
+          "seller": "Tyler Bettolo",
+          "ratings": 3,
+          "avg": 4.66667,
+          "price": "Free",
+          "updated": "2026-09-28",
+          "id": 6782507622
+        }
+      ]
+    }
+  },
+  "own_title_rank_test": {
+    "score anything": {
+      "resultCount": 24,
+      "ownRank": 1,
+      "top5": [
+        {
+          "name": "Score Anything \u2013 Scorekeeper",
+          "ratings": 978,
+          "id": 1541777240
+        },
+        {
+          "name": "Score Keeper - Score Anything",
+          "ratings": 1,
+          "id": 6757681877
+        },
+        {
+          "name": "Point Counter - Scoreboard",
+          "ratings": 976,
+          "id": 6448441700
+        },
+        {
+          "name": "Keep Score: Game Score Tracker",
+          "ratings": 4288,
+          "id": 1140300229
+        },
+        {
+          "name": "Scoreboard Go - Keep Score",
+          "ratings": 227,
+          "id": 1636008471
+        }
+      ]
+    },
+    "board game shelf": {
+      "resultCount": 24,
+      "ownRank": 1,
+      "top5": [
+        {
+          "name": "Board Game Shelf",
+          "ratings": 15,
+          "id": 6469036106
+        },
+        {
+          "name": "Shelf: Board Game Collection",
+          "ratings": 0,
+          "id": 6782223632
+        },
+        {
+          "name": "GameShelf: Board Game Tracker",
+          "ratings": 0,
+          "id": 6759394035
+        },
+        {
+          "name": "Board Kings-Board Dice Games",
+          "ratings": 93251,
+          "id": 1116488672
+        },
+        {
+          "name": "Line 'Em Up\u00ae: Board Game",
+          "ratings": 17611,
+          "id": 1354945642
+        }
+      ]
+    },
+    "match log": {
+      "resultCount": 25,
+      "ownRank": 1,
+      "top5": [
+        {
+          "name": "Match Log: Board Game Tracker",
+          "ratings": 0,
+          "id": 6770892938
+        },
+        {
+          "name": "MatchLog: Football Tracker",
+          "ratings": 0,
+          "id": 6762152601
+        },
+        {
+          "name": "SWU Life Counter & Match Log",
+          "ratings": 0,
+          "id": 6757435681
+        },
+        {
+          "name": "MatchLog for Tennis Players",
+          "ratings": 0,
+          "id": 6793005965
+        },
+        {
+          "name": "FutBoxd: Football Match Log",
+          "ratings": 1,
+          "id": 6760419348
+        }
+      ]
+    },
+    "keep score": {
+      "resultCount": 23,
+      "ownRank": 1,
+      "top5": [
+        {
+          "name": "Keep Score: Game Score Tracker",
+          "ratings": 4288,
+          "id": 1140300229
+        },
+        {
+          "name": "Scoreboard - On The Go",
+          "ratings": 26195,
+          "id": 1388012712
+        },
+        {
+          "name": "Score Keeper for Game Night",
+          "ratings": 3538,
+          "id": 1245390236
+        },
+        {
+          "name": "Super Scoreboard",
+          "ratings": 12092,
+          "id": 1197048725
+        },
+        {
+          "name": "Score Anything \u2013 Scorekeeper",
+          "ratings": 978,
+          "id": 1541777240
+        }
+      ]
+    },
+    "games keeper": {
+      "resultCount": 25,
+      "ownRank": 1,
+      "top5": [
+        {
+          "name": "Games Keeper",
+          "ratings": 465,
+          "id": 674138310
+        },
+        {
+          "name": "Keep Score: Game Score Tracker",
+          "ratings": 4288,
+          "id": 1140300229
+        },
+        {
+          "name": "Score Keeper for Game Night",
+          "ratings": 3538,
+          "id": 1245390236
+        },
+        {
+          "name": "Popdarts Score Keeper",
+          "ratings": 38,
+          "id": 6499262827
+        },
+        {
+          "name": "Epic ScoreKeeper",
+          "ratings": 6,
+          "id": 1069393659
+        }
+      ]
+    },
+    "countable": {
+      "resultCount": 23,
+      "ownRank": 8,
+      "top5": [
+        {
+          "name": "FastDemocracy - Bill Tracker",
+          "ratings": 29,
+          "id": 1540660396
+        },
+        {
+          "name": "Causes - Impact Your World",
+          "ratings": 4214,
+          "id": 893853823
+        },
+        {
+          "name": "Pocket Congress",
+          "ratings": 75,
+          "id": 6444019265
+        },
+        {
+          "name": "5 Calls: Contact Your Congress",
+          "ratings": 20223,
+          "id": 1202558609
+        },
+        {
+          "name": "Congress Vote Tracker",
+          "ratings": 131,
+          "id": 6445804489
+        }
+      ]
+    },
+    "scorepad for two": {
+      "resultCount": 22,
+      "ownRank": 1,
+      "top5": [
+        {
+          "name": "Scorepad for Two",
+          "ratings": 13,
+          "id": 1390894073
+        },
+        {
+          "name": "Head Ball 2 - Soccer Game",
+          "ratings": 201248,
+          "id": 1193933380
+        },
+        {
+          "name": "Score Keeper HD Lite",
+          "ratings": 27,
+          "id": 394773729
+        },
+        {
+          "name": "Scoreboard Remote for ScoreCam",
+          "ratings": 37,
+          "id": 1060366545
+        },
+        {
+          "name": "ScorePad with Rounds",
+          "ratings": 26,
+          "id": 1577906063
+        }
+      ]
+    },
+    "board game now": {
+      "resultCount": 22,
+      "ownRank": 1,
+      "top5": [
+        {
+          "name": "Board Game Now - Score Tracker",
+          "ratings": 0,
+          "id": 6759579818
+        },
+        {
+          "name": "Dominoes Jogatina: Board Games",
+          "ratings": 52598,
+          "id": 922516896
+        },
+        {
+          "name": "Ludo Party : Dice Board Game",
+          "ratings": 2428,
+          "id": 1515251917
+        },
+        {
+          "name": "Line 'Em Up\u00ae: Board Game",
+          "ratings": 17611,
+          "id": 1354945642
+        },
+        {
+          "name": "UNO!\u2122",
+          "ratings": 655188,
+          "id": 1344700142
+        }
+      ]
+    },
+    "pointster": {
+      "resultCount": 21,
+      "ownRank": 1,
+      "top5": [
+        {
+          "name": "Pointster: Board Game Scores",
+          "ratings": 0,
+          "id": 6475646381
+        },
+        {
+          "name": "GHIN: Handicap Index\u00ae & GPS",
+          "ratings": 20636,
+          "id": 491796218
+        },
+        {
+          "name": "Pure Platform",
+          "ratings": 1207,
+          "id": 1450844858
+        },
+        {
+          "name": "3 point shooter",
+          "ratings": 1975,
+          "id": 1492307847
+        },
+        {
+          "name": "MoneyBack",
+          "ratings": 28,
+          "id": 1230818544
+        }
+      ]
+    },
+    "couple summit": {
+      "resultCount": 25,
+      "ownRank": null,
+      "top5": [
+        {
+          "name": "Paired: Couples & Relationship",
+          "ratings": 208099,
+          "id": 1469609343
+        },
+        {
+          "name": "Evergreen: Relationship Growth",
+          "ratings": 54535,
+          "id": 1573360122
+        },
+        {
+          "name": "Between, Couples Love Tracker",
+          "ratings": 21211,
+          "id": 458035189
+        },
+        {
+          "name": "Couple360-Relationship App",
+          "ratings": 3277,
+          "id": 6753863312
+        },
+        {
+          "name": "Cozy Couples: Relationship App",
+          "ratings": 45352,
+          "id": 6463766369
+        }
+      ]
+    },
+    "winning post": {
+      "resultCount": 5,
+      "ownRank": null,
+      "top5": [
+        {
+          "name": "Racing Post Newspaper",
+          "ratings": 0,
+          "id": 540334383
+        },
+        {
+          "name": "Voetbal.nl - De offici\u00eble app",
+          "ratings": 133,
+          "id": 418125719
+        },
+        {
+          "name": "AI Ads",
+          "ratings": 0,
+          "id": 6474078834
+        },
+        {
+          "name": "FC Draft 26",
+          "ratings": 3275,
+          "id": 1595617304
+        },
+        {
+          "name": "Moments - Social",
+          "ratings": 0,
+          "id": 6751425066
+        }
+      ]
+    }
+  },
+  "name_field_keyword_norm": {
+    "unique_apps_swept": 259,
+    "terms": [
+      "board game score tracker",
+      "score keeper game",
+      "board game stats",
+      "scorepad",
+      "card game score",
+      "game night scores",
+      "score tracker",
+      "two player score tracker"
+    ],
+    "name_contains_broad_keyword": 228,
+    "name_contains_broad_pct": 88,
+    "name_contains_tight_keyword": 183,
+    "name_contains_tight_pct": 71,
+    "names_without_any_keyword": [
+      "Action Network: Sports Betting",
+      "Apple Sports",
+      "BG Catalog",
+      "Blackbird!",
+      "Board Of Cards",
+      "Board Record",
+      "CardScores",
+      "Cardboard Companion",
+      "CloseTheBox",
+      "Coin Master - Board Adventure",
+      "Dicast : Rules of Chaos",
+      "Domino Apunte",
+      "GoGreate Sports - Football App",
+      "Morocco",
+      "My Bad",
+      "My Bracket: Tournament Maker",
+      "Naval Warfare",
+      "Neuroshima Hex",
+      "Real - Sports",
+      "Rummy 500",
+      "Shut the Box: Classic Dice",
+      "Spades by Pokerist",
+      "Spite & Malice",
+      "Superfan Sports: NFL Football",
+      "Topps\u00ae BUNT\u00ae MLB Card Trader",
+      "Trak-it",
+      "Ultimate Cribbage: Classic",
+      "WhatsTheScore?",
+      "Yamb",
+      "eFootball\u2122",
+      "iScore Baseball and Softball"
+    ]
+  },
+  "domains": {
+    "checked_utc": "2026-09-30T01:12Z",
+    "method": "whois(1) + RDAP via rdap.org",
+    "available": [
+      "winningcouple.com",
+      "winningcouple.app",
+      "winningcouple.net",
+      "winningcouple.io",
+      "winningcouple.co",
+      "winningcouple.games",
+      "winningcoupleapp.com",
+      "joshuajumbles.app",
+      "jumbles.app"
+    ],
+    "registered": [
+      {
+        "domain": "joshuajumbles.com",
+        "registrar": "TUCOWS.COM, CO. (Hover)",
+        "created": "2017-01-17",
+        "updated": "2026-08-06",
+        "nameservers": [
+          "ns1.hover.com",
+          "ns2.hover.com"
+        ],
+        "registrant": "Contact Privacy Inc. Customer 0147073515 (CA)",
+        "note": "Joshua's own"
+      },
+      {
+        "domain": "totaltossuplive.com",
+        "registrar": "TUCOWS.COM, CO. (Hover)",
+        "created": "2026-08-07",
+        "note": "Joshua's own; confirms Hover as registrar of record"
+      }
+    ],
+    "note": ".app is HSTS-preloaded; any .app site must serve HTTPS with no plaintext fallback."
+  },
+  "social_handles": {
+    "method": {
+      "github": "public API (definitive)",
+      "bluesky": "com.atproto.identity.resolveHandle (definitive)",
+      "tiktok": "profile page fetch, reads \"Couldn't find this account\" (reliable)",
+      "youtube": "profile page fetch, reads channel JSON (reliable)",
+      "instagram": "browser, signed out (AMBIGUOUS - 'Profile isn't available' covers never-existed and removed)",
+      "x": "browser, signed out (reliable for existence)",
+      "reddit": "NOT CHECKED - 403 to automated requests",
+      "threads": "NOT CHECKED - identical 200 for live and missing handles"
+    },
+    "winningcouple": {
+      "github": "available",
+      "tiktok": "available",
+      "bluesky": "available",
+      "x": "TAKEN",
+      "youtube": "TAKEN",
+      "instagram": "unclear",
+      "reddit": "not_checked",
+      "threads": "not_checked"
+    },
+    "winningcoupleapp": {
+      "github": "available",
+      "tiktok": "available",
+      "bluesky": "available",
+      "x": "available",
+      "youtube": "available",
+      "instagram": "unclear",
+      "reddit": "not_checked",
+      "threads": "not_checked"
+    },
+    "joshuajumbles": {
+      "github": "TAKEN (Joshua's own)",
+      "tiktok": "available",
+      "bluesky": "available",
+      "x": "available",
+      "youtube": "TAKEN ('Joshua J. Jumbles', presumed Joshua's own - confirm)",
+      "instagram": "TAKEN (Joshua's own: 533 followers, 148 posts)",
+      "reddit": "not_checked",
+      "threads": "not_checked"
+    },
+    "occupied_by": [
+      {
+        "platform": "x",
+        "handle": "@WinningCouple",
+        "display": "TheWinningCouple",
+        "bio": "Love and peace / Punters / Code sharing edit if you want / Betting daily profit",
+        "location": "Soweto, South Africa",
+        "joined": "2022-12",
+        "followers": 8,
+        "posts": 3,
+        "last_post": "2023-01-15",
+        "content": "Betway booking codes",
+        "url": "https://x.com/WinningCouple"
+      },
+      {
+        "platform": "youtube",
+        "handle": "@WinningCouple",
+        "display": "Couple's Cardboard Crack & Coveralls",
+        "channelId": "UC01T-st76VG6siSnPt32eMg",
+        "joined": "2026-09-14",
+        "content": "bingo halls and pull tabs (gambling)",
+        "url": "https://www.youtube.com/@WinningCouple",
+        "description": "We are a couple who love the thrill of the game! From the high energy bingo halls to the satisfying rip of a pull tab! Whether we are screaming \"BINGO!\", chasing a massive progressive jackpot, or pulling our way through a stack of cardboard crack aka pull tabs, we are taking you along for the entire ride."
+      }
+    ]
+  },
+  "trademarks_us": {
+    "DISCLAIMER": "This is a public-records SEARCH, not a clearance search and not legal advice. No common-law rights, state registrations, unregistered use, foreign registers, design marks or likelihood-of-confusion analysis were considered. A professional clearance search is a separate exercise.",
+    "control_query": {
+      "query": "match_phrase wordmark='couple to couple'",
+      "results": 7,
+      "purpose": "confirms the query form works"
+    },
+    "wordmark_phrase_winning_couple": 0,
+    "wordmark_both_words": 0,
+    "wildcard_WINNING_COUPLE": 0,
+    "free_text_phrase_hits": [
+      {
+        "serial": "98014767",
+        "wordmark": "WONG'SPHIOLE",
+        "owner": "Yiwu Deyong Daily Necessities Co., Ltd. (CHINA)",
+        "class": "IC 021 (glassware)",
+        "status": "REGISTERED",
+        "registered": "2024-06-18",
+        "registrationId": "7419080",
+        "relevance": "none - phrase not in the mark"
+      }
+    ],
+    "live_class9_marks_containing_winning": 45,
+    "live_class9_winning_marks_gambling_related": 20,
+    "gambling_owners_examples": [
+      "IGT (WINNING 777)",
+      "Bally Gaming (WINNING TIMES)",
+      "Aristocrat Technologies (WINNING DRIVE)",
+      "Light & Wonder (WINNING TIMES, SUPER WINNING STREAK x2)",
+      "WMS Gaming (WINNING STREAK)",
+      "Playtika (WINNING SPINS)",
+      "Video Lottery Technologies (WINNING TOUCH)",
+      "Multimedia Games (WINNING FORECAST)",
+      "Incredible Technologies (WINNING WALL)",
+      "Allwyn International (ALLWYN WINNING AWAITS)",
+      "Euro Games Technology",
+      "Savvy Dog Systems (WINNING INTEGRITY)"
+    ],
+    "live_marks_containing_couple_any_class": 131,
+    "nearest_live_marks": [
+      {
+        "mark": "COUPLE",
+        "owner": "Couple.com, Inc. (DE)",
+        "class": "IC 045",
+        "status": "LIVE REGISTERED",
+        "serial": "90894103"
+      },
+      {
+        "mark": "COUPLE UP",
+        "owner": "Hunch Labs, LLC (NY)",
+        "class": "IC 028 (games and playthings)",
+        "status": "LIVE"
+      },
+      {
+        "mark": "COUPLE SUMMIT",
+        "owner": "COUPLE SUMMIT, INC. (DE)",
+        "class": "IC 041, IC 028",
+        "status": "LIVE"
+      },
+      {
+        "mark": "COUPLE TO COUPLE",
+        "owner": "Hollander Counseling Associates, LLC (MD)",
+        "class": "IC 045",
+        "status": "LIVE REGISTERED AND RENEWED",
+        "serial": "86626429"
+      }
+    ],
+    "scorepad_marks": [
+      {
+        "mark": "SCOREPAD",
+        "status": "CANCELLED - SECTION 8"
+      },
+      {
+        "mark": "SCOREPAD",
+        "status": "EXPIRED"
+      }
+    ],
+    "registers_not_searched": [
+      "UK IPO",
+      "EUIPO",
+      "CIPO",
+      "WIPO",
+      "US state registers",
+      "common-law / unregistered use"
+    ]
+  }
+}

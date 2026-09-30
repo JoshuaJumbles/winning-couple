@@ -1,0 +1,534 @@
+{
+  "study": "05-channels-and-creators",
+  "observed_date": "2026-09-29",
+  "run_by": "subagent",
+  "method": {
+    "youtube": "Channel home and /videos pages fetched as raw HTML with a desktop user-agent and parsed for the embedded ytInitialData JSON ('N subscribers', 'N videos', per-video accessibilityLabel view counts and relative upload ages). Games4two's counts were unavailable in static HTML and were read from the rendered page in a browser pane instead. 'median_recent_views' is the median of up to the 12 most recent long-form uploads listed on the /videos tab; Shorts are excluded unless noted.",
+    "tiktok": "Profile pages fetched as raw HTML and parsed for followerCount / heartCount / videoCount / signature from the embedded universal data blob.",
+    "instagram": "Attempted; returned a login wall. No Instagram follower counts were verified.",
+    "reddit": "NOT OBSERVED DIRECTLY. reddit.com returns 403 to the about.json API, redirects old.reddit.com to a login wall, is not indexable by the WebSearch user agent, and is blocked in the browser pane by safety restrictions. All Reddit member counts and rules below are second-hand from threadfox.vip and soar.sh and are UNVERIFIED.",
+    "bgg": "NOT OBSERVED. boardgamegeek.com returns HTTP 403 to curl and WebFetch and serves a Cloudflare interactive bot-detection challenge in the browser pane, which was not completed. All BGG facts below come from search-result summaries and are UNVERIFIED.",
+    "caveats": [
+      "Subscriber and follower counts move continuously; all figures are same-day snapshots.",
+      "Follower counts can be inflated or purchased; none were audited.",
+      "Blog and newsletter audience sizes are almost entirely undisclosed and are recorded as null rather than estimated.",
+      "median_recent_views is a sample of the most recent uploads, not a channel lifetime average, and is depressed for channels whose newest video is hours old."
+    ]
+  },
+  "youtube_channels": [
+    {
+      "name": "Games4two (Christopher & Alyson James)",
+      "handle": "@Games4two_",
+      "url": "https://www.youtube.com/@Games4two_",
+      "subscribers": 3020000,
+      "subscribers_source": "rendered channel page, browser pane, 2026-09-29",
+      "video_count": "1.1K",
+      "two_player_specificity": "total - self-described 'The Board Game Couple that loves two player games'",
+      "format": "Shorts-first challenge entertainment; loser does a chore. Long-form largely abandoned.",
+      "newest_longform_upload": "3 months ago (Board Game Pros vs Blindfold Challenge, 19K views)",
+      "recent_shorts_views": [1900, 43000, 170000, 38000, 414000, 74000],
+      "ever_featured_an_app": false,
+      "contact": "games4two@viralnationtalent.com (Viral Nation talent agency)",
+      "contact_type": "agency gatekeeper",
+      "notes": "Also publishes its own physical games via Relatable; 'Starts With Ends With' is Walmart-exclusive, 'Ultimate Tic Tac Toe' on Amazon/Walmart. Own YouTube bio still claims '1.9M+ on TikTok-1.2M+ on YouTube', which is stale against the observed 3.02M.",
+      "reachability_tier": "D"
+    },
+    {
+      "name": "No Pun Included (Elaine & Efka)",
+      "handle": "@NoPunIncluded",
+      "url": "https://www.youtube.com/@NoPunIncluded",
+      "subscribers": 112000,
+      "video_count": "191",
+      "median_recent_views": 70000,
+      "newest_upload_age": "2 weeks ago",
+      "two_player_specificity": "none - a couple, but general board game criticism",
+      "ever_featured_an_app": null,
+      "contact": "none published",
+      "contact_type": "structurally closed",
+      "stated_policy": "Channel description: 'Note for publishers: we do not accept review copies, nor we do collaborate on sponsorships with publishers or any other...'",
+      "reachability_tier": "D"
+    },
+    {
+      "name": "Before You Play (Monique & Naveen)",
+      "handle": "@BeforeYouPlay",
+      "url": "https://www.youtube.com/@BeforeYouPlay",
+      "subscribers": 98300,
+      "video_count": "843",
+      "median_recent_views": 16000,
+      "recent_views_sample": [635, 14000, 16000, 111000, 29000, 15000],
+      "newest_upload_age": "2 hours ago",
+      "cadence": "multiple uploads per week",
+      "two_player_specificity": "high - channel description: 'full board game playthroughs and reviews from a 2-player perspective'",
+      "format": "60-100 minute teach & playthrough videos",
+      "ever_featured_an_app": null,
+      "contact": "beforeyouplaygames@gmail.com (published on channel page); also Patreon",
+      "contact_type": "direct personal email",
+      "notes": "Best reach-per-effort of any on-niche channel. Format is long playthroughs of physical games; no app-coverage precedent found.",
+      "reachability_tier": "C"
+    },
+    {
+      "name": "Shut Up & Sit Down",
+      "handle": "@shutupandsitdown",
+      "url": "https://www.youtube.com/@shutupandsitdown",
+      "subscribers": 461000,
+      "video_count": "724",
+      "median_recent_views": 46500,
+      "newest_upload_age": "2 weeks ago",
+      "two_player_specificity": "none",
+      "ever_featured_an_app": null,
+      "contact": "none published on channel page",
+      "reachability_tier": "D"
+    },
+    {
+      "name": "The Dice Tower",
+      "handle": "@thedicetower",
+      "url": "https://www.youtube.com/@thedicetower",
+      "subscribers": 362000,
+      "video_count": "27K",
+      "median_recent_views": 10700,
+      "newest_upload_age": "8 hours ago",
+      "two_player_specificity": "none",
+      "ever_featured_an_app": null,
+      "contact": "publisher/agency review pipeline",
+      "reachability_tier": "D"
+    },
+    {
+      "name": "ThinkerThemer (Amy & Maggie)",
+      "handle": "@ThinkerThemer",
+      "url": "https://www.youtube.com/@ThinkerThemer",
+      "subscribers": 31100,
+      "video_count": "396",
+      "median_recent_views": 8350,
+      "newest_upload_age": "2 weeks ago",
+      "two_player_specificity": "low - an Australian couple, but the stated focus is aesthetic, theme and gameplay balance",
+      "ever_featured_an_app": null,
+      "contact": "none found on channel page",
+      "reachability_tier": "C"
+    },
+    {
+      "name": "The Broken Meeple",
+      "handle": "@TheBrokenMeeple",
+      "url": "https://www.youtube.com/@TheBrokenMeeple",
+      "subscribers": 28200,
+      "video_count": "1.2K",
+      "median_recent_views": 5900,
+      "newest_upload_age": "7 days ago",
+      "two_player_specificity": "none - solo host",
+      "ever_featured_an_app": null,
+      "contact": "xperiahector@gmail.com (published on channel page)",
+      "contact_type": "direct personal email",
+      "stated_policy": "Channel description: 'I support small content creators and go against the status quo'",
+      "reachability_tier": "C"
+    },
+    {
+      "name": "Foster the Meeple",
+      "handle": "@fosterthemeeple",
+      "url": "https://www.youtube.com/@fosterthemeeple",
+      "subscribers": 27000,
+      "video_count": "788",
+      "median_recent_views": 3000,
+      "newest_upload_age": "7 months ago",
+      "status": "dormant",
+      "two_player_specificity": "low - 'just a couple of board game lovers'",
+      "reachability_tier": "D"
+    },
+    {
+      "name": "Allies or Enemies (Jess & Shawn)",
+      "handle": "@AlliesorEnemies",
+      "url": "https://www.youtube.com/@alliesorenemies",
+      "subscribers": 7180,
+      "video_count": "394",
+      "median_recent_views": 557,
+      "recent_views_sample": [491, 292, 786, 1600, 2900, 1500],
+      "newest_upload_age": "10 hours ago",
+      "cadence": "weekly",
+      "two_player_specificity": "high and explicit - 'a focus on two player games. It's quick, hopefully insightful, and perhaps a good resource for other board gaming couples'",
+      "ever_featured_an_app": null,
+      "contact": "no email published; YouTube comments / community tab only",
+      "contact_type": "platform-only",
+      "subs_to_views_ratio": 0.078,
+      "reachability_tier": "B"
+    },
+    {
+      "name": "Girls' Game Shelf",
+      "handle": "@girlsgameshelf",
+      "url": "https://www.youtube.com/@girlsgameshelf",
+      "subscribers": 6010,
+      "video_count": "101",
+      "median_recent_views": 628,
+      "newest_upload_age": "5 years ago",
+      "status": "dead",
+      "reachability_tier": "D"
+    },
+    {
+      "name": "Board Games For Two",
+      "handle": "@boardgamesfortwo",
+      "url": "https://www.youtube.com/@boardgamesfortwo",
+      "subscribers": 4650,
+      "video_count": "595",
+      "median_recent_views": 413,
+      "recent_views_sample": [418, 463, 181, 171, 408, 327],
+      "newest_upload_age": "8 days ago",
+      "cadence": "roughly monthly, slowing",
+      "two_player_specificity": "total - 'This channel focuses on the review of board games for two players. This channel is for couples, partners, friends, head-to-head gamers'; video titles follow the pattern 'X: A Review for Two'",
+      "ever_featured_an_app": false,
+      "contact": "Instagram link only; no email on channel page",
+      "contact_type": "DM only",
+      "subs_to_views_ratio": 0.089,
+      "notes": "Most-viewed video of all time is 'Azul: A How to of End of Round Scoring' (39K, 6 years ago) - a scoring tutorial. Recent content drifts into solo gaming and Warhammer Shorts. Community posts stopped 2 years ago. TikTok @boardgamesfortwo has 921 followers.",
+      "reachability_tier": "B"
+    },
+    {
+      "name": "Bitewing Games",
+      "handle": "@BitewingGames",
+      "url": "https://www.youtube.com/@BitewingGames",
+      "subscribers": 4540,
+      "video_count": "321",
+      "median_recent_views": 1600,
+      "newest_upload_age": "2 weeks ago",
+      "two_player_specificity": "occasional - published a 'Top 10 Board Games for Couples' podcast episode with Nick & Camille",
+      "notes": "A game publisher, not independent media.",
+      "reachability_tier": "C"
+    },
+    {
+      "name": "Tabletop Bellhop",
+      "handle": "@TabletopBellhop",
+      "url": "https://www.youtube.com/@TabletopBellhop",
+      "subscribers": 2360,
+      "video_count": "1.2K",
+      "median_recent_views": 101,
+      "newest_upload_age": "2 days ago",
+      "two_player_specificity": "moderate - recurring date-night and two-player series",
+      "contact": "questions@tabletopbellhop.com, tabletopbellhop@gmail.com",
+      "contact_type": "direct email plus open 'Ask the Bellhop' submission line",
+      "notes": "YouTube is the weakest part of this operation; the blog is the real asset. See blogs_and_newsletters.",
+      "reachability_tier": "A"
+    }
+  ],
+  "tiktok_accounts": [
+    {
+      "handle": "@games4two",
+      "url": "https://www.tiktok.com/@games4two",
+      "followers": 3000000,
+      "likes": 137500000,
+      "videos": 1572,
+      "bio": "Chris & Aly / The Two Player Board Game Couple / games4two@viralnationtalent.com",
+      "two_player_specificity": "total",
+      "contact_type": "agency gatekeeper"
+    },
+    {
+      "handle": "@boardgameswithcouple",
+      "url": "https://www.tiktok.com/@boardgameswithcouple",
+      "followers": 1145,
+      "likes": 3002,
+      "videos": 96,
+      "bio": "Geek couple that plays boardgames. Sharing our adventures as we go!",
+      "two_player_specificity": "moderate - a couple playing, not two-player-specific curation"
+    },
+    {
+      "handle": "@boardgamesfortwo",
+      "url": "https://www.tiktok.com/@boardgamesfortwo",
+      "followers": 921,
+      "likes": 34900,
+      "videos": 91,
+      "bio": "Does this board game play well with two players? We're here to find out!",
+      "two_player_specificity": "total"
+    },
+    {
+      "handle": "@twoplayergames",
+      "url": "https://www.tiktok.com/@twoplayergames",
+      "followers": 9,
+      "likes": 341,
+      "videos": 4,
+      "status": "effectively unused - name squatted"
+    }
+  ],
+  "podcasts": [
+    {
+      "name": "Board With Each Other: Boardgame Reviews for Two",
+      "hosts": "Alister (Al) Simpson & Hannah Kelly",
+      "url": "https://podcasts.apple.com/us/podcast/board-with-each-other/id1686896734",
+      "host_url": "https://www.buzzsprout.com/2184593",
+      "description_verbatim": "A podcast that looks at Board Games / Tabletop Gaming through the lens of playing as a couple or with a regular gaming partner. Hosted by Al & Hannah, We review a game each episode.",
+      "episodes": 61,
+      "apple_ratings": {"average": 4.0, "count": 2},
+      "recent_episode_dates": ["2026-09-21", "2026-09-07", "2026-08-03", "2026-07-20", "2026-07-06", "2026-06-01", "2026-05-04"],
+      "cadence": "roughly monthly plus bonus 'Bite Size' episodes",
+      "two_player_specificity": "total - the only dedicated couples/two-player board game podcast found",
+      "ever_featured_an_app": null,
+      "contact": "X @boardweachother; Facebook profile 100091895534339; Buzzsprout fan mail form; $3/month support tier",
+      "contact_type": "open, multiple channels, no gatekeeper",
+      "audience_estimate": "very small - 2 Apple ratings after 61 episodes",
+      "reachability_tier": "A"
+    },
+    {
+      "name": "Tabletop Bellhop Gaming Podcast",
+      "host": "Moe Tousignant",
+      "relevant_episodes": [
+        {"id": "276", "title": "Table For Two: Best Board Games for Couples", "url": "https://tabletopbellhop.com/podcast/ep276/"},
+        {"id": "19", "title": "Two to Tango"}
+      ],
+      "two_player_specificity": "recurring theme rather than the whole show",
+      "contact": "questions@tabletopbellhop.com",
+      "contact_type": "open question line that explicitly feeds future articles and episodes",
+      "reachability_tier": "A"
+    },
+    {
+      "name": "Bitewing Games podcast",
+      "relevant_episodes": [{"title": "Top 10 Board Games for Couples", "url": "https://bitewinggames.com/top-10-board-games-for-couples-podcast-exclusive/", "notes": "Nick with his wife Camille"}],
+      "two_player_specificity": "one-off episode",
+      "notes": "Publisher-run.",
+      "reachability_tier": "C"
+    }
+  ],
+  "blogs_and_newsletters": [
+    {
+      "name": "Meeple Mountain",
+      "url": "https://www.meeplemountain.com/",
+      "review_request_url": "https://www.meeplemountain.com/request-a-game-review/",
+      "app_tag_url": "https://www.meeplemountain.com/tag/board-game-app/",
+      "scale": "2,300+ reviews published since 2015; reported 10-15 articles per week",
+      "audience_size": null,
+      "two_player_specificity": "none - general board game publication",
+      "ever_featured_an_app": true,
+      "app_coverage_detail": {
+        "article_count": 9,
+        "most_recent": "2025-12-12",
+        "oldest": "2022-09-16",
+        "titles": [
+          {"title": "My City by Reiner Knizia App Review", "date": "2025-12-12", "type": "digital adaptation"},
+          {"title": "Cascadia: Digital Edition Game Review", "date": "2025-02-28", "type": "digital adaptation"},
+          {"title": "TableTone App Review", "date": "2024-12-16", "type": "utility app"},
+          {"title": "Quilts & Cats of Calico Game Review", "date": "2023-10-25", "type": "digital adaptation"},
+          {"title": "Games We Prefer to Play Digitally", "date": "2023-10-09", "type": "roundup"},
+          {"title": "Learn How to Use Tabletop Playground", "date": "2023-09-07", "type": "platform"},
+          {"title": "My Father's Work Game Review", "date": "2023-06-18", "type": "app-enhanced board game"},
+          {"title": "Digital Integration: The New Wave of App-Enhanced Board Games", "date": "2023-04-12", "type": "feature"},
+          {"title": "Everdell Digital Game Review", "date": "2022-09-16", "type": "digital adaptation"}
+        ],
+        "note": "8 of 9 are digital versions of board games or app-enhanced physical games. Only TableTone is a standalone utility app. A score tracker is closer to TableTone than to the rest."
+      },
+      "also_reviewed": "Board Game Stats app review by Andy Matthews, 2017-11-24",
+      "stated_policy": "Open 'Request a Game Review' form. Asks for 6-10 weeks lead time. Each request is matched to a team member interested in that style. No advance access to review content; will supply pull quotes on request. No post-publication edits except rules errata.",
+      "contact": "https://www.meeplemountain.com/contact-meeple-mountain/ plus the review request form",
+      "contact_type": "open submission form, no gatekeeper, no budget required",
+      "reachability_tier": "A"
+    },
+    {
+      "name": "Tabletop Bellhop",
+      "url": "https://tabletopbellhop.com/",
+      "run_by": "Moe Tousignant",
+      "key_articles": [
+        {"title": "What are some of the best two player board games for date night?", "url": "https://tabletopbellhop.com/gaming-advice/date-night-games/"},
+        {"title": "24 More of the Best Two Player Board Games for Date Night, 2024 Edition", "url": "https://tabletopbellhop.com/gaming-advice/date-night-board-games/", "date": "2024-11-25"}
+      ],
+      "audience_size": null,
+      "audience_signal": "Author states the original date-night games article receives more traffic than any other content they have published.",
+      "two_player_specificity": "moderate but load-bearing - couples/date-night content is the site's single highest-traffic asset",
+      "ever_featured_an_app": "partially - references digital platforms such as Board Game Arena; no dedicated score-tracker review found",
+      "contact": "tabletopbellhop@gmail.com, questions@tabletopbellhop.com",
+      "contact_type": "public email plus 'Ask the Bellhop' reader question line that explicitly feeds future articles and podcast episodes",
+      "reachability_tier": "A"
+    },
+    {
+      "name": "A Pair of Meeples",
+      "url": "https://apairofmeeples.com/",
+      "run_by": "a married couple (site refers to 'my wife and me'; names not published)",
+      "two_player_specificity": "total - mission is reviews for 'those who primarily play board games with just two players'; every review assesses whether the game is good for two",
+      "submission_policy_verbatim": "If you think your board game is great for two players you might want to consider filling out the form below to submit your board game for review or contact us at: reviews@apairofmeeples.com",
+      "contact": "reviews@apairofmeeples.com plus open submission form",
+      "contact_type": "open, direct email",
+      "ever_featured_an_app": false,
+      "status": "wound down",
+      "status_evidence": {
+        "post": "Board Games and Broken Dreams: Fading Into the Digital Abyss",
+        "url": "https://apairofmeeples.com/board-games-and-broken-dreams/",
+        "date": "2024-05-20",
+        "quotes": [
+          "a few short months ago A Pair of Meeples was at an all-time high in terms of visitors, thousands were reading our reviews every month",
+          "It's hard to create content for an audience of zero.",
+          "the motivation to do so has almost been entirely sapped out of me over the last few months",
+          "the amount of new content we publish is likely going to be quite sporadic and limited if nothing changes"
+        ],
+        "economics": "~$50 total Amazon Associates revenue and zero product sales against hundreds of dollars of website costs over nearly two years. Traffic collapsed after a Google algorithm update.",
+        "note": "Peak readership was 'thousands ... every month', which is the ceiling this niche's best-targeted outlet ever reached."
+      },
+      "reachability_tier": "B"
+    },
+    {
+      "name": "Don't Eat The Meeples",
+      "url": "https://www.donteatthemeeples.com/",
+      "run_by": "Matt Montgomery",
+      "platform": "Substack (migrated to custom domain)",
+      "cadence": "weekly",
+      "audience_size": null,
+      "two_player_specificity": "moderate to high - emphasis on trick-taking and two-player titles; e.g. 'Ten great two-player games', 2024-02-07",
+      "ever_featured_an_app": null,
+      "contact": "comments section; no public email found",
+      "contact_type": "platform-only",
+      "reachability_tier": "B"
+    },
+    {
+      "name": "The Tabletop Family",
+      "url": "https://thetabletopfamily.com/",
+      "run_by": "Adam and Kelsey (a couple)",
+      "key_article": {"title": "The Best Board Games for Couples - Date Night Picks for 2026", "url": "https://thetabletopfamily.com/the-best-board-games-for-couples-date-night-picks-for-2026/", "note": "eighth annual installment; series runs back to 2019"},
+      "audience_size": null,
+      "two_player_specificity": "recurring annual couples/date-night series within a family-gaming site",
+      "ever_featured_an_app": false,
+      "contact": "social links only (Instagram, YouTube, TikTok, Pinterest); no public email found",
+      "contact_type": "DM only",
+      "monetisation": "Amazon affiliate",
+      "reachability_tier": "B"
+    },
+    {
+      "name": "Ryan and Alex Duo Life",
+      "url": "https://www.ryanandalex.com/",
+      "run_by": "Ryan and Alex, a husband-and-wife team of former engineers",
+      "vertical": "couples relationship, health and lifestyle optimisation - NOT board game media",
+      "two_player_specificity": "audience is couples by definition; board games are one topic among many",
+      "key_articles": [
+        {"title": "25 Award-Winning Board Games For Couples Who Game Hard", "url": "https://www.ryanandalex.com/board-games-for-couples/", "last_updated": "2024-06-05", "note": "list crowdsourced from their own Instagram and newsletter community"},
+        {"title": "The 12 Best Apps for Married Couples That Aren't Lame", "url": "https://www.ryanandalex.com/apps-for-married-couples/"},
+        {"title": "An Honest Relish App Review From Relationship Gurus", "url": "https://www.ryanandalex.com/relish-app-review/"},
+        {"title": "OurRitual App Review and How It Solved Our 12-Year Recurring Argument", "url": "https://www.ryanandalex.com/ritual-app-review/"}
+      ],
+      "ever_featured_an_app": true,
+      "app_coverage_detail": "Maintains a standing roundup of apps for married couples and publishes long individual app reviews (Love Nudge, Relish, Hey Ritual, MasterClass). This is the strongest app-review precedent found anywhere in this study - but every app covered is a paid relationship product with an affiliate or referral programme.",
+      "audience_size": null,
+      "audience_signal": "Instagram @ryanandalexduolife and a newsletter community; no counts disclosed",
+      "contact": "Contact form in footer; dedicated Sponsorship page",
+      "contact_type": "open contact form, but commercially oriented",
+      "monetisation": "Amazon affiliate links plus sponsorships",
+      "notes": "Bridges study 01's finding that 'couples game night' App Store searches surface relationship apps. This is the media layer for that category. A free app with no affiliate programme offers them no revenue hook.",
+      "reachability_tier": "B"
+    },
+    {
+      "name": "Everyday Meeple",
+      "url": "https://everydaymeeple.com/",
+      "run_by": "Mitch, a graphic designer, Sackville NB",
+      "two_player_specificity": "none",
+      "ever_featured_an_app": true,
+      "app_coverage_detail": "'Top 5 BG Apps' (https://everydaymeeple.com/top-5-bg-apps/) covers Meepster, Dized, Issuu, Chwazi and Board Game Stats - i.e. utility apps, including a play tracker. No publication date shown.",
+      "contact": "mailing address (Box 4745, Sackville, NB) and social links; no public email found",
+      "contact_type": "weak",
+      "reachability_tier": "C"
+    },
+    {
+      "name": "One Board Family",
+      "url": "https://oneboardfamily.com/",
+      "run_by": "Ryan Gutowski and contributors",
+      "vertical": "family board gaming",
+      "two_player_specificity": "none",
+      "ever_featured_an_app": true,
+      "app_coverage_detail": "'Keeping Track of Your Gaming' (2018-01-11) reviews Score Pal, Board Game Stats and Pointedly alongside analog tracking methods. This is the closest precedent found to a review of a board game score tracker - and it is 8 years old.",
+      "contact": "'Contact Us' and 'Partner with Us' navigation links; no public email found",
+      "contact_type": "form",
+      "reachability_tier": "C"
+    }
+  ],
+  "communities": {
+    "reddit": {
+      "verification_status": "UNVERIFIED - Reddit was unreachable by every available method. Counts and rules are second-hand.",
+      "source": "https://threadfox.vip/rules/for/games (states 65 communities, rules read 2026-09-26); r/SideProject from https://www.soar.sh/blog/self-promotion-rules-by-subreddit-database",
+      "two_player_or_couples_subreddit_found": false,
+      "two_player_note": "No two-player-specific or couples-specific board game subreddit appears in the 65-community list. Direct checks of plausible names (r/twoplayerboardgames, r/2PlayerBoardGames, r/boardgamesfortwo) could not be performed because Reddit blocked all access - their existence is genuinely unknown, not disproven.",
+      "subreddits": [
+        {"name": "r/boardgames", "members": 5453241, "self_promo_rule": "Promotion Requires Participation", "usable": "only with a sustained prior participation history"},
+        {"name": "r/AndroidGaming", "members": 428092, "self_promo_rule": "Self-Promo Posts Must Start With [DEV] and Follow Self-Promo Guidelines", "usable": "yes, but wrong platform for an iOS app"},
+        {"name": "r/iosgaming", "members": 267746, "self_promo_rule": "No Dev Self-Promotion Outside Saturday Megathreads", "usable": "yes, one lane, one day a week"},
+        {"name": "r/SideProject", "members": 260000, "self_promo_rule": "Allowed with project-context post; low account-age gate; most common removal cause is 'vague product posts with no build detail'", "usable": "yes - but audience is other builders, not players"},
+        {"name": "r/MobileGaming", "members": 129007, "self_promo_rule": "Promote Moderately", "usable": "yes"},
+        {"name": "r/tabletopgamedesign", "members": 105857, "self_promo_rule": "Do not market your game here", "usable": "no"},
+        {"name": "r/tabletopsimulator", "members": 57522, "self_promo_rule": "Allowed, with limits", "usable": "yes but irrelevant"},
+        {"name": "r/BoardgameDesign", "members": 37754, "self_promo_rule": "No Advertising or Promotion", "usable": "no"},
+        {"name": "r/cardgames", "members": 25175, "self_promo_rule": "Allowed", "usable": "yes"}
+      ]
+    },
+    "boardgamegeek": {
+      "verification_status": "UNVERIFIED - boardgamegeek.com served HTTP 403 to curl and WebFetch and a Cloudflare interactive bot challenge in the browser pane, which was not completed. Member counts and rules are unknown.",
+      "items": [
+        {
+          "name": "A Couple of Gamers (guild 2122)",
+          "url": "https://boardgamegeek.com/guild/2122",
+          "wiki": "https://boardgamegeek.com/wiki/page/guild:2122",
+          "description_paraphrase": "A guild created by and for people who predominantly game with their significant other; 'couple' is also defined loosely as any two people playing a game. Exists to recommend games specifically for two.",
+          "members": null,
+          "two_player_specificity": "total",
+          "activity_evidence": [
+            {"name": "Top 25 for 2 2025", "url": "https://boardgamegeek.com/geeklist/368144/top-25-for-2-2025", "note": "annual community-voted list of top 2-player games"},
+            {"name": "What Couples Are Playing (The 2-Player Game List) - April 2026", "url": "https://boardgamegeek.com/geeklist/376063/what-couples-are-playing-the-2-player-game-list-ap", "note": "monthly geeklist where members post the 2-player games they played that month; running as of April 2026"},
+            {"name": "A Couple of Gamers Recommend...", "url": "https://boardgamegeek.com/geeklist/187399/a-couple-of-gamers-recommend"}
+          ],
+          "assessment": "The single most precisely targeted community found in this study - a self-selecting, recurring gathering of couples who track what they play as a pair. Size and promotion rules unmeasured.",
+          "reachability_tier": "A, provisionally - needs a manual pass"
+        },
+        {
+          "name": "Relevant BGG threads",
+          "urls": [
+            "https://boardgamegeek.com/thread/2772477/looking-for-good-two-player-games-for-couples",
+            "https://boardgamegeek.com/thread/2995232/suggestions-of-two-player-board-games-for-a-couple",
+            "https://boardgamegeek.com/thread/3196422/best-two-player"
+          ]
+        }
+      ]
+    },
+    "discord": {
+      "source": "https://www.boardgamequest.com/board-game-discord-servers/ (last updated 2025-06-08)",
+      "servers_listed": 54,
+      "composition": "Almost entirely publisher-operated servers (Stonemaier, Leder, Czech Games Edition, Portal, Renegade, Chip Theory and similar) plus Gen Con, Tabletop Simulator and Board Game Quest's own community server.",
+      "two_player_or_couples_server_found": false,
+      "member_counts_published": false,
+      "self_promo_rules_published": false,
+      "assessment": "No two-player or couples-focused Discord community appears in the most comprehensive curated list available. Publisher servers are the wrong venue for a third-party utility app."
+    }
+  },
+  "app_coverage_precedent": {
+    "question": "Does board game media ever cover score-tracking apps?",
+    "findings": [
+      {
+        "observation": "Board Game Stats (BG Stats) is the category-leading board game tracker and has been shipping since 2014. Its own 'Reviews' page (https://www.bgstatsapp.com/board-game-stats/reviews/) contains only App Store user testimonials as screenshots - no third-party press, no outlet names, no podcast or video coverage.",
+        "inference": "If the dominant app in this category had meaningful media coverage to point at, its marketing page is where it would be. Its absence is evidence that this category does not get covered."
+      },
+      {
+        "observation": "Meeple Mountain's board game app tag holds 9 articles spanning 2022-09-16 to 2025-12-12. Eight are digital adaptations of physical board games or app-enhanced games; one (TableTone, 2024-12-16) is a standalone utility app. A separate Board Game Stats review exists from 2017-11-24.",
+        "inference": "Board game media reviews digital games, not digital tools. Utility-app coverage runs at roughly one article a year."
+      },
+      {
+        "observation": "The two clearest score-tracker reviews found are One Board Family's 'Keeping Track of Your Gaming' (2018-01-11, covering Score Pal, Board Game Stats, Pointedly) and Everyday Meeple's 'Top 5 BG Apps' (undated, covering Board Game Stats among four other tools).",
+        "inference": "The precedent exists but is old and thin, and sits on small family-gaming blogs rather than in the two-player niche."
+      },
+      {
+        "observation": "Ryan and Alex Duo Life, a couples-lifestyle site, reviews relationship apps extensively and at length, and separately publishes a board-games-for-couples list. Every app it covers is a paid product with an affiliate or referral programme.",
+        "inference": "There is an active app-reviewing media layer aimed at couples - but its business model selects for apps that pay. A free, local-only, no-IAP app offers it nothing."
+      }
+    ]
+  },
+  "reachability_ranking": [
+    {"rank": 1, "channel": "Meeple Mountain", "type": "blog", "basis": "Open review-request form with no gatekeeper and no budget requirement, a real publishing cadence (10-15 articles/week, 2,300+ reviews), and an existing board game app review section. The only entry that combines an open door, genuine volume, and app-coverage precedent. Risk: their app coverage is mostly digital board game ports, so a score tracker may be declined as out of scope."},
+    {"rank": 2, "channel": "Tabletop Bellhop", "type": "blog + podcast", "basis": "Two public email addresses and an 'Ask the Bellhop' reader question line that explicitly feeds articles and episodes - the lowest-friction contact path found. Topically ideal: their date-night/couples two-player article is self-reported as their highest-traffic content ever. Weakness: the YouTube arm is negligible (101 median views) and no score-tracker review precedent exists."},
+    {"rank": 3, "channel": "BGG guild 2122 'A Couple of Gamers' + the monthly 'What Couples Are Playing' geeklist", "type": "community", "basis": "The most precisely targeted audience found anywhere: couples who already habitually record what they played as a pair, which is Winning Couple's exact behaviour. Provisional because BGG blocked measurement - size, activity level and self-promotion rules are unknown and need a manual pass."},
+    {"rank": 4, "channel": "Board With Each Other podcast", "type": "podcast", "basis": "The only dedicated couples/two-player board game podcast in existence, active, and reachable with zero friction (X, Facebook, fan-mail form, $3 support tier, no agency). Ranked below the above only because the audience is genuinely tiny - 2 Apple ratings across 61 episodes. Cheap to approach; do not expect volume."},
+    {"rank": 5, "channel": "Allies or Enemies", "type": "YouTube", "basis": "The most explicit couples-two-player positioning of any channel with a live weekly cadence ('perhaps a good resource for other board gaming couples'). Real but small reach: 557 median views against 7.18K subscribers. No published email, so contact is via comments or the community tab."},
+    {"rank": 6, "channel": "Board Games For Two", "type": "YouTube + TikTok", "basis": "The most literally on-niche creator - every video is titled 'A Review for Two'. But 413 median views against 4.65K subscribers, 921 TikTok followers, a slowing monthly cadence, drift into solo and Warhammer content, and Instagram DM as the only contact route. Notable that their all-time most-viewed video is a scoring tutorial."},
+    {"rank": 7, "channel": "Before You Play", "type": "YouTube", "basis": "By far the best reach-per-effort on paper: 16,000 median views, genuinely '2-player perspective', uploading several times a week, and a published personal Gmail. Ranked here rather than top because the format is 60-100 minute playthroughs of physical games and no app-coverage precedent was found - the ask does not fit the show."},
+    {"rank": 8, "channel": "A Pair of Meeples", "type": "blog", "basis": "Perfect niche fit (a couple reviewing exclusively for two players) and an open reviews@ email, but the operators published a burnout post in May 2024 stating traffic fell to 'almost zero' and future output would be 'sporadic and limited'. Reachable and willing, with almost no audience left to reach."},
+    {"rank": 9, "channel": "Ryan and Alex Duo Life", "type": "couples lifestyle blog", "basis": "The only outlet found that habitually reviews apps for couples at length, with an open contact form. Mismatched incentives: they monetise via affiliate and sponsorship, and a free app with no affiliate programme gives them no reason to write. Worth one pitch framed as reader value, not revenue."},
+    {"rank": 10, "channel": "The Broken Meeple", "type": "YouTube", "basis": "5,900 median views, weekly, published personal Gmail, and a channel description that explicitly says it supports small creators and goes against the status quo - unusually receptive. Not two-player focused at all, which is why it ranks below the on-niche options."},
+    {"rank": 11, "channel": "r/boardgames", "type": "community", "basis": "By far the largest single pool (reported 5.45M) but governed by 'Promotion Requires Participation'. Usable only as a months-long investment in being a genuine member first. Not a launch channel, and the rule is unverified because Reddit was unreachable."},
+    {"rank": 12, "channel": "r/iosgaming Saturday dev megathread", "type": "community", "basis": "Reported 267K members with a single sanctioned promotion lane one day a week. Legitimate, rule-compliant, low yield, and aimed at game players rather than board gamers."},
+    {"rank": 13, "channel": "ThinkerThemer", "type": "YouTube", "basis": "8,350 median views and a couple presenting as a couple, but no two-player specificity and no published contact email."},
+    {"rank": 14, "channel": "Games4two", "type": "YouTube + TikTok", "basis": "Owns the niche outright - 3.02M YouTube subscribers, 3.0M TikTok followers, 137.5M TikTok likes - and is the least reachable entry here. Sole published contact is a Viral Nation talent agency address; they now publish their own physical games through Relatable with Walmart exclusivity; and the format is short-form challenge entertainment, not tool coverage. Unreachable without budget and a poor fit if reached."},
+    {"rank": 15, "channel": "No Pun Included", "type": "YouTube", "basis": "70,000 median views and structurally closed by published policy: 'we do not accept review copies, nor we do collaborate on sponsorships'. Do not spend effort here."},
+    {"rank": 16, "channel": "Shut Up & Sit Down / The Dice Tower", "type": "YouTube", "basis": "461K and 362K subscribers, high views, no two-player angle, and publisher/agency-shaped intake. Effectively inaccessible to a solo developer with a free utility app."},
+    {"rank": 17, "channel": "Foster the Meeple / Girls' Game Shelf", "type": "YouTube", "basis": "Dormant and dead respectively - last uploads 7 months and 5 years ago. Listed so they are not mistaken for live options on subscriber count alone."}
+  ],
+  "aggregate_observations": {
+    "niche_shape": "Barbell, not a pyramid. On TikTok the two-player board game niche is one account at 3,000,000 followers and then a cliff to 1,145 and 921. On YouTube it is one channel at 3.02M, one at 98.3K whose format is playthroughs, and then the genuinely two-player-dedicated channels at 7.18K and 4.65K subscribers earning 557 and 413 views per video. There is no reachable mid-tier.",
+    "subscriber_inflation": "Subscriber counts overstate reach badly at the small end of this niche. Board Games For Two converts 4,650 subscribers into 413 median views (8.9%); Allies or Enemies converts 7,180 into 557 (7.8%). A 'few thousand subscriber' channel in this niche reaches a few hundred people per video.",
+    "dedicated_media_is_failing": "The three most precisely targeted outlets are all impaired: A Pair of Meeples wound down publicly in May 2024 after traffic fell to near zero and about $50 in lifetime revenue; Foster the Meeple has not uploaded in 7 months; Girls' Game Shelf has not uploaded in 5 years. The peak audience ever reported by the best-targeted two-player couples outlet was 'thousands ... every month'.",
+    "no_dedicated_community_infrastructure": "No two-player or couples subreddit appears in a 65-community self-promotion survey, and no two-player or couples Discord appears in a 54-server curated list. The only dedicated community found anywhere is a BoardGameGeek guild.",
+    "media_covers_games_not_tools": "Across every outlet examined, coverage of digital products means digital board games. Utility-app coverage runs at roughly one article per year at Meeple Mountain, and the two clearest score-tracker reviews found date from 2018 and an undated Everyday Meeple listicle. The category-leading tracker app has no press page at all.",
+    "reader_demand_exceeds_creator_supply": "Tabletop Bellhop reports that its two-player date-night article outperforms all its other content, The Tabletop Family has run an annual couples date-night list for eight consecutive years, and Games4two built 6M+ followers on nothing but two-player games. The audience is demonstrably large. What is missing is a reachable intermediary, not interest."
+  }
+}
