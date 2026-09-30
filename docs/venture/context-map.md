@@ -122,5 +122,5 @@ changed them; the rest are still beliefs, not findings.
 
 - App repo: this repository — `WinningCouple/`, `WinningCoupleTests/`
 - Design: Figma file "Winning Couple" (Joshua Jumbles team drafts)
-- Tracking: [Issues](https://github.com/JoshuaJumbles/winning-couple/issues)
+- Tracking: [Issues](https://github.com/JoshuaJumbles/winning-couple/issues) · [Project board](https://github.com/users/JoshuaJumbles/projects/1)
 - Decisions: [`decisions/`](decisions/) · Research: [`research/`](research/)

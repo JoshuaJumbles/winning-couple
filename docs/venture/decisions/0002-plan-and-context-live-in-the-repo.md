@@ -40,3 +40,13 @@ Rejected, with reasons:
 - We lose cycles, velocity, and a nicer board. Accepted for now.
 - **Revisit trigger:** more than ~40 open issues, or a real need for cycle
   tracking. Issues export cleanly; the docs layer would not move.
+
+## Addendum, 2026-09-30
+
+A GitHub **project board** now exists at
+<https://github.com/users/JoshuaJumbles/projects/1>, once the `gh` token had the
+`project` scope. It changes nothing about this decision: it is a *view* over the
+same issues, not a second source of truth, and it holds no reasoning. Workstream
+and Phase are single-select fields copied from the roadmap, so the board stays
+derivable from the documents rather than drifting from them. The revisit trigger
+in this record is unchanged.
