@@ -1,0 +1,315 @@
+{
+  "study": "06-sponsorship-precedent",
+  "date": "2026-09-29",
+  "run_by": "subagent",
+  "question": "Has anyone in board gaming ever run app sponsorships or partnerships, and what did they actually look like?",
+  "note_on_rates": "Every figure below is an ADVERTISED or CLAIMED rate, not a transaction price. Board gaming ad slots are sold by individuals and small teams and are routinely discounted, bartered, or comped. SponsorRadar figures are algorithmic estimates produced by a third-party tool from public video metadata, not disclosed deal values.",
+
+  "published_rate_cards": [
+    {
+      "outlet": "BoardGameGeek (Geek Advertising)",
+      "source_url": "https://advertising.boardgamegeek.com/",
+      "source_note": "Live site returns HTTP 403 to automated fetching. Figures taken from the Internet Archive snapshot dated 2026-08-12 (http://web.archive.org/web/20260812032958/https://advertising.boardgamegeek.com/), retrieved 2026-09-29.",
+      "audience_claims": {
+        "unique_monthly_visitors": "4.7 million (about page) / 4.2 million (ad pages)",
+        "monthly_page_views": "150 million",
+        "monthly_banner_impressions": "approx 80 million",
+        "registered_users": "4 million",
+        "home_page_daily_visitors": "140,000",
+        "youtube_subscribers": "163,000+",
+        "podcast_downloads_per_episode": "14,000+ over the last 30 days",
+        "geek_weekly_newsletter_subscribers": "approx 35,000",
+        "gone_cardboard_newsletter_opens": "40,000 per mailing",
+        "crowdfunding_weekly_newsletter_opens": "approx 25,000 per mailing",
+        "demographics_claimed": "average age mid-30s; spends over $500/year on gaming; average 200 games owned; 78% play weekly; 92% have crowdfunded a project; nearly 50% have children at home"
+      },
+      "products": [
+        {"name": "Site-wide banner ads", "price": "$100 per 100k impressions", "minimum": "$500 minimum buy; minimum burn 20k impressions/day"},
+        {"name": "Bonus home page coverage", "price": "$0", "notes": "50,000 home page impressions free per 1M site-wide impressions bought"},
+        {"name": "Home Page Hero (50% of top banner, one day)", "price": "$300 per day", "notes": "often booked out 3-4 weeks"},
+        {"name": "Geek Weekly email feature", "price": "$350", "notes": "image + 650 characters; Thursdays only"},
+        {"name": "Gone Cardboard email feature", "price": "$400", "notes": "image + 320 characters; Tuesdays only; only for games currently available; run in partnership with Noble Knight"},
+        {"name": "Crowdfunding Weekly email feature", "price": "$450", "notes": "active crowdfunding projects only"},
+        {"name": "Podcast sponsorship - mid-roll", "price": "$400", "notes": "60-second host-read, up to 650 characters of approved text, runs 2 weeks via dynamic insertion"},
+        {"name": "Podcast sponsorship - pre-roll", "price": "$500", "notes": "same terms as mid-roll; two ad slots per episode, episodes every other Friday"},
+        {"name": "Crowdfunding Countdown feature", "price": "$2,000", "notes": "one week in first position on home page module; active campaigns only"},
+        {"name": "Sponsored video - 'In Focus' (2-5 min, no opinions, made in-house by BGG)", "price": "Starting at $1,400"},
+        {"name": "Sponsored video - 'How to Play' (in-house, multi-camera)", "price": "Starting at $2,000"},
+        {"name": "Affiliate links ('Buy a Copy' on every game page)", "price": "5% of all orders generated, paid monthly", "notes": "explicitly for RETAILERS becoming affiliate partners, not for product makers"},
+        {"name": "Suggested package 'The D4'", "price": "Starting at $800", "notes": "500k site-wide impressions + one add-on"},
+        {"name": "Suggested package 'The D6'", "price": "Starting at $1,300"},
+        {"name": "Suggested package 'The D8'", "price": "Starting at $1,600"},
+        {"name": "Suggested package 'The D12'", "price": "Starting at $2,400"},
+        {"name": "Suggested package 'The D20'", "price": "Starting at $3,200", "notes": "2M site-wide impressions + 100k home page + four add-ons"}
+      ],
+      "advertiser_categories_offered": ["Crowdfunding Advertising", "Product & Event Advertising", "Sponsored Video Content", "Retailer Promotion & Integrations"],
+      "app_category_offered": false,
+      "eligibility_language": "\"We offer a variety of options tailored to fit your unique board game or gaming-related product.\"",
+      "testimonials_named": ["Portal Games (Ignacy Trzewiczek)", "Gamelyn Games (Michael Coe)", "Stonemaier Games (Jamey Stegmaier)", "Druid City Games (James Hudson)", "Awaken Realms (Marcin Swierkot)", "Board & Dice (Agnieszka Kopera)", "Thunderworks Games (Keith Matejka)"],
+      "testimonials_that_are_apps_or_software": 0
+    },
+    {
+      "outlet": "Board Game Quest",
+      "source_url": "https://www.boardgamequest.com/review-service-and-advertising/",
+      "retrieved": "2026-09-29",
+      "products": [
+        {"name": "Advertising campaign", "price": "Starting at $30/month"},
+        {"name": "Review of a published game", "price": "Free", "notes": "\"We never charge for reviews of published games. This includes games from large companies, small companies and even independent designers.\" Scope stated as \"games that have been published and are currently available for retail sale\""},
+        {"name": "Kickstarter/Gamefound prototype preview", "price": "$350", "notes": "includes preview with photos, social + newsletter announcement, free standard banner during campaign, discounted premium ad rates"}
+      ],
+      "audience_claims": {"facebook": 3597, "instagram": 1830, "twitter": 10536, "rss": 3197}
+    },
+    {
+      "outlet": "Meeple Mountain",
+      "source_url": "https://www.meeplemountain.com/partner-with-meeple-mountain/",
+      "retrieved": "2026-09-29",
+      "products_listed_without_public_prices": ["game reviews and previews (written + video)", "crowdfunding roundup (free, with featured placement add-ons)", "giveaways", "gift guide placement", "newsletter sponsorship", "Nashville Tabletop Day event sponsorship", "event services"],
+      "audience_claims": {"monthly_views": "180,000+", "monthly_visitors": "150,000+", "youtube_subscribers": 3500, "twitter": 4300, "facebook": 3500, "instagram": 3200, "bluesky": 2100, "output": "12-15 articles/week, 1 video/week"},
+      "client_examples": ["Asmodee", "Fantasy Flight Games", "Stonemaier Games", "60+ other game companies"],
+      "apps_or_digital_products_mentioned": false
+    },
+    {
+      "outlet": "Board Game Authority",
+      "source_url": "http://www.boardgameauthority.com/advertise/",
+      "retrieved": "2026-09-29",
+      "products": [{"name": "Banner advertising"}, {"name": "Press releases"}, {"name": "Game reviews"}],
+      "prices_published": false,
+      "audience_claims": {"monthly_visits": "approx 25,000"}
+    },
+    {
+      "outlet": "Dice Tower West (convention run by The Dice Tower)",
+      "source_url": "https://dicetowerwest.com/wp-content/uploads/2025/07/DTW-Sponsorships-2026.pdf",
+      "retrieved_via": "web search result summary; PDF text extraction failed",
+      "products": [{"name": "Premier Sponsor", "price": "$7,500", "availability": "2 available", "includes": "20x20 booth with priority location, hotel room, selling rights, 8 badges, website listing, banner/program logo placement, email + social mentions, full page program ad or $500 ad credit"}],
+      "confidence": "low - not read from the PDF directly"
+    },
+    {
+      "outlet": "The Dice Tower (channel/podcast network)",
+      "source_url": "https://dicetower.com/contact-us",
+      "note": "No public rate card for channel or podcast advertising found. An 'adkit' is offered on request via their mailing list; event sponsorship enquiries go to an email address."
+    }
+  ],
+
+  "sponsor_detections_third_party_tool": {
+    "tool": "SponsorRadar (sponsorradar.com)",
+    "caveat": "Algorithmic detection from public video data. Sponsor attributions and all dollar figures are estimates, not disclosed deal values. Used here only to characterise WHICH CATEGORIES of brand appear, not to price anything.",
+    "channels": [
+      {
+        "channel": "The Dice Tower",
+        "url": "https://sponsorradar.com/channels/thedicetower",
+        "estimated_rate_per_sponsored_video": "$90-$225",
+        "estimated_12_month_sponsorship_income": "$8.6K-$22K",
+        "detected_sponsors": [
+          {"brand": "Allplay", "videos": 186, "type": "board game publisher + game furniture maker (formerly BoardGameTables.com)"},
+          {"brand": "Board Game Bliss", "videos": 16, "type": "retailer", "example": "The Presence Review: A Ghostly Adventure! (Sep 20)", "estimated_video_rate": "$76-$190"},
+          {"brand": "Great Tables, Games, & Bags", "videos": 12, "type": "accessory/furniture"},
+          {"brand": "Board Game Arena", "videos": 1, "type": "DIGITAL PLATFORM (Asmodee-owned)", "verified": false, "note": "Could not identify the specific video; treat as unconfirmed."}
+        ]
+      },
+      {
+        "channel": "No Rolls Barred",
+        "url": "https://sponsorradar.com/channels/norollsbarred",
+        "subscribers": 453000,
+        "avg_views_per_video": 71900,
+        "estimated_rate_per_sponsored_video": "$719-$1.8K",
+        "estimated_12_month_sponsorship_income": "$24K-$59K",
+        "share_of_monthly_revenue_from_sponsorship": "77%",
+        "distinct_brands": 18,
+        "tracked_deals": 54,
+        "detected_sponsors": [
+          {"brand": "Geeknson", "videos": 13, "type": "game tables"},
+          {"brand": "Game Nerdz", "videos": 12, "type": "retailer"},
+          {"brand": "AEG", "videos": 5, "type": "publisher"},
+          {"brand": "Zatu", "videos": 4, "type": "retailer"},
+          {"brand": "Surfshark", "videos": 4, "type": "SOFTWARE/APP - general consumer VPN"},
+          {"brand": "Rocket Money", "type": "SOFTWARE/APP - general consumer finance"},
+          {"brand": "Boot.dev", "type": "SOFTWARE - general consumer education"},
+          {"brand": "Freecash", "type": "SOFTWARE/APP - general consumer"}
+        ]
+      },
+      {
+        "channel": "BoardGameCo",
+        "url": "https://sponsorradar.com/channels/boardgameco",
+        "subscribers": 69700,
+        "avg_views_per_video": 5900,
+        "estimated_rate_per_sponsored_video": "$59-$147",
+        "estimated_12_month_sponsorship_income": "$8.3K-$21K",
+        "estimated_adsense_per_video": "$12-$29",
+        "detected_sponsors": [
+          {"brand": "Allplay", "videos": 137, "type": "publisher/furniture"},
+          {"brand": "Top Shelf Gamer", "videos": 16, "type": "accessory retailer"},
+          {"brand": "Green Lantern Corps", "videos": 1},
+          {"brand": "Morph", "videos": 1}
+        ],
+        "note": "Runs extensive UNPAID Board Game Arena coverage (multi-game BGA review videos) while sponsored by Allplay - i.e. the digital platform gets organic coverage, not paid placement."
+      }
+    ]
+  },
+
+  "software_buying_board_game_media": [
+    {
+      "case": "Boardssey sponsored article on BoardGameWire",
+      "url": "https://boardgamewire.com/index.php/2025/05/06/boardssey-the-all-in-one-platform-reshaping-how-board-games-get-made-sponsored/",
+      "date": "2025-05-06",
+      "product_type": "B2B SaaS for board game designers (game management, playtesting, collaboration, digital prototyping, portfolio)",
+      "outlet_audience": "board game industry professionals - designers, publishers, developers",
+      "disclosure": "\"[sponsored]\" in the headline; stated as a sponsored article in the opening paragraph",
+      "price_paid": "not disclosed",
+      "relevance": "Closest found precedent for a software product paying for board game editorial. Aimed at designers, not players."
+    },
+    {
+      "case": "General-consumer app sponsors on board game channels",
+      "examples": ["Surfshark", "Rocket Money", "Boot.dev", "Freecash (all on No Rolls Barred)"],
+      "relevance": "When board game creators do take app money, the app is a large general-market advertiser buying reach, typically through an agency - not a tabletop-specific tool."
+    }
+  ],
+
+  "app_publisher_partnerships": [
+    {
+      "case": "Dized (interactive rules/tutorial app) partnering with publishers",
+      "urls": ["https://dized.com/", "https://dized.com/wp-content/uploads/2018/08/2018-08-14-ea-kickstarter-pressrelease.pdf"],
+      "partners_named": ["CMON", "Steve Jackson Games", "IELLO", "Horrible Games"],
+      "shape": "App builds official interactive tutorials and living rules for the publisher's games; publisher tools let companies create their own rules/FAQ content",
+      "money_direction": "not disclosed in sources found",
+      "date": "publisher tools and partnerships announced from 2018 onward"
+    },
+    {
+      "case": "Gloomhaven Helper (third-party companion app) and Cephalofair Games",
+      "urls": ["https://www.kickstarter.com/projects/frosthaven/frosthaven/posts/3504666", "https://gamingtrend.com/news/cephalofair-and-lucky-duck-partner-on-companion-apps/", "https://techraptor.net/tabletop/news/gloomhaven-frosthaven-app-lucky-duck-games"],
+      "shape": "Esoteric Software built Gloomhaven Helper on a non-commercial basis under an implied licence from the publisher. When the developer began charging for some versions, the publisher considered the implied licence broken; the developer ceased development and the app was withdrawn. Cephalofair then partnered with digital studio Lucky Duck Games for official Gloomhaven and Frosthaven companion apps.",
+      "outcome_for_indie_dev": "app removed; replaced by publisher-chosen studio; community forks (Gloomhaven Secretariat, X-haven Assistant) filled the gap",
+      "note": "Kickstarter update page returned HTTP 403 to automated fetching; details taken from trade coverage and search summaries."
+    },
+    {
+      "case": "Board Game Stats (BG Stats) and BoardGameGeek",
+      "urls": ["https://www.bgstatsapp.com/", "https://www.bgstatsapp.com/support/frequently-asked-questions/"],
+      "shape": "Paid third-party app syncs collections and posts plays to BGG using the user's own BGG credentials, and imports plays from BGG, Yucata and Board Game Arena. Neither the app's site nor its FAQ mentions any partnership, licence or permission from BGG.",
+      "formal_partnership_found": false
+    }
+  ],
+
+  "bgg_third_party_app_terms": {
+    "api": "BGG XML API / XML API2",
+    "terms_summary": "Terms of Use prohibit use of the XML API for commercial purposes; commercial use requires a commercial licence obtained from BoardGameGeek.",
+    "source_pages": [
+      "https://boardgamegeek.com/wiki/page/XML_API_Terms_of_Use",
+      "https://boardgamegeek.com/wiki/page/BGG_XML_API_Commercial_Use"
+    ],
+    "fetch_status": "All boardgamegeek.com, rpggeek.com and videogamegeek.com wiki pages returned HTTP 403 to curl with a browser user agent. Terms summarised from search-result snippets only.",
+    "free_channel_observed": "BGG has a 'Geek Tools' forum where third-party tools and bots are announced and where developers request API access (e.g. thread 3665596, 'Access to BoardGameGeek XML API for non-commercial Discord bot')."
+  },
+
+  "affiliate_arrangements": [
+    {"program": "Miniature Market affiliate", "rate": "5% commission per attributed purchase", "cookie_window": "7 days", "url": "https://www.miniaturemarket.com/utility/affiliate-program", "product_scope": "physical retail"},
+    {"program": "Zatu Games affiliate (No Rolls Barred partnership)", "rate": "1.7% of sales", "cookie_window": "45 days", "url": "https://norollsbarred.com/news/nrb-zatu-partnership/", "product_scope": "physical retail", "note": "Named, dated creator-retailer affiliate deal; NRB has 453k subscribers"},
+    {"program": "BoardGameGeek affiliate partner ('Buy a Copy')", "rate": "5% of all orders generated, paid monthly", "url": "https://advertising.boardgamegeek.com/retailer-promotion-integrations/", "product_scope": "retailers only"},
+    {"program": "Apple App Store affiliate commissions", "rate": "ENDED", "detail": "Commission on iOS and Mac apps and in-app content removed from Apple's affiliate programme effective 2018-10-01 (rate had already been cut from 7% to 2.5% in April 2017). The successor Apple Services Performance Partners programme covers Apple Music, Apple TV, Apple Podcasts memberships and sales of movies, TV, books and audiobooks - not app downloads or IAP.", "urls": ["https://techcrunch.com/2018/08/01/apple-is-ending-its-app-store-affiliate-program-in-october/", "https://performance-partners.apple.com/program-overview"]},
+    {"program": "Chess.com affiliate (adjacent precedent, not board gaming)", "rate": "15% commission on subscriptions including renewals for as long as the member stays subscribed", "streamer_program_threshold": "1,000 followers on main platform + 10 hours/month of live chess content", "urls": ["https://www.chess.com/affiliate", "https://www.chess.com/news/view/chess-com-streamers-program-youtube"], "note": "Shows the mechanism an app needs to run creator affiliates: a recurring-revenue subscription product."}
+  ],
+
+  "paid_content_norms": [
+    {
+      "claim": "Reviews of published games are unpaid; PREVIEWS of unreleased/crowdfunding games are the paid format",
+      "sources": ["https://stonemaiergames.com/kickstarter-lesson-188-no-money-changed-hands-for-this-review/", "https://www.boardgamequest.com/review-service-and-advertising/"],
+      "figures": [
+        {"figure": "$350", "what": "Board Game Quest Kickstarter/Gamefound prototype preview", "status": "published price"},
+        {"figure": "$500-$800", "what": "\"there are reviewers who ask $500-$800 for a Kickstarter preview\"", "status": "commenter claim on Stonemaier Games blog, unverified"},
+        {"figure": "$25-$100", "what": "typical reviewer preview fee, reviews free", "status": "search-summarised BGG forum claim, unverified"}
+      ],
+      "disclosure_norm": "Jamey Stegmaier cites Rahdo as an example of proper disclosure - making it clear when a preview was paid for."
+    },
+    {
+      "claim": "Review copies are the dominant non-cash consideration",
+      "source": "https://meepleshelter.net/the-board-game-review-world-faces-an-identity-crisis/",
+      "date": "2022-03-14",
+      "figures": [{"figure": "$10,000-$20,000/year", "what": "estimated value of review copies for a channel covering ~150 games/year"}],
+      "notes": ["Rahdo reviews approx 150 games/year", "Alex Radcliffe (BoardGameCo) stated to buy all reviewed games himself as a matter of principle"]
+    },
+    {
+      "claim": "The largest board game channel refuses advertising entirely",
+      "outlet": "Shut Up & Sit Down",
+      "quote": "You won't find a single advert on our website, and we don't accept money in exchange for reviews or muddy the water with any Kickstarter kickbacks.",
+      "source": "https://www.patreon.com/shutupandsitdown/about",
+      "retrieved": "2026-09-29",
+      "patreon_members": 3945,
+      "paid_members": 1358
+    }
+  ],
+
+  "app_coverage_surfaces_found": [
+    {
+      "surface": "The Dice Tower - 'What's APPening' video series",
+      "url": "https://dicetower.com/video-series/whats-appening",
+      "scope": "digital adaptations of board games and game-like apps (Dicefolk, Marvel Snap, 7 Wonders Duel, Terra Nil, Monster Train, Cult of the Lamb, Roll Player, Unmatched)",
+      "covers_utility_or_companion_apps": false,
+      "episodes_labelled_sponsored": 0,
+      "note": "Recent episodes listed through 2026-09-29, so the series is active."
+    },
+    {
+      "surface": "Everyday Meeple - 'Top 5 BG Apps' blog post",
+      "url": "https://everydaymeeple.com/top-5-bg-apps/",
+      "date": "October 2019",
+      "apps_covered": ["Meepster (BGG browser)", "Dized", "Issuu", "Chwazi", "Board Game Stats"],
+      "scope": "utility and companion apps explicitly, described as \"peripheral apps\"",
+      "disclosure": "\"NONE of the above links are affiliate links of any kind.\" Links marked 'Non-affiliated'.",
+      "relevance": "The only clear example found of editorial coverage of the exact app class Winning Couple belongs to - and it is unpaid, unsolicited, non-affiliate."
+    },
+    {
+      "surface": "BGG 'Geek Tools' forum",
+      "scope": "where third-party tools, bots and apps announce themselves and request API access",
+      "cost": "free",
+      "fetch_status": "BGG 403s automated fetching; observed only via search result titles"
+    }
+  ],
+
+  "generic_benchmarks_not_board_game_specific": {
+    "caveat": "These come from general influencer/podcast marketing sources, NOT from board gaming. Included only to bound expectations.",
+    "podcast": [
+      {"metric": "host-read 30s CPM", "value": "$18-$22"},
+      {"metric": "host-read 60s CPM", "value": "$24-$26"},
+      {"metric": "mid-roll host-read CPM", "value": "$25-$40"},
+      {"metric": "per-spot price, 1,000-10,000 downloads/episode", "value": "$100-$500"}
+    ],
+    "youtube_gaming": [
+      {"metric": "CPM for gaming sponsorships", "value": "$10-$25, with $20-$30 per thousand views cited as a floor for a dedicated video"},
+      {"metric": "flat fee, nano creators", "value": "$100-$500"},
+      {"metric": "flat fee, micro creators", "value": "$500-$5,000"}
+    ],
+    "newsletter": [{"metric": "CPM", "value": "$10-$30 typical, $25-$100 for tightly targeted or B2B lists"}],
+    "sources": ["https://adopter.media/podcast-advertising-rates-explained/", "https://ytcalculators.com/youtube-sponsorship-rates/gaming/", "https://www.beehiiv.com/blog/newsletter-sponsorship-cost"]
+  },
+
+  "advertiser_roi_datapoint": {
+    "advertiser": "Rock Manor Games (Maximum Apocalypse Kickstarter)",
+    "url": "https://rockmanorgames.com/2017/06/27/advertising-tabletop-kickstarter-boardgamegeek/",
+    "date": "2017-06-27",
+    "bought": ["banner ads in multiple sizes", "two home page takeovers", "one week-long contest"],
+    "results": {"overall_roi": "255%", "revenue_attributed": "over $7,000", "banner_roi": "367%", "banner_cpc": "$0.19", "contest_cpc": "$0.38", "contest_roi_estimated": "100-150%", "contest_unique_participants": 3119},
+    "caveat": "Self-reported by the advertiser, for a $30+ physical product with crowdfunding urgency. Not transferable to a free app."
+  },
+
+  "where_i_looked_and_found_nothing": [
+    "BGG advertising rate card (archived): no app/digital/software advertiser category; all seven published testimonials are physical-game publishers",
+    "BGG affiliate programme: explicitly scoped to retailers",
+    "Meeple Mountain partner page: 60+ named clients, no apps or digital products mentioned",
+    "Board Game Quest review service: review scope limited to \"games that have been published and are currently available for retail sale\"",
+    "The Game Crafter's list of 11 recommended board game reviewers: no fees published, no mention of apps",
+    "Dice Tower 'What's APPening': 20+ recent episodes, no sponsorship labels, no utility/companion apps covered",
+    "Dice Tower West exhibitor and sponsor material: no software or app companies identified",
+    "Searches for sponsor reads naming a tabletop tracker, scorekeeper or companion app on any board game channel, podcast or newsletter: nothing found",
+    "Searches for 'sponsored by Board Game Arena', Gamefound, BackerKit, Dized or Tabletop Simulator on board game podcasts: nothing verifiable found; only organic/editorial coverage",
+    "BoardGameWire sponsored-content tag: only one sponsored article surfaced (Boardssey, B2B)"
+  ],
+
+  "fetch_failures": [
+    {"url": "https://advertising.boardgamegeek.com/", "status": "403 (WebFetch and curl with browser UA); worked via Internet Archive"},
+    {"url": "https://boardgamegeek.com/wiki/page/BGG_XML_API_Commercial_Use", "status": "403"},
+    {"url": "https://videogamegeek.com/wiki/page/XML_API_Terms_of_Use", "status": "403"},
+    {"url": "https://rpggeek.com/wiki/page/XML_API_Terms_of_Use", "status": "403"},
+    {"url": "https://www.kickstarter.com/projects/frosthaven/frosthaven/posts/3504666", "status": "403"},
+    {"url": "https://dicetowerwest.com/wp-content/uploads/2025/07/DTW-Media-Kit-2026-1.pdf", "status": "fetched but PDF text not extractable by the tool"},
+    {"url": "https://en.wikipedia.org/wiki/Shut_Up_%26_Sit_Down", "status": "fetched; contains nothing on funding or ad policy"},
+    {"url": "https://www.shutupandsitdown.com/about/", "status": "404"},
+    {"url": "https://boardgamewire.com/advertise/ and /work-with-us/", "status": "404 - no public rate card located"}
+  ]
+}
