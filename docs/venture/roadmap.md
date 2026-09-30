@@ -2,8 +2,10 @@
 
 Status of the whole venture in one page. Phases are sequential; workstreams run
 across them. Live task state is in
-[Issues](https://github.com/JoshuaJumbles/winning-couple/issues) — this page is
-the zoomed-out view.
+[Issues](https://github.com/JoshuaJumbles/winning-couple/issues), viewed on the
+[project board](https://github.com/users/JoshuaJumbles/projects/1) — whose
+Workstream and Phase fields mirror the two tables below. This page is the
+zoomed-out view.
 
 **Now:** Phase 1 — research, to inform the v1 scope cut.
 
