@@ -25,18 +25,26 @@ that's a feature, not a limitation to remove later.
 
 ## Assumptions we have not tested
 
-Each of these is a research target in Phase 1. They are currently beliefs, not
-findings.
+Each of these is a research target in Phase 1. Amended ones cite the study that
+changed them; the rest are still beliefs, not findings.
 
-1. Existing trackers are built for groups, and two-player couples are
-   underserved by them.
+1. ~~Existing trackers are built for groups, and two-player couples are
+   underserved by them.~~ **Amended after [study 01](research/01-competitors-two-player.md):**
+   no tracker is positioned for couples, and group-shaped apps handle two
+   players awkwardly — but two-player head-to-head records are a commodity
+   feature in free apps. The gap is positioning and restraint, not capability.
 2. People who would use this are currently tracking scores on paper or in
    a notes app.
 3. Personalisation (colours, emoji avatars) matters more for a couple than
-   detailed statistics do.
+   detailed statistics do. *Partially challenged by study 01: personalisation
+   is real but already common (16 of 161 trackers advertise it), and the one
+   reviewer who asked for it wanted to colour-match game pieces, not express a
+   relationship. The belief may hold; the stated reason does not.*
 4. There is a reachable audience: creators and communities focused on
    two-player and couples gaming.
 5. Nobody is paying for this category, so free-at-launch costs us nothing.
+   *Supported by study 01 on price (154 of 161 trackers are free upfront), which
+   also adds a rule: metered free tiers are the most-resented pattern here.*
 
 ## Constraints
 

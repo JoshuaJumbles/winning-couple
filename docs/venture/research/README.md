@@ -56,9 +56,22 @@ What this raised and did not settle.
    here's where I looked" is a finding and should be written up.
 4. **Do not soften the conclusion.** If research says the premise is wrong,
    that is the most valuable possible outcome and it goes in the summary.
+5. **Update the index** at the bottom of this file as part of the study.
+6. **Save the underlying data** next to the write-up when a study sweeps or
+   scrapes anything (`NN-topic-data.json` or similar), so counts can be re-run
+   instead of trusted. Study 01's 161-app sweep is not reproducible for want of
+   this.
+
+## Verification
+
+Every study gets a sample of its citations checked independently before it is
+merged — app metadata against Apple's public search API, quotes against the
+public review feed, links opened. Research agents produce fluent, plausible
+detail; this step is what separates that from evidence, and it takes minutes.
+Study 01's spot checks are recorded in its PR.
 
 ## Index
 
 | # | Topic | Status |
 |---|---|---|
-| — | _(none yet — Phase 1 studies are queued in Issues)_ | |
+| [01](01-competitors-two-player.md) | Competitors: two-player and couples score tracking | Done — amended assumption 1 |
